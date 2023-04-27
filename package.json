@@ -6,7 +6,7 @@
   "description": "Terminal UI React.js components library",
   "type": "module",
   "exports": {
-    "./*": "./src/"
+    "./*": "./src/*"
   },
   "private": false,
   "publishConfig": {
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "react": "^17.0.1",
-    "react-blessed": "^0.7.2",
+    "react-blessed": "0.7.2",
     "@farjs/blessed": "0.2.5"
   },
   "devDependencies": {
