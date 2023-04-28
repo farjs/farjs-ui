@@ -21,25 +21,26 @@
     "url": "http://github.com/farjs/farjs-ui/issues"
   },
   "keywords": [
-		"react",
-		"cli-ui",
-		"tui",
-		"terminalui"
-	],
+    "react",
+    "cli-ui",
+    "tui",
+    "terminalui"
+  ],
   "engines": {
     "node": ">=14.16",
     "bun": ">=0.5.8"
   },
   "dependencies": {
+    "@farjs/blessed": "0.2.5",
     "react": "^17.0.1",
-    "react-blessed": "0.7.2",
-    "@farjs/blessed": "0.2.5"
+    "react-blessed": "0.7.2"
   },
   "devDependencies": {
     "@types/node": "^16.6.2",
     "@types/react": "^17.0.1",
     "@types/react-blessed": "^0.7.3",
     "@types/react-test-renderer": "^17.0.1",
+    "c8": "^7.13.0",
     "react-test-renderer": "^17.0.1",
     "typescript": "^4.9.5"
   }

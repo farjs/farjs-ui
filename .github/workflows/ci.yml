@@ -23,7 +23,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '20'
 
     - name: Cache node_modules
       uses: actions/cache@v3
@@ -45,7 +45,14 @@ jobs:
       run: |
         npm i
         npx tsc
-        node --test
+        NODE_V8_COVERAGE=coverage0 npx c8 -r json node --experimental-test-coverage ./src/Button.test.mjs
+      if: ${{ env.TAG_NAME == '' }}
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        directory: ./coverage/
       if: ${{ env.TAG_NAME == '' }}
 
     - name: Build SNAPSHOT
