@@ -1,7 +1,9 @@
 .git*
+coverage*
 package-lock.json
 bun.lockb
 test/
 node_modules/
 tsconfig.json
 **/*.test.*
+codecov.yml

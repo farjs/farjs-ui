@@ -1,4 +1,3 @@
-// @ts-ignore
 import Blessed from '@farjs/blessed';
 
 /**
