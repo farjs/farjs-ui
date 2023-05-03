@@ -18,7 +18,7 @@ jobs:
     - name: Git checkout
       uses: actions/checkout@v3
       with:
-        fetch-depth: 0
+        fetch-depth: 2
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -45,7 +45,7 @@ jobs:
       run: |
         npm i
         npx tsc
-        NODE_V8_COVERAGE=coverage0 npx c8 -r json --all --src ./src node --experimental-test-coverage ./src/all.test.mjs
+        NODE_V8_COVERAGE=coverage0 npx c8 -r json --all --src ./src node --experimental-test-coverage ./test/all.mjs
       if: ${{ env.TAG_NAME == '' }}
 
     - name: Upload coverage reports to Codecov

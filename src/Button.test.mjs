@@ -7,6 +7,7 @@ import { strict as assert } from 'node:assert';
 const { describe, it } = await (async () => { // @ts-ignore
   return process.isBun ? Promise.resolve({describe: (_, fn) => fn(), it: test}) : import('node:test');
 })();
+import mockFunction from '../test/mockFunction.mjs';
 
 const h = React.createElement;
 
@@ -14,10 +15,8 @@ describe('Button.test.mjs', () => {
 
   it('should call onPress when press button', () => {
     //given
-    let isOnPressCalled = false;
-    const props = getButtonProps(() => {
-      isOnPressCalled = true;
-    });
+    const onPressMock = mockFunction();
+    const props = getButtonProps(onPressMock);
     const result = TestRenderer.create(h(Button, props)).root;
     const button = result.findByType('button')
     
@@ -25,7 +24,7 @@ describe('Button.test.mjs', () => {
     button.props.onPress();
     
     //then
-    assert.deepEqual(isOnPressCalled, true);
+    assert.deepEqual(onPressMock.times, 1);
   });
 
   it('should change focused state when onFocus/onBlur', () => {

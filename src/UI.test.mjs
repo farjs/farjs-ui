@@ -15,6 +15,15 @@ describe('UI.test.mjs', () => {
     assert.deepEqual(result, '{white-fg}{black-bg}test{/}');
   });
 
+  it('should use defaults if style is null when renderText2', () => {
+    //when
+    // @ts-ignore
+    const result = UI.renderText2(null, 'test');
+    
+    //then
+    assert.deepEqual(result, '{white-fg}{black-bg}test{/}');
+  });
+
   it('should use style if defined when renderText2', () => {
     //given
     const style = {
