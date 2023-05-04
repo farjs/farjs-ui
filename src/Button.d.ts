@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { Widgets } from 'blessed';
+import { Widgets } from "blessed";
 
 export interface ButtonProps {
   left: number;

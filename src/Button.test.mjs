@@ -1,37 +1,39 @@
-import React from 'react';
-import TestRenderer from 'react-test-renderer';
-import Button from './Button.mjs';
-import * as UI from './UI.mjs';
+import React from "react";
+import TestRenderer from "react-test-renderer";
+import Button from "./Button.mjs";
+import * as UI from "./UI.mjs";
 
-import { strict as assert } from 'node:assert';
-const { describe, it } = await (async () => { // @ts-ignore
-  return process.isBun ? Promise.resolve({describe: (_, fn) => fn(), it: test}) : import('node:test');
+import { strict as assert } from "node:assert";
+const { describe, it } = await (async () => {
+  // @ts-ignore
+  return process.isBun // @ts-ignore
+    ? Promise.resolve({ describe: (_, fn) => fn(), it: test })
+    : import("node:test");
 })();
-import mockFunction from '../test/mockFunction.mjs';
+import mockFunction from "../test/mockFunction.mjs";
 
 const h = React.createElement;
 
-describe('Button.test.mjs', () => {
-
-  it('should call onPress when press button', () => {
+describe("Button.test.mjs", () => {
+  it("should call onPress when press button", () => {
     //given
     const onPressMock = mockFunction();
     const props = getButtonProps(onPressMock);
     const result = TestRenderer.create(h(Button, props)).root;
-    const button = result.findByType('button')
-    
+    const button = result.findByType("button");
+
     //when
     button.props.onPress();
-    
+
     //then
     assert.deepEqual(onPressMock.times, 1);
   });
 
-  it('should change focused state when onFocus/onBlur', () => {
+  it("should change focused state when onFocus/onBlur", () => {
     //given
     const props = getButtonProps();
     const renderer = TestRenderer.create(h(Button, props));
-    const button = renderer.root.findByType('button')
+    const button = renderer.root.findByType("button");
     assertButton(renderer.root, props, false);
 
     //when & then
@@ -43,15 +45,15 @@ describe('Button.test.mjs', () => {
     assertButton(renderer.root, props, false);
   });
 
-  it('should render component', () => {
+  it("should render component", () => {
     //given
     const props = getButtonProps();
-    
+
     //when
     const result = TestRenderer.create(h(Button, props)).root;
-    
+
     //then
-    assert.deepEqual(Button.displayName, 'Button');
+    assert.deepEqual(Button.displayName, "Button");
     assertButton(result, props, false);
   });
 });
@@ -66,8 +68,8 @@ function getButtonProps(onPress = () => {}) {
       bg: "blue",
       focus: {
         fg: "cyan",
-        bg: "black"
-      }
+        bg: "black",
+      },
     },
     onPress,
   };

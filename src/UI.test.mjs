@@ -1,30 +1,32 @@
-import * as UI from './UI.mjs';
+import * as UI from "./UI.mjs";
 
-import { strict as assert } from 'node:assert';
-const { describe, it } = await (async () => { // @ts-ignore
-  return process.isBun ? Promise.resolve({describe: (_, fn) => fn(), it: test}) : import('node:test');
+import { strict as assert } from "node:assert";
+const { describe, it } = await (async () => {
+  // @ts-ignore
+  return process.isBun // @ts-ignore
+    ? Promise.resolve({ describe: (_, fn) => fn(), it: test })
+    : import("node:test");
 })();
 
-describe('UI.test.mjs', () => {
-
-  it('should use defaults if style is undefined when renderText2', () => {
+describe("UI.test.mjs", () => {
+  it("should use defaults if style is undefined when renderText2", () => {
     //when
-    const result = UI.renderText2(undefined, 'test');
-    
+    const result = UI.renderText2(undefined, "test");
+
     //then
-    assert.deepEqual(result, '{white-fg}{black-bg}test{/}');
+    assert.deepEqual(result, "{white-fg}{black-bg}test{/}");
   });
 
-  it('should use defaults if style is null when renderText2', () => {
+  it("should use defaults if style is null when renderText2", () => {
     //when
     // @ts-ignore
-    const result = UI.renderText2(null, 'test');
-    
+    const result = UI.renderText2(null, "test");
+
     //then
-    assert.deepEqual(result, '{white-fg}{black-bg}test{/}');
+    assert.deepEqual(result, "{white-fg}{black-bg}test{/}");
   });
 
-  it('should use style if defined when renderText2', () => {
+  it("should use style if defined when renderText2", () => {
     //given
     const style = {
       bold: true,
@@ -33,53 +35,53 @@ describe('UI.test.mjs', () => {
     };
 
     //when
-    const result = UI.renderText2(style, 'test');
-    
+    const result = UI.renderText2(style, "test");
+
     //then
-    assert.deepEqual(result, '{bold}{yellow-fg}{blue-bg}test{/}');
+    assert.deepEqual(result, "{bold}{yellow-fg}{blue-bg}test{/}");
   });
 
-  it('should return original text if empty when renderText', () => {
+  it("should return original text if empty when renderText", () => {
     //given
-    const text = '';
+    const text = "";
 
     //when
-    const result = UI.renderText(false, 'yellow', 'blue', text);
-    
+    const result = UI.renderText(false, "yellow", "blue", text);
+
     //then
     assert.deepEqual(result, text);
   });
 
-  it('should render bold text when renderText', () => {
+  it("should render bold text when renderText", () => {
     //given
     const isBold = true;
 
     //when
-    const result = UI.renderText(isBold, 'yellow', 'blue', 'test');
-    
+    const result = UI.renderText(isBold, "yellow", "blue", "test");
+
     //then
-    assert.deepEqual(result, '{bold}{yellow-fg}{blue-bg}test{/}');
+    assert.deepEqual(result, "{bold}{yellow-fg}{blue-bg}test{/}");
   });
 
-  it('should render non-bold text when renderText', () => {
+  it("should render non-bold text when renderText", () => {
     //given
     const isBold = false;
 
     //when
-    const result = UI.renderText(isBold, 'yellow', 'blue', 'test');
-    
+    const result = UI.renderText(isBold, "yellow", "blue", "test");
+
     //then
-    assert.deepEqual(result, '{yellow-fg}{blue-bg}test{/}');
+    assert.deepEqual(result, "{yellow-fg}{blue-bg}test{/}");
   });
 
-  it('should escape special chars when renderText', () => {
+  it("should escape special chars when renderText", () => {
     //given
-    const text = 'start/-{}end';
+    const text = "start/-{}end";
 
     //when
-    const result = UI.renderText(false, 'yellow', 'blue', text);
-    
+    const result = UI.renderText(false, "yellow", "blue", text);
+
     //then
-    assert.deepEqual(result, '{yellow-fg}{blue-bg}start/-{open}{close}end{/}');
+    assert.deepEqual(result, "{yellow-fg}{blue-bg}start/-{open}{close}end{/}");
   });
 });
