@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import * as UI from './UI.mjs';
+import React, { useState } from "react";
+import * as UI from "./UI.mjs";
 
 const h = React.createElement;
 
@@ -11,7 +11,7 @@ const Button = (props) => {
   const style = focused ? props.style.focus : props.style;
   const content = UI.renderText2(style, props.label);
 
-  return h('button', {
+  return h("button", {
     mouse: true,
     tags: true,
     wrap: false,
@@ -30,6 +30,6 @@ const Button = (props) => {
   });
 };
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 export default Button;

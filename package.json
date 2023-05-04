@@ -4,6 +4,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "description": "Terminal UI React.js components library",
+  "scripts": {
+    "test": "tsc && bun test && node ./test/all.mjs",
+    "format": "prettier **/*.mjs **/*.ts --write",
+    "formatCheck": "prettier **/*.mjs **/*.ts --check"
+  },
   "type": "module",
   "exports": {
     "./*": "./src/*"
@@ -41,6 +46,7 @@
     "@types/react-blessed": "^0.7.3",
     "@types/react-test-renderer": "^17.0.1",
     "c8": "^7.13.0",
+    "prettier": "^2.8.8",
     "react-test-renderer": "^17.0.1",
     "typescript": "^4.9.5"
   }

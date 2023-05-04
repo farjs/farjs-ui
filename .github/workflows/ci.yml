@@ -44,6 +44,7 @@ jobs:
     - name: Run tests
       run: |
         npm i
+        npm run formatCheck
         npx tsc
         NODE_V8_COVERAGE=coverage0 npx c8 -r json --all --src ./src node --experimental-test-coverage ./test/all.mjs
       if: ${{ env.TAG_NAME == '' }}
