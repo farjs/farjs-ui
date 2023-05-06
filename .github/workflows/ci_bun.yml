@@ -23,6 +23,16 @@ jobs:
       with:
         bun-version: "0.5.9"
 
+    - name: Cache Dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.bun/install/cache
+          ~/work/farjs-ui/farjs-ui/bun.lockb
+        key: ${{ runner.os }}-bun-cache-v3-${{ hashFiles('**/bun.lockb') }}
+        restore-keys: |
+          ${{ runner.os }}-bun-cache-v3-
+
     - name: Run tests
       run: |
         bun install
