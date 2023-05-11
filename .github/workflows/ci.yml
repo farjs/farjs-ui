@@ -33,7 +33,7 @@ jobs:
           ~/.nvm
           ~/work/farjs-ui/farjs-ui/node_modules
           ~/work/farjs-ui/farjs-ui/package-lock.json
-        key: ${{ runner.os }}-node_modules-cache-v3-${{ hashFiles('package-lock.json') }}
+        key: ${{ runner.os }}-node_modules-cache-v3-${{ hashFiles('package.json') }}
         restore-keys: |
           ${{ runner.os }}-node_modules-cache-v3-
 
