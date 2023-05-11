@@ -1,4 +1,2 @@
-await import("../src/Button.test.mjs");
-await import("../src/UI.test.mjs");
-
-await import("./mockFunction.test.mjs");
+await import("./Button.test.mjs");
+await import("./UI.test.mjs");

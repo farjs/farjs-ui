@@ -1,4 +1,4 @@
-import * as UI from "./UI.mjs";
+import * as UI from "../src/UI.mjs";
 
 import { strict as assert } from "node:assert";
 const { describe, it } = await (async () => {

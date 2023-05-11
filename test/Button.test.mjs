@@ -1,7 +1,7 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import Button from "./Button.mjs";
-import * as UI from "./UI.mjs";
+import Button from "../src/Button.mjs";
+import * as UI from "../src/UI.mjs";
 
 import { strict as assert } from "node:assert";
 const { describe, it } = await (async () => {
@@ -10,7 +10,7 @@ const { describe, it } = await (async () => {
     ? Promise.resolve({ describe: (_, fn) => fn(), it: test })
     : import("node:test");
 })();
-import mockFunction from "../test/mockFunction.mjs";
+import mockFunction from "mock-fn";
 
 const h = React.createElement;
 
@@ -77,7 +77,7 @@ function getButtonProps(onPress = () => {}) {
 
 /**
  * @param {TestRenderer.ReactTestInstance} result
- * @param {import('./Button').ButtonProps} props
+ * @param {import('../src/Button').ButtonProps} props
  * @param {boolean} focused
  */
 function assertButton(result, props, focused) {
