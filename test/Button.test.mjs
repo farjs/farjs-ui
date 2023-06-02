@@ -1,18 +1,19 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import Button from "../src/Button.mjs";
+import { assertComponents } from "react-assert";
+import assert from "node:assert/strict";
+import mockFunction from "mock-fn";
 import * as UI from "../src/UI.mjs";
+import Button from "../src/Button.mjs";
 
-import { strict as assert } from "node:assert";
+const h = React.createElement;
+
 const { describe, it } = await (async () => {
   // @ts-ignore
   return process.isBun // @ts-ignore
     ? Promise.resolve({ describe: (_, fn) => fn(), it: test })
     : import("node:test");
 })();
-import mockFunction from "mock-fn";
-
-const h = React.createElement;
 
 describe("Button.test.mjs", () => {
   it("should call onPress when press button", () => {
@@ -81,19 +82,19 @@ function getButtonProps(onPress = () => {}) {
  * @param {boolean} focused
  */
 function assertButton(result, props, focused) {
-  assert.deepEqual(result.type, Button);
-  assert.deepEqual(result.children.length, 1);
-
-  // @ts-ignore
-  const button = result.children[0].props;
-  assert.deepEqual(button.mouse, true);
-  assert.deepEqual(button.tags, true);
-  assert.deepEqual(button.wrap, false);
-  assert.deepEqual(button.width, props.label.length);
-  assert.deepEqual(button.height, 1);
-  assert.deepEqual(button.left, props.left);
-  assert.deepEqual(button.top, props.top);
-
   const style = focused ? props.style.focus : props.style;
-  assert.deepEqual(button.content, UI.renderText2(style, props.label));
+
+  assertComponents(
+    result.children,
+    h("button", {
+      mouse: true,
+      tags: true,
+      wrap: false,
+      width: props.label.length,
+      height: 1,
+      left: props.left,
+      top: props.top,
+      content: UI.renderText2(style, props.label),
+    })
+  );
 }
