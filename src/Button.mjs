@@ -1,10 +1,13 @@
+/**
+ * @typedef {import("./Button").ButtonProps} ButtonProps
+ */
 import React, { useState } from "react";
 import * as UI from "./UI.mjs";
 
 const h = React.createElement;
 
 /**
- * @param {import('./Button').ButtonProps} props
+ * @param {ButtonProps} props
  */
 const Button = (props) => {
   const [focused, setFocused] = useState(false);

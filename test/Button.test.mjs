@@ -1,3 +1,6 @@
+/**
+ * @typedef {import('../src/Button').ButtonProps} ButtonProps
+ */
 import React from "react";
 import TestRenderer from "react-test-renderer";
 import { assertComponents } from "react-assert";
@@ -59,6 +62,10 @@ describe("Button.test.mjs", () => {
   });
 });
 
+/**
+ * @param {() => void} onPress
+ * @returns {ButtonProps}
+ */
 function getButtonProps(onPress = () => {}) {
   return {
     left: 1,
@@ -78,7 +85,7 @@ function getButtonProps(onPress = () => {}) {
 
 /**
  * @param {TestRenderer.ReactTestInstance} result
- * @param {import('../src/Button').ButtonProps} props
+ * @param {ButtonProps} props
  * @param {boolean} focused
  */
 function assertButton(result, props, focused) {
