@@ -65,13 +65,33 @@ describe("ButtonsPanel.test.mjs", () => {
     });
   });
 
-  it("should render component", () => {
+  it("should render component with default props", () => {
     //given
     const onAction = mockFunction();
     const props = getButtonsPanelProps([
       getAction("test btn", onAction),
       getAction("test btn2", onAction),
     ]);
+
+    //when
+    const result = TestRenderer.create(h(ButtonsPanel, props)).root;
+
+    //then
+    assert.deepEqual(ButtonsPanel.displayName, "ButtonsPanel");
+    assertButtonsPanel(result, props, [
+      { action: "test btn", pos: 0 },
+      { action: "test btn2", pos: 8 },
+    ]);
+  });
+
+  it("should render component with all props", () => {
+    //given
+    const onAction = mockFunction();
+    const props = getButtonsPanelProps(
+      [getAction("test btn", onAction), getAction("test btn2", onAction)],
+      2,
+      3
+    );
 
     //when
     const result = TestRenderer.create(h(ButtonsPanel, props)).root;
@@ -99,9 +119,11 @@ function getAction(label, onAction) {
 
 /**
  * @param {ButtonsPanelAction[]} actions
+ * @param {number} [padding]
+ * @param {number} [margin]
  * @returns {ButtonsPanelProps}
  */
-function getButtonsPanelProps(actions) {
+function getButtonsPanelProps(actions, padding, margin) {
   return {
     top: 1,
     actions,
@@ -113,8 +135,8 @@ function getButtonsPanelProps(actions) {
         bg: "black",
       },
     },
-    padding: 2,
-    margin: 3,
+    padding,
+    margin,
   };
 }
 
