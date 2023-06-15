@@ -4,9 +4,10 @@
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import { assertComponents } from "react-assert";
+import { assertComponents, mockComponent } from "react-assert";
 import assert from "node:assert/strict";
 import mockFunction from "mock-fn";
+import Button from "../src/Button.mjs";
 import ButtonsPanel from "../src/ButtonsPanel.mjs";
 
 const h = React.createElement;
@@ -18,8 +19,7 @@ const { describe, it } = await (async () => {
     : import("node:test");
 })();
 
-// @ts-ignore
-ButtonsPanel.buttonComp = "ButtonMock";
+ButtonsPanel.buttonComp = mockComponent(Button);
 const { buttonComp } = ButtonsPanel;
 
 describe("ButtonsPanel.test.mjs", () => {
@@ -150,8 +150,6 @@ function assertButtonsPanel(result, props, actions) {
     actions.map((_) => _.action.length).reduce((_1, _2) => _1 + _2) +
     (actions.length - 1) * (props.margin ? props.margin : 0);
 
-  const resultButtons = result.findAllByType(buttonComp).map((_) => _.props);
-
   assertComponents(
     result.children,
     h(
@@ -163,13 +161,13 @@ function assertButtonsPanel(result, props, actions) {
         left: "center",
         style: props.style,
       },
-      ...actions.map(({ action, pos }, i) => {
+      ...actions.map(({ action, pos }) => {
         return h(buttonComp, {
           left: pos,
           top: 0,
           label: action,
           style: props.style,
-          onPress: resultButtons[i].onPress,
+          onPress: mockFunction(),
         });
       })
     )

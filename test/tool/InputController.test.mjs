@@ -1,7 +1,8 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import { assertComponents } from "react-assert";
+import { assertComponents, mockComponent } from "react-assert";
 import assert from "node:assert/strict";
+import LogPanel from "../../src/tool/LogPanel.mjs";
 import InputController from "../../src/tool/InputController.mjs";
 
 const h = React.createElement;
@@ -13,8 +14,7 @@ const { describe, it } = await (async () => {
     : import("node:test");
 })();
 
-// @ts-ignore
-InputController.logPanelComp = "LogPanelMock";
+InputController.logPanelComp = mockComponent(LogPanel);
 InputController.maxBufferLength = 10;
 const { logPanelComp } = InputController;
 const g = global;
