@@ -4,4 +4,5 @@ await import("./UI.test.mjs");
 
 await import("./tool/ColorPanel.test.mjs");
 await import("./tool/InputController.test.mjs");
+await import("./tool/LogController.test.mjs");
 await import("./tool/LogPanel.test.mjs");
