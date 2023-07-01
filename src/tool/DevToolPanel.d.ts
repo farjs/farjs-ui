@@ -1,7 +1,7 @@
-import { DevToolValue } from "./DevTool.mjs";
+import { DevToolType } from "./DevTool.mjs";
 
 export interface DevToolPanelProps {
-  devTool: DevToolValue;
+  devTool: DevToolType;
   logContent: string;
-  onActivate(devTool: DevToolValue): void;
+  onActivate(devTool: DevToolType): void;
 }

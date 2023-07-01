@@ -1,6 +1,6 @@
 /**
  * @typedef {import("../../src/tool/DevToolPanel").DevToolPanelProps} DevToolPanelProps
- * @typedef {import("../../src/tool/DevTool.mjs").DevToolValue} DevToolValue
+ * @typedef {import("../../src/tool/DevTool.mjs").DevToolType} DevToolType
  * @typedef {import("../../src/theme/Theme.mjs").ThemeType} ThemeType
  */
 import React from "react";
@@ -71,15 +71,25 @@ describe("DevToolPanel.test.mjs", () => {
 
   it("should render Inputs component", () => {
     //given
+    const currTheme = {
+      ...DefaultTheme,
+      popup: {
+        ...DefaultTheme.popup,
+        menu: {
+          ...DefaultTheme.popup.menu,
+          focus: undefined,
+        },
+      },
+    };
     const props = getDevToolPanelProps(DevTool.Inputs, "test logs");
 
     //when
     const renderer = TestRenderer.create(
-      withThemeContext(h(DevToolPanel, props))
+      withThemeContext(h(DevToolPanel, props), currTheme)
     );
 
     //then
-    assertDevToolPanel(renderer, " Inputs ", h(inputController));
+    assertDevToolPanel(renderer, " Inputs ", h(inputController), currTheme);
   });
 
   it("should render Colors component", () => {
@@ -95,12 +105,25 @@ describe("DevToolPanel.test.mjs", () => {
     //then
     assertDevToolPanel(renderer, " Colors ", h(colorPanelComp), currTheme);
   });
+
+  it("should render null component", () => {
+    //given
+    const props = getDevToolPanelProps(DevTool.Hidden, "test logs");
+
+    //when
+    const renderer = TestRenderer.create(
+      withThemeContext(h(DevToolPanel, props))
+    );
+
+    //then
+    assertDevToolPanel(renderer, "", null);
+  });
 });
 
 /**
- * @param {DevToolValue} devTool
+ * @param {DevToolType} devTool
  * @param {string} logContent
- * @param {(devTool: DevToolValue) => void} onActivate
+ * @param {(devTool: DevToolType) => void} onActivate
  * @returns {DevToolPanelProps}
  */
 function getDevToolPanelProps(devTool, logContent, onActivate = (_) => {}) {
@@ -139,7 +162,7 @@ const expectedTabs = [
 /**
  * @param {TestRenderer.ReactTestRenderer} renderer
  * @param {string} activeTab
- * @param {React.ReactElement} expectedComp
+ * @param {React.ReactElement | null} expectedComp
  * @param {ThemeType} currTheme
  */
 function assertDevToolPanel(
@@ -172,7 +195,7 @@ function assertDevToolPanel(
           left: "center",
         },
         ...expectedTabs.map(({ label, pos }) => {
-          const style = label === activeTab ? theme.focus || theme : theme;
+          const style = label === activeTab ? theme.focus ?? theme : theme;
           const content = UI.renderText2(style, label);
 
           return h("text", {

@@ -3,66 +3,63 @@ import Color from "./Color.mjs";
 /**
  * @type {import("./Theme").ThemeType}
  */
-const DefaultTheme = {
-  popup: {
-    regular: {
+const DefaultTheme = Object.freeze({
+  popup: Object.freeze({
+    regular: Object.freeze({
       bold: false,
       bg: Color.white,
       fg: Color.black,
-      focus: {
-        // @ts-ignore
+      focus: Object.freeze({
         bold: false,
         bg: Color.cyan,
         fg: Color.black,
-      },
-    },
-    error: {
+      }),
+    }),
+    error: Object.freeze({
       bold: true,
       bg: Color.red,
       fg: Color.white,
-      focus: {
-        // @ts-ignore
+      focus: Object.freeze({
         bold: false,
         bg: Color.white,
         fg: Color.black,
-      },
-    },
-    menu: {
+      }),
+    }),
+    menu: Object.freeze({
       bold: true,
       bg: Color.cyan,
       fg: Color.white,
-      focus: {
-        // @ts-ignore
+      focus: Object.freeze({
         bold: true,
         bg: Color.black,
         fg: Color.white,
-      },
-    },
-  },
+      }),
+    }),
+  }),
 
-  menu: {
-    key: {
+  menu: Object.freeze({
+    key: Object.freeze({
       bg: Color.black,
       fg: Color.white,
-    },
-    item: {
+    }),
+    item: Object.freeze({
       bg: Color.cyan,
       fg: Color.black,
-    },
-  },
+    }),
+  }),
 
-  textBox: {
-    regular: {
+  textBox: Object.freeze({
+    regular: Object.freeze({
       bold: false,
       bg: Color.cyan,
       fg: Color.black,
-    },
-    selected: {
+    }),
+    selected: Object.freeze({
       bold: false,
       bg: Color.blue,
       fg: Color.white,
-    },
-  },
-};
+    }),
+  }),
+});
 
 export default DefaultTheme;

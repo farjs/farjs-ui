@@ -1,25 +1,31 @@
-import { Widgets } from "blessed";
-
-type BlessedStyle = Widgets.Types.TStyle;
-
-interface ThemePopup {
-  regular: BlessedStyle;
-  error: BlessedStyle;
-  menu: BlessedStyle;
+export interface ThemeStyle {
+  readonly bold?: boolean;
+  readonly bg: string;
+  readonly fg: string;
 }
 
-interface ThemeMenu {
-  key: BlessedStyle;
-  item: BlessedStyle;
+export interface ThemeEffects extends ThemeStyle {
+  readonly focus?: ThemeStyle;
 }
 
-interface ThemeTextBox {
-  regular: BlessedStyle;
-  selected: BlessedStyle;
+export interface ThemePopup {
+  readonly regular: ThemeEffects;
+  readonly error: ThemeEffects;
+  readonly menu: ThemeEffects;
+}
+
+export interface ThemeMenu {
+  readonly key: ThemeStyle;
+  readonly item: ThemeStyle;
+}
+
+export interface ThemeTextBox {
+  readonly regular: ThemeEffects;
+  readonly selected: ThemeEffects;
 }
 
 export interface ThemeType {
-  popup: ThemePopup;
-  menu: ThemeMenu;
-  textBox: ThemeTextBox;
+  readonly popup: ThemePopup;
+  readonly menu: ThemeMenu;
+  readonly textBox: ThemeTextBox;
 }

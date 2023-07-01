@@ -3,68 +3,65 @@ import Color from "./Color.mjs";
 /**
  * @type {import("./Theme").ThemeType}
  */
-const XTerm256Theme = {
-  popup: {
-    regular: {
+const XTerm256Theme = Object.freeze({
+  popup: Object.freeze({
+    regular: Object.freeze({
       bold: true,
       bg: Color.white,
       fg: "#111",
-      focus: {
-        // @ts-ignore
+      focus: Object.freeze({
         bold: true,
         bg: "#088",
         fg: "#111",
-      },
-    },
-    error: {
+      }),
+    }),
+    error: Object.freeze({
       bold: true,
       bg: Color.red,
       fg: Color.white,
-      focus: {
-        // @ts-ignore
+      focus: Object.freeze({
         bold: true,
         bg: Color.white,
         fg: "#111",
-      },
-    },
-    menu: {
+      }),
+    }),
+    menu: Object.freeze({
       bold: true,
       bg: "#088",
       fg: Color.white,
-      focus: {
-        // @ts-ignore
+      focus: Object.freeze({
         bold: true,
         bg: Color.black,
         fg: Color.white,
-      },
-    },
-  },
+      }),
+    }),
+  }),
 
-  menu: {
-    key: {
+  menu: Object.freeze({
+    key: Object.freeze({
       bold: true,
       bg: Color.black,
       fg: "#aaa",
-    },
-    item: {
+    }),
+    item: Object.freeze({
       bold: true,
       bg: "#088",
       fg: "#111",
-    },
-  },
+    }),
+  }),
 
-  textBox: {
-    regular: {
+  textBox: Object.freeze({
+    regular: Object.freeze({
       bold: true,
       bg: "#088",
       fg: "#111",
-    },
-    selected: {
+    }),
+    selected: Object.freeze({
       bold: true,
       bg: Color.blue,
       fg: Color.white,
-    },
-  },
-};
+    }),
+  }),
+});
 
 export default XTerm256Theme;

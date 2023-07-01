@@ -1,6 +1,6 @@
 /**
  * @typedef {import("./DevToolPanel").DevToolPanelProps} DevToolPanelProps
- * @typedef {import("./DevTool.mjs").DevToolValue} DevToolValue
+ * @typedef {import("./DevTool.mjs").DevToolType} DevToolType
  */
 import React from "react";
 import LogPanel from "./LogPanel.mjs";
@@ -13,7 +13,7 @@ import * as UI from "../UI.mjs";
 const h = React.createElement;
 
 /**
- * @type {Array<{tool: DevToolValue, name: string}>}
+ * @type {Array<{tool: DevToolType, name: string}>}
  */
 const tools = [
   {

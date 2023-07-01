@@ -1,4 +1,4 @@
-const Color = {
+const Color = Object.freeze({
   black: "black",
   red: "red",
   green: "green",
@@ -21,6 +21,6 @@ const Color = {
   // alternate spellings
   grey: "grey",
   lightgrey: "lightgrey",
-};
+});
 
 export default Color;

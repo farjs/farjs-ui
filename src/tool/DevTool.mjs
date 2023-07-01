@@ -1,33 +1,33 @@
 /**
- * @typedef {"Hidden" | "Logs" | "Inputs" | "Colors"} DevToolValue
+ * @typedef {"Hidden" | "Logs" | "Inputs" | "Colors"} DevToolType
  */
 
 /**
- * @type {DevToolValue}
+ * @type {DevToolType}
  */
 const Hidden = "Hidden";
 /**
- * @type {DevToolValue}
+ * @type {DevToolType}
  */
 const Logs = "Logs";
 /**
- * @type {DevToolValue}
+ * @type {DevToolType}
  */
 const Inputs = "Inputs";
 /**
- * @type {DevToolValue}
+ * @type {DevToolType}
  */
 const Colors = "Colors";
 
-const DevTool = {
+const DevTool = Object.freeze({
   Hidden,
   Logs,
   Inputs,
   Colors,
 
   /**
-   * @param {DevToolValue} from
-   * @param {DevToolValue} to
+   * @param {DevToolType} from
+   * @param {DevToolType} to
    * @returns {boolean}
    */
   shouldResize: (from, to) => {
@@ -35,8 +35,8 @@ const DevTool = {
   },
 
   /**
-   * @param {DevToolValue} from
-   * @returns {DevToolValue}
+   * @param {DevToolType} from
+   * @returns {DevToolType}
    */
   getNext: (from) => {
     switch (from) {
@@ -50,6 +50,6 @@ const DevTool = {
         return Hidden;
     }
   },
-};
+});
 
 export default DevTool;
