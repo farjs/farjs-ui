@@ -2,6 +2,9 @@ await import("./Button.test.mjs");
 await import("./ButtonsPanel.test.mjs");
 await import("./UI.test.mjs");
 
+await import("./portal/Portal.test.mjs");
+await import("./portal/WithPortals.test.mjs");
+
 await import("./theme/Theme.test.mjs");
 
 await import("./tool/ColorPanel.test.mjs");
