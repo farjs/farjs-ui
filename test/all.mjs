@@ -2,6 +2,9 @@ await import("./Button.test.mjs");
 await import("./ButtonsPanel.test.mjs");
 await import("./UI.test.mjs");
 
+await import("./popup/Popup.test.mjs");
+await import("./popup/PopupOverlay.test.mjs");
+
 await import("./portal/Portal.test.mjs");
 await import("./portal/WithPortals.test.mjs");
 
