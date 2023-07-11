@@ -1,5 +1,6 @@
 await import("./Button.test.mjs");
 await import("./ButtonsPanel.test.mjs");
+await import("./TextLine.test.mjs");
 await import("./UI.test.mjs");
 
 await import("./popup/Popup.test.mjs");
