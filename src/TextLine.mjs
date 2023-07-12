@@ -23,7 +23,7 @@ const TextLine = (props) => {
         case TextAlign.right:
           return props.left + props.width - text.length;
         default:
-          return props.left + (props.width - text.length) / 2;
+          return props.left + Math.trunc((props.width - text.length) / 2);
       }
     }
 
