@@ -4,6 +4,7 @@ await import("./TextLine.test.mjs");
 await import("./UI.test.mjs");
 
 await import("./border/HorizontalLine.test.mjs");
+await import("./border/VerticalLine.test.mjs");
 
 await import("./popup/Popup.test.mjs");
 await import("./popup/PopupOverlay.test.mjs");
