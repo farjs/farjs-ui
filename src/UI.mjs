@@ -1,8 +1,7 @@
-import Blessed from "@farjs/blessed";
-
 /**
- * @typedef { import('blessed').Widgets.Types.TStyle } BlessedStyle
+ * @typedef { import("@farjs/blessed").Widgets.Types.TStyle } BlessedStyle
  */
+import Blessed from "@farjs/blessed";
 
 /**
  * @param {BlessedStyle | undefined} style
@@ -32,4 +31,35 @@ export function renderText(isBold, fgColor, bgColor, text) {
 
   const bold = isBold ? "{bold}" : "";
   return `${bold}{${fgColor}-fg}{${bgColor}-bg}${Blessed.escape(text)}{/}`;
+}
+
+/**
+ * @param {string} text
+ * @param {number} maxLen
+ * @returns {string[]}
+ */
+export function splitText(text, maxLen) {
+  const sentences = text.split("\n");
+
+  return sentences.flatMap((sentence) => {
+    const words = sentence.trim().split(" ");
+    const res = /** @type {string[]} */ ([]);
+
+    words.forEach((item) => {
+      if (res.length === 0) {
+        res.push(item);
+        return;
+      }
+
+      const hIndex = res.length - 1;
+      const head = res[hIndex];
+      if (head.length + item.length >= maxLen) {
+        res.push(item);
+      } else {
+        res[hIndex] = `${head} ${item}`;
+      }
+    });
+
+    return res;
+  });
 }

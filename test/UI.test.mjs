@@ -84,4 +84,25 @@ describe("UI.test.mjs", () => {
     //then
     assert.deepEqual(result, "{yellow-fg}{blue-bg}start/-{open}{close}end{/}");
   });
+
+  it("should split text when splitText", () => {
+    //when & then
+    assert.deepEqual(UI.splitText("", 2), [""]);
+    assert.deepEqual(UI.splitText("test", 2), ["test"]);
+    assert.deepEqual(UI.splitText("test1, test2", 11), ["test1,", "test2"]);
+    assert.deepEqual(UI.splitText("test1, test2", 12), ["test1, test2"]);
+    assert.deepEqual(UI.splitText("test1, test2, test3", 12), [
+      "test1,",
+      "test2, test3",
+    ]);
+    assert.deepEqual(UI.splitText("test1, test2, test3", 13), [
+      "test1, test2,",
+      "test3",
+    ]);
+    assert.deepEqual(UI.splitText("test1, \n\n test2, test3", 13), [
+      "test1,",
+      "",
+      "test2, test3",
+    ]);
+  });
 });
