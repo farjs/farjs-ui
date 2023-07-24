@@ -12,6 +12,7 @@ await import("./popup/Modal.test.mjs");
 await import("./popup/ModalContent.test.mjs");
 await import("./popup/Popup.test.mjs");
 await import("./popup/PopupOverlay.test.mjs");
+await import("./popup/StatusPopup.test.mjs");
 
 await import("./portal/Portal.test.mjs");
 await import("./portal/WithPortals.test.mjs");
