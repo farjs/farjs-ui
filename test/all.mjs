@@ -8,6 +8,7 @@ await import("./border/HorizontalLine.test.mjs");
 await import("./border/SingleBorder.test.mjs");
 await import("./border/VerticalLine.test.mjs");
 
+await import("./popup/MessageBox.test.mjs");
 await import("./popup/Modal.test.mjs");
 await import("./popup/ModalContent.test.mjs");
 await import("./popup/Popup.test.mjs");
