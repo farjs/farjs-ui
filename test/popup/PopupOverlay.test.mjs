@@ -21,9 +21,11 @@ const h = React.createElement;
 
 const { describe, it } = await (async () => {
   // @ts-ignore
+  const module = process.isBun ? "bun:test" : "node:test";
+  // @ts-ignore
   return process.isBun // @ts-ignore
     ? Promise.resolve({ describe: (_, fn) => fn(), it: test })
-    : import("node:test");
+    : import(module);
 })();
 
 describe("PopupOverlay.test.mjs", () => {
