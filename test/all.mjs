@@ -18,6 +18,8 @@ await import("./popup/StatusPopup.test.mjs");
 await import("./portal/Portal.test.mjs");
 await import("./portal/WithPortals.test.mjs");
 
+await import("./task/TaskManagerUi.test.mjs");
+
 await import("./theme/Theme.test.mjs");
 
 await import("./tool/ColorPanel.test.mjs");

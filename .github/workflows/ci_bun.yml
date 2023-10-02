@@ -20,7 +20,7 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: "0.8.1"
+          bun-version: "1.0.1"
 
       - name: Cache Dependencies
         uses: actions/cache@v3
@@ -28,9 +28,9 @@ jobs:
           path: |
             ~/.bun/install/cache
             ~/work/farjs-ui/farjs-ui/bun.lockb
-          key: ${{ runner.os }}-bun-cache-v3-${{ hashFiles('package.json') }}
+          key: ${{ runner.os }}-bun-cache-v4-${{ hashFiles('package.json') }}
           restore-keys: |
-            ${{ runner.os }}-bun-cache-v3-
+            ${{ runner.os }}-bun-cache-v4-
 
       - name: Run tests
         run: |
