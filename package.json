@@ -33,7 +33,7 @@
   ],
   "engines": {
     "node": ">=14.16",
-    "bun": ">=0.5.8"
+    "bun": ">=0.8"
   },
   "dependencies": {
     "@farjs/blessed": "0.2.6",
