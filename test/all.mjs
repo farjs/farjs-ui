@@ -20,6 +20,7 @@ await import("./portal/WithPortals.test.mjs");
 
 await import("./task/TaskManager.test.mjs");
 await import("./task/TaskManagerUi.test.mjs");
+await import("./task/TaskReducer.test.mjs");
 
 await import("./theme/Theme.test.mjs");
 
