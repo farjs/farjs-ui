@@ -3,6 +3,8 @@ await import("./ButtonsPanel.test.mjs");
 await import("./TextLine.test.mjs");
 await import("./UI.test.mjs");
 
+await import("./app/AppRoot.test.mjs");
+
 await import("./border/DoubleBorder.test.mjs");
 await import("./border/HorizontalLine.test.mjs");
 await import("./border/SingleBorder.test.mjs");
