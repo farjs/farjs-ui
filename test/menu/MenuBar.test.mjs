@@ -136,19 +136,15 @@ describe("MenuBar.test.mjs", () => {
     assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 2);
 
     //when & then
-    assert.deepEqual(findOnKeypress(renderer)("up"), true);
-    assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 0);
-
-    //when & then
-    assert.deepEqual(findOnKeypress(renderer)("down"), true);
-    assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 2);
-
-    //when & then
     assert.deepEqual(findOnKeypress(renderer)("down"), true);
     assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 3);
 
     //when & then
-    assert.deepEqual(findOnKeypress(renderer)("down"), true);
+    assert.deepEqual(findOnKeypress(renderer)("up"), true);
+    assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 2);
+
+    //when & then
+    assert.deepEqual(findOnKeypress(renderer)("up"), true);
     assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 0);
   });
 

@@ -96,8 +96,8 @@ const MenuBar = (props) => {
           setSubMenu({ menuIndex, subIndex: newSubIndex });
         }
         break;
-      case "tab":
       case "right":
+      case "tab":
         processed = false;
         if (maybeSubMenu) {
           const { menuIndex } = maybeSubMenu;
@@ -105,8 +105,8 @@ const MenuBar = (props) => {
           setSubMenu({ menuIndex: newIndex, subIndex: 0 });
         }
         break;
-      case "S-tab":
       case "left":
+      case "S-tab":
         processed = false;
         if (maybeSubMenu) {
           const { menuIndex } = maybeSubMenu;
