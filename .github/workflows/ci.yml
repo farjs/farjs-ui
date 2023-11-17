@@ -3,68 +3,72 @@ name: CI
 on:
   push:
     paths-ignore:
-      - '*.md'
-    branches: [ main ]
+      - "*.md"
+    branches: [main]
     tags:
-      - '*'
+      - "*"
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-    - name: Git checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            ~/.nvm
+            ~/work/farjs-ui/farjs-ui/node_modules
+            ~/work/farjs-ui/farjs-ui/package-lock.json
+          key: ${{ runner.os }}-node_modules-cache-v3-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-cache-v3-
 
-    - name: Cache node_modules
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.npm
-          ~/.nvm
-          ~/work/farjs-ui/farjs-ui/node_modules
-          ~/work/farjs-ui/farjs-ui/package-lock.json
-        key: ${{ runner.os }}-node_modules-cache-v3-${{ hashFiles('package.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node_modules-cache-v3-
+      - name: Extract Tag Name
+        run: echo "TAG_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
+        if: ${{ startsWith(github.ref, 'refs/tags') }}
 
-    - name: Extract Tag Name
-      run: echo "TAG_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
-      if: ${{ startsWith(github.ref, 'refs/tags') }}
+      - name: Run tests
+        run: |
+          npm i
+          npm run formatCheck --workspaces
+          npx tsc
+          NODE_V8_COVERAGE=coverage0 npx c8 -r lcovonly --all --src ./packages/ui/src node --experimental-test-coverage ./packages/ui/test/all.mjs
+        if: ${{ env.TAG_NAME == '' }}
 
-    - name: Run tests
-      run: |
-        npm i
-        npm run formatCheck
-        npx tsc
-        NODE_V8_COVERAGE=coverage0 npx c8 -r lcovonly --all --src ./src node --experimental-test-coverage ./test/all.mjs
-      if: ${{ env.TAG_NAME == '' }}
+      - name: Report coverage to Coveralls
+        uses: coverallsapp/github-action@v2
+        if: ${{ env.TAG_NAME == '' }}
 
-    - name: Report coverage to Coveralls
-      uses: coverallsapp/github-action@v2
-      if: ${{ env.TAG_NAME == '' }}
+      - name: Build SNAPSHOT
+        run: |
+          cd ./packages/ui
+          npm pack
+        if: ${{ env.TAG_NAME == '' }}
 
-    - name: Build SNAPSHOT
-      run: npm pack
-      if: ${{ env.TAG_NAME == '' }}
-
-    - name: Publish RELEASE
-      run: |
-        VERSION="$(echo "$TAG_NAME" | cut -d'v' -f 2)"
-        echo "Publish a release version=$VERSION for tag $TAG_NAME"
-        npm --no-git-tag-version --allow-same-version version $VERSION
-        npm pack
-        echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
-        npm publish farjs-ui-${VERSION}.tgz
-      if: ${{ env.TAG_NAME != '' }}
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish RELEASE
+        run: |
+          cp ./README.md ./packages/ui
+          cp ./LICENSE.txt ./packages/ui
+          cd ./packages/ui
+          VERSION="$(echo "$TAG_NAME" | cut -d'v' -f 2)"
+          echo "Publish a release version=$VERSION for tag $TAG_NAME"
+          npm --no-git-tag-version --allow-same-version version $VERSION
+          npm pack
+          echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+          npm publish farjs-ui-${VERSION}.tgz
+        if: ${{ env.TAG_NAME != '' }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
