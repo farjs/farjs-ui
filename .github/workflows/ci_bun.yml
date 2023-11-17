@@ -28,7 +28,7 @@ jobs:
           path: |
             ~/.bun/install/cache
             ~/work/farjs-ui/farjs-ui/bun.lockb
-          key: ${{ runner.os }}-bun-cache-v4-${{ hashFiles('package.json') }}
+          key: ${{ runner.os }}-bun-cache-v4-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-bun-cache-v4-
 
