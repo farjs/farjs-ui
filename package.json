@@ -1,6 +1,6 @@
 {
   "name": "farjs-ui-monorepo",
   "workspaces": [
-    "packages/ui"
+    "./ui"
   ]
 }

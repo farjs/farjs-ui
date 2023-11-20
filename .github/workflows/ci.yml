@@ -45,7 +45,7 @@ jobs:
           npm i
           npm run formatCheck --workspaces
           npx tsc
-          NODE_V8_COVERAGE=coverage0 npx c8 -r lcovonly --all --src ./packages/ui/src node --experimental-test-coverage ./packages/ui/test/all.mjs
+          NODE_V8_COVERAGE=coverage0 npx c8 -r lcovonly --all --src ./ui/src node --experimental-test-coverage ./ui/test/all.mjs
         if: ${{ env.TAG_NAME == '' }}
 
       - name: Report coverage to Coveralls
@@ -54,15 +54,15 @@ jobs:
 
       - name: Build SNAPSHOT
         run: |
-          cd ./packages/ui
+          cd ./ui
           npm pack
         if: ${{ env.TAG_NAME == '' }}
 
       - name: Publish RELEASE
         run: |
-          cp ./README.md ./packages/ui
-          cp ./LICENSE.txt ./packages/ui
-          cd ./packages/ui
+          cp ./README.md ./ui
+          cp ./LICENSE.txt ./ui
+          cd ./ui
           VERSION="$(echo "$TAG_NAME" | cut -d'v' -f 2)"
           echo "Publish a release version=$VERSION for tag $TAG_NAME"
           npm --no-git-tag-version --allow-same-version version $VERSION
