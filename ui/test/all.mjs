@@ -12,6 +12,7 @@ await import("./border/SingleBorder.test.mjs");
 await import("./border/VerticalLine.test.mjs");
 
 await import("./menu/MenuBar.test.mjs");
+await import("./menu/MenuBarTrigger.test.mjs");
 await import("./menu/SubMenu.test.mjs");
 
 await import("./popup/MessageBox.test.mjs");
