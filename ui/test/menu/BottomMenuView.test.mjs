@@ -75,6 +75,9 @@ describe("BottomMenuView.test.mjs", () => {
     const currTheme = XTerm256Theme;
     const theme = currTheme.menu;
     const items = new Array(12).fill("item");
+    items[2] = "i";
+    items[3] = "item123";
+    items[4] = "item22";
     items[5] = "longitem";
     const props = /** @type {BottomMenuViewProps} */ ({
       width: 98,
@@ -93,9 +96,9 @@ describe("BottomMenuView.test.mjs", () => {
     const itemsWithPos = [
       { key: 1, item: " item ", pos: 0, textWidth: 8 },
       { key: 2, item: " item ", pos: 8, textWidth: 8 },
-      { key: 3, item: " item ", pos: 16, textWidth: 8 },
-      { key: 4, item: " item ", pos: 24, textWidth: 8 },
-      { key: 5, item: " item ", pos: 32, textWidth: 8 },
+      { key: 3, item: "  i   ", pos: 16, textWidth: 8 },
+      { key: 4, item: "item12", pos: 24, textWidth: 8 },
+      { key: 5, item: "item22", pos: 32, textWidth: 8 },
       { key: 6, item: "longit", pos: 40, textWidth: 8 },
       { key: 7, item: " item ", pos: 48, textWidth: 8 },
       { key: 8, item: " item ", pos: 56, textWidth: 8 },
