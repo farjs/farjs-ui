@@ -15,6 +15,7 @@ await import("./menu/BottomMenu.test.mjs");
 await import("./menu/BottomMenuView.test.mjs");
 await import("./menu/MenuBar.test.mjs");
 await import("./menu/MenuBarTrigger.test.mjs");
+await import("./menu/MenuPopup.test.mjs");
 await import("./menu/SubMenu.test.mjs");
 
 await import("./popup/MessageBox.test.mjs");
