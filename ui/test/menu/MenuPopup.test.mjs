@@ -94,6 +94,17 @@ describe("MenuPopup.test.mjs", () => {
     //then
     assertMenuPopup(result, props);
   });
+
+  it("should calculate and return left pos when getLeftPos", () => {
+    //when & then
+    assert.deepEqual(MenuPopup.getLeftPos(10, true, 5), "0%+2");
+    assert.deepEqual(MenuPopup.getLeftPos(5, true, 5), "0%+0");
+    assert.deepEqual(MenuPopup.getLeftPos(5, true, 10), "0%+0");
+    assert.deepEqual(MenuPopup.getLeftPos(5, false, 5), "50%+0");
+    assert.deepEqual(MenuPopup.getLeftPos(10, false, 5), "50%+2");
+    assert.deepEqual(MenuPopup.getLeftPos(5, false, 10), "50%-5");
+    assert.deepEqual(MenuPopup.getLeftPos(5, false, 11), "0%+0");
+  });
 });
 
 /**
