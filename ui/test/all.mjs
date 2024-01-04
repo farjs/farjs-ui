@@ -2,6 +2,7 @@ await import("./Button.test.mjs");
 await import("./ButtonsPanel.test.mjs");
 await import("./TextLine.test.mjs");
 await import("./UI.test.mjs");
+await import("./UiString.test.mjs");
 await import("./WithSize.test.mjs");
 
 await import("./app/AppRoot.test.mjs");
