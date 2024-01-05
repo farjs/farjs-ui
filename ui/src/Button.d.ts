@@ -7,5 +7,5 @@ export interface ButtonProps {
   readonly top: number;
   readonly label: string;
   readonly style: Widgets.Types.TStyle;
-  readonly onPress(): void;
+  onPress(): void;
 }

@@ -2,7 +2,7 @@ import { Widgets } from "blessed";
 
 export interface ButtonsPanelAction {
   readonly label: string;
-  readonly onAction(): void;
+  onAction(): void;
 }
 
 export interface ButtonsPanelProps {
