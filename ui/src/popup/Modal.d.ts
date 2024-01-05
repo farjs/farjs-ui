@@ -7,5 +7,5 @@ export interface ModalProps {
   readonly width: number;
   readonly height: number;
   readonly style: BlessedStyle;
-  readonly onCancel(): void;
+  onCancel(): void;
 }

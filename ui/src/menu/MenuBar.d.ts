@@ -5,6 +5,6 @@ export interface MenuBarItem {
 
 export interface MenuBarProps {
   readonly items: MenuBarItem[];
-  readonly onAction(menuIndex: number, subIndex: number): void;
-  readonly onClose(): void;
+  onAction(menuIndex: number, subIndex: number): void;
+  onClose(): void;
 }

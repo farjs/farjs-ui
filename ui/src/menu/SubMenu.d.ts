@@ -3,5 +3,5 @@ export interface SubMenuProps {
   readonly items: string[];
   readonly top: number;
   readonly left: number;
-  readonly onClick(index: number): void;
+  onClick(index: number): void;
 }
