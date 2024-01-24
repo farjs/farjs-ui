@@ -32,7 +32,7 @@ jobs:
             ~/.nvm
             ~/work/farjs-ui/farjs-ui/node_modules
             ~/work/farjs-ui/farjs-ui/package-lock.json
-          key: ${{ runner.os }}-node_modules-cache-v3-${{ hashFiles('**/package.json') }}
+          key: ${{ runner.os }}-node_modules-cache-v3-${{ hashFiles('package.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules-cache-v3-
 
@@ -43,10 +43,10 @@ jobs:
       - name: Run tests
         run: |
           npm i
-          npm run formatCheck --workspaces
+          npm run formatCheck
           npx tsc
-          npx quick-lint-js ./ui/**/*.mjs ./ui/**/*.ts
-          NODE_V8_COVERAGE=coverage0 npx c8 -r lcovonly --all --src ./ui/src node --experimental-test-coverage ./ui/test/all.mjs
+          npx quick-lint-js ./**/*.mjs ./**/*.ts
+          NODE_V8_COVERAGE=coverage0 npx c8 -r lcovonly --all --src ./src node --experimental-test-coverage ./test/all.mjs
         if: ${{ env.TAG_NAME == '' }}
 
       - name: Report coverage to Coveralls
@@ -55,16 +55,12 @@ jobs:
 
       - name: Build SNAPSHOT
         run: |
-          cd ./ui
           npm pack
         if: ${{ env.TAG_NAME == '' }}
 
       - name: Publish RELEASE
         run: |
           echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
-          cp ./README.md ./ui
-          cp ./LICENSE.txt ./ui
-          cd ./ui
           VERSION="$(echo "$TAG_NAME" | cut -d'v' -f 2)"
           echo "Publish a release version=$VERSION for tag $TAG_NAME"
           npm --no-git-tag-version --allow-same-version version $VERSION
