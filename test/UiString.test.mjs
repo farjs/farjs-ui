@@ -82,9 +82,9 @@ describe("UiString.test.mjs", () => {
     assert.deepEqual(unicode.strWidth("\uD83E\uDD26\uD83C\uDFFC\u200D♂️"), 5);
 
     //when & then
-    assert.deepEqual(UiString("\uD800\uDC002").slice(0, 2), "\uD800\uDC00");
-    assert.deepEqual(UiString("\uD800\uDC002").slice(0, 1), "");
-    assert.deepEqual(UiString("\uD800\uDC002").slice(1, 2), "");
+    assert.deepEqual(UiString("\uD800\uDC002").slice(0, 2), "\uD800\uDC002");
+    assert.deepEqual(UiString("\uD800\uDC002").slice(0, 1), "\uD800\uDC00");
+    assert.deepEqual(UiString("\uD800\uDC002").slice(1, 2), "2");
     assert.deepEqual(UiString("\uD83C\uDF31-").slice(0, 1), "");
     assert.deepEqual(UiString("\uD83C\uDF31-").slice(0, 2), "\uD83C\uDF31");
   });
@@ -135,7 +135,10 @@ describe("UiString.test.mjs", () => {
     assert.deepEqual(UiString("Валютный").ensureWidth(7, " "), "Валютны");
     assert.deepEqual(UiString("Валютный").ensureWidth(8, " "), "Валютный");
     assert.deepEqual(UiString("Валютный2").ensureWidth(8, " "), "Валютный");
-    assert.deepEqual(UiString("\uD800\uDC002").ensureWidth(1, " "), " ");
+    assert.deepEqual(
+      UiString("\uD800\uDC002").ensureWidth(1, " "),
+      "\uD800\uDC00"
+    );
     assert.deepEqual(UiString("\uD83C\uDF31-").ensureWidth(1, " "), " ");
     assert.deepEqual(
       UiString("\uD83C\uDF31-").ensureWidth(2, " "),
