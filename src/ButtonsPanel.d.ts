@@ -1,4 +1,4 @@
-import { Widgets } from "blessed";
+import { Widgets } from "@farjs/blessed";
 
 export interface ButtonsPanelAction {
   readonly label: string;

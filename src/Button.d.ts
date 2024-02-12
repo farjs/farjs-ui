@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { Widgets } from "blessed";
+import { Widgets } from "@farjs/blessed";
 
 export interface ButtonProps {
   readonly left: number;
