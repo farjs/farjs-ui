@@ -1,5 +1,6 @@
 await import("./Button.test.mjs");
 await import("./ButtonsPanel.test.mjs");
+await import("./ListBox.test.mjs");
 await import("./ListView.test.mjs");
 await import("./ListViewport.test.mjs");
 await import("./ScrollBar.test.mjs");
