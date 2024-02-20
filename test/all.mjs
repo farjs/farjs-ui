@@ -23,6 +23,7 @@ await import("./menu/MenuBarTrigger.test.mjs");
 await import("./menu/MenuPopup.test.mjs");
 await import("./menu/SubMenu.test.mjs");
 
+await import("./popup/ListPopup.test.mjs");
 await import("./popup/MessageBox.test.mjs");
 await import("./popup/Modal.test.mjs");
 await import("./popup/ModalContent.test.mjs");
