@@ -3,6 +3,7 @@ await import("./ButtonsPanel.test.mjs");
 await import("./ListBox.test.mjs");
 await import("./ListView.test.mjs");
 await import("./ListViewport.test.mjs");
+await import("./ProgressBar.test.mjs");
 await import("./ScrollBar.test.mjs");
 await import("./TextLine.test.mjs");
 await import("./UI.test.mjs");
