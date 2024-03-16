@@ -1,3 +1,6 @@
+/**
+ * @typedef {import('./UiString').UiCharStartPos} UiCharStartPos
+ */
 import Blessed from "@farjs/blessed";
 
 const { unicode } = Blessed;
@@ -32,10 +35,10 @@ function UiString(str) {
       cw = unicode.charWidth(str, i);
 
       if (sw + cw <= width) {
-        if (
-          unicode.isSurrogate(str, i) ||
-          (i + 1 < str.length && unicode.isCombining(str, i + 1))
-        ) {
+        if (unicode.isSurrogate(str, i)) {
+          i += 1;
+        }
+        while (i + 1 < str.length && unicode.charWidth(str, i + 1) === 0) {
           i += 1;
         }
         i += 1;
@@ -85,6 +88,22 @@ function UiString(str) {
     strWidth,
 
     toString: () => str,
+
+    charStartPos: (from) => {
+      if (strWidth() === 0) {
+        return { lcw: 0, pos: 0, rcw: 0 };
+      }
+
+      const pos = Math.min(Math.max(from, 0), strWidth());
+      const { i, sw, cw } = skipWidth(0, pos === 0 ? 1 : pos);
+      if (pos === 0) {
+        return { lcw: 0, pos, rcw: cw };
+      }
+      const start = sw + cw;
+      const next = start > pos ? i + 1 : i;
+      const rcw = start === strWidth() ? 0 : skipWidth(next, 1).cw;
+      return { lcw: cw, pos: start, rcw };
+    },
 
     slice: (from, until) => {
       const start = from > 0 ? skipWidth(0, from).i : 0;

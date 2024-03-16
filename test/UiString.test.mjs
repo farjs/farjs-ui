@@ -1,3 +1,6 @@
+/**
+ * @typedef {import('../src/UiString').UiCharStartPos} UiCharStartPos
+ */
 import Blessed from "@farjs/blessed";
 import assert from "node:assert/strict";
 import UiString from "../src/UiString.mjs";
@@ -32,6 +35,60 @@ describe("UiString.test.mjs", () => {
     assert.deepEqual(UiString(str).toString(), str);
   });
 
+  it("should return left/right char widths and start pos when charStartPos", () => {
+    /**
+     * @param {string} str
+     * @param {number} pos
+     * @param {UiCharStartPos} expected
+     */
+    function check(str, pos, expected) {
+      assert.deepEqual(UiString(str).charStartPos(pos), expected);
+    }
+
+    //when & then
+    check("", 0, { lcw: 0, pos: 0, rcw: 0 });
+    check("abc", -1, { lcw: 0, pos: 0, rcw: 1 });
+    check("abc", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("abc", 1, { lcw: 1, pos: 1, rcw: 1 });
+    check("abc", 2, { lcw: 1, pos: 2, rcw: 1 });
+    check("abc", 3, { lcw: 1, pos: 3, rcw: 0 });
+    check("abc", 4, { lcw: 1, pos: 3, rcw: 0 });
+    check("й", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("й", 1, { lcw: 1, pos: 1, rcw: 0 });
+    check("й", 2, { lcw: 1, pos: 1, rcw: 0 });
+    check("aй", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("aй", 1, { lcw: 1, pos: 1, rcw: 1 });
+    check("aй", 2, { lcw: 1, pos: 2, rcw: 0 });
+    check("йa", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("йa", 1, { lcw: 1, pos: 1, rcw: 1 });
+    check("йa", 2, { lcw: 1, pos: 2, rcw: 0 });
+    check("\uD83C\uDF31", 0, { lcw: 0, pos: 0, rcw: 2 });
+    check("\uD83C\uDF31", 1, { lcw: 2, pos: 2, rcw: 0 });
+    check("\uD83C\uDF31", 2, { lcw: 2, pos: 2, rcw: 0 });
+    check("a\uD83C\uDF31", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("a\uD83C\uDF31", 1, { lcw: 1, pos: 1, rcw: 2 });
+    check("a\uD83C\uDF31", 2, { lcw: 2, pos: 3, rcw: 0 });
+    check("a\uD83C\uDF31", 3, { lcw: 2, pos: 3, rcw: 0 });
+    check("\uff01", 0, { lcw: 0, pos: 0, rcw: 2 });
+    check("\uff01", 1, { lcw: 2, pos: 2, rcw: 0 });
+    check("\uff01", 2, { lcw: 2, pos: 2, rcw: 0 });
+    check("a\uff01b", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("a\uff01b", 1, { lcw: 1, pos: 1, rcw: 2 });
+    check("a\uff01b", 2, { lcw: 2, pos: 3, rcw: 1 });
+    check("a\uff01b", 3, { lcw: 2, pos: 3, rcw: 1 });
+    check("a\uff01b", 4, { lcw: 1, pos: 4, rcw: 0 });
+    check("\u200D", 0, { lcw: 0, pos: 0, rcw: 0 });
+    check("\u200Dй", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("\u200Dй", 1, { lcw: 1, pos: 1, rcw: 0 });
+    check("\u200Dй", 2, { lcw: 1, pos: 1, rcw: 0 });
+    check("\u200Dй\u200Dй", 0, { lcw: 0, pos: 0, rcw: 1 });
+    check("\u200Dй\u200Dй", 1, { lcw: 1, pos: 1, rcw: 1 });
+    check("\u200Dй\u200Dй", 2, { lcw: 1, pos: 2, rcw: 0 });
+    check("double 🉐", 4, { lcw: 1, pos: 4, rcw: 1 });
+    check("double 🉐", 7, { lcw: 1, pos: 7, rcw: 2 });
+    check("double 🉐", 8, { lcw: 2, pos: 9, rcw: 0 });
+  });
+
   it("should return part of str when slice", () => {
     //given
     const str = "abcd";
@@ -54,6 +111,8 @@ describe("UiString.test.mjs", () => {
 
   it("should handle combining chars when slice", () => {
     //given
+    assert.deepEqual(unicode.isCombining("\u200D", 0), true);
+    assert.deepEqual(unicode.charWidth("\u200D", 0), 0);
     assert.deepEqual(unicode.isCombining("й", 0), false);
     assert.deepEqual(unicode.isCombining("й", 1), true);
     assert.deepEqual(unicode.strWidth("й"), 1);
@@ -63,6 +122,9 @@ describe("UiString.test.mjs", () => {
     assert.deepEqual(UiString("Валютный").slice(6, 7), "ы");
     assert.deepEqual(UiString("Валютный").slice(7, 8), "й");
     assert.deepEqual(UiString("й").slice(0, 1), "й");
+    assert.deepEqual(UiString("й\u200D").slice(0, 1), "й\u200D");
+    assert.deepEqual(UiString("й\u200D\u200Db").slice(0, 1), "й\u200D\u200D");
+    assert.deepEqual(UiString("й\u200D\u200Db").slice(1, 2), "b");
     assert.deepEqual(UiString("1й").slice(0, 1), "1");
     assert.deepEqual(UiString("1й").slice(0, 2), "1й");
     assert.deepEqual(UiString("й2").slice(0, 2), "й2");
@@ -70,7 +132,27 @@ describe("UiString.test.mjs", () => {
     assert.deepEqual(UiString("й2").slice(1, 2), "2");
   });
 
-  it("should handle surrogate chars when slice", () => {
+  it("should handle high/low surrogate chars when slice", () => {
+    //given
+    assert.deepEqual(unicode.isSurrogate("\uD83C", 0), false);
+    assert.deepEqual(unicode.isSurrogate("\uD83Ca", 0), false);
+    assert.deepEqual(unicode.isSurrogate("\uD83C\uDF31", 0), true);
+    assert.deepEqual(unicode.isSurrogate("\uD83C\uDF31", 1), false);
+    assert.deepEqual(unicode.charWidth("\uD800", 0), 0);
+    assert.deepEqual(unicode.charWidth("\uD83C", 0), 0);
+    assert.deepEqual(unicode.charWidth("\uDBFF", 0), 0);
+    assert.deepEqual(unicode.charWidth("\uDC00", 0), 0);
+    assert.deepEqual(unicode.charWidth("\uDFFF", 0), 0);
+    assert.deepEqual(unicode.isCombining("\uD83C", 0), false);
+
+    //when & then
+    assert.deepEqual(UiString("\uD83C").slice(0, 1), "\uD83C");
+    assert.deepEqual(UiString("a\uD83C").slice(0, 1), "a\uD83C");
+    assert.deepEqual(UiString("a\uD83C\uD800b").slice(0, 1), "a\uD83C\uD800");
+    assert.deepEqual(UiString("a\uD83C\uD800b").slice(1, 2), "b");
+  });
+
+  it("should handle surrogate pairs when slice", () => {
     //given
     assert.deepEqual(unicode.isSurrogate("\uD83C\uDF31", 0), true);
     assert.deepEqual(unicode.isSurrogate("\uD83C\uDF31", 1), false);
