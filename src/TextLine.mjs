@@ -2,6 +2,7 @@
  * @typedef {import("./TextLine").TextLineProps} TextLineProps
  */
 import React from "react";
+import UiString from "./UiString.mjs";
 import TextAlign from "./TextAlign.mjs";
 
 const h = React.createElement;
@@ -13,27 +14,27 @@ const TextLine = (props) => {
   const paddingLen = props.padding ?? 1;
   const padding = " ".repeat(paddingLen);
   const wrapped = TextLine.wrapText(props.text, props.width - paddingLen * 2);
-  const text = `${padding}${wrapped}${padding}`;
+  const text = UiString(`${padding}${wrapped}${padding}`);
 
-  if (text.length > 0) {
+  if (text.strWidth() > 0) {
     function getLeft() {
       switch (props.align) {
         case TextAlign.left:
           return props.left;
         case TextAlign.right:
-          return props.left + props.width - text.length;
+          return props.left + props.width - text.strWidth();
         default:
-          return props.left + Math.trunc((props.width - text.length) / 2);
+          return props.left + Math.trunc((props.width - text.strWidth()) / 2);
       }
     }
 
     return h("text", {
-      width: text.length,
+      width: text.strWidth(),
       height: 1,
       left: getLeft(),
       top: props.top,
       style: props.focused ?? false ? props.style.focus : props.style,
-      content: text,
+      content: text.toString(),
     });
   }
 
@@ -49,10 +50,14 @@ TextLine.displayName = "TextLine";
  * @returns {string}
  */
 TextLine.wrapText = (text, width, prefixLen = 3) => {
-  const dx = text.length - width;
+  const t = UiString(text);
+  const dx = t.strWidth() - width;
   if (dx > 0) {
-    const prefix = text.slice(0, Math.min(prefixLen, text.length));
-    const sufix = text.slice(Math.min(dx + prefixLen + 3, text.length)); // prefix + ...
+    const prefix = t.slice(0, Math.min(prefixLen, t.strWidth()));
+    const sufix = t.slice(
+      Math.min(dx + prefixLen + 3, t.strWidth()),
+      t.strWidth()
+    ); // prefix + ...
     return `${prefix}...${sufix}`;
   }
 

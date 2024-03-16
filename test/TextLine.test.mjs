@@ -5,6 +5,7 @@ import React from "react";
 import TestRenderer from "react-test-renderer";
 import assert from "node:assert/strict";
 import { assertComponents } from "react-assert";
+import UiString from "../src/UiString.mjs";
 import TextAlign from "../src/TextAlign.mjs";
 import TextLine from "../src/TextLine.mjs";
 
@@ -29,7 +30,7 @@ describe("TextLine.test.mjs", () => {
       left: left,
       top: 2,
       width: 15,
-      text: "test item",
+      text: "test itemй",
     };
 
     //when
@@ -37,7 +38,7 @@ describe("TextLine.test.mjs", () => {
 
     //then
     assert.deepEqual(TextLine.displayName, "TextLine");
-    assertTextLine(result, props, left, " test item ");
+    assertTextLine(result, props, left, " test itemй ");
   });
 
   it("should render Center aligned text", () => {
@@ -49,14 +50,14 @@ describe("TextLine.test.mjs", () => {
       left: left,
       top: 2,
       width: 15,
-      text: "test item",
+      text: "test itemй",
     };
 
     //when
     const result = TestRenderer.create(h(TextLine, props)).root;
 
     //then
-    assertTextLine(result, props, left + 2, " test item ");
+    assertTextLine(result, props, left + 1, " test itemй ");
   });
 
   it("should render Right aligned text", () => {
@@ -68,15 +69,15 @@ describe("TextLine.test.mjs", () => {
       left: left,
       top: 2,
       width: 15,
-      text: "test item",
+      text: "test itemй",
     };
 
     //when
     let result = TestRenderer.create(h(TextLine, props)).root;
     //then
     //       10|  15|
-    //     test item
-    assertTextLine(result, props, left + 4, " test item ");
+    //    test itemй
+    assertTextLine(result, props, left + 3, " test itemй ");
 
     //when empty
     result = TestRenderer.create(h(TextLine, { ...props, text: "" })).root;
@@ -89,8 +90,8 @@ describe("TextLine.test.mjs", () => {
     result = TestRenderer.create(h(TextLine, { ...props, padding: 0 })).root;
     //then
     //       10|  15|
-    //      test item
-    assertTextLine(result, props, left + 6, "test item");
+    //     test itemй
+    assertTextLine(result, props, left + 5, "test itemй");
 
     //when empty text without padding
     result = TestRenderer.create(
@@ -127,7 +128,7 @@ describe("TextLine.test.mjs", () => {
       left: left,
       top: 2,
       width: 12,
-      text: "test item",
+      text: "test itemй",
       focused: false,
       padding: 0,
     };
@@ -136,7 +137,7 @@ describe("TextLine.test.mjs", () => {
     const result = TestRenderer.create(h(TextLine, props)).root;
 
     //then
-    assertTextLine(result, props, left, "test item");
+    assertTextLine(result, props, left, "test itemй");
   });
 
   it("should render long text with ellipsis", () => {
@@ -147,14 +148,14 @@ describe("TextLine.test.mjs", () => {
       left: left,
       top: 2,
       width: 12,
-      text: "test long item",
+      text: "test long itemй",
     };
 
     //when
     const result = TestRenderer.create(h(TextLine, props)).root;
 
     //then
-    assertTextLine(result, props, left, " tes...item ");
+    assertTextLine(result, props, left, " tes...temй ");
   });
 });
 
@@ -187,7 +188,7 @@ function assertTextLine(result, props, left, text) {
     assertComponents(
       result.children,
       h("text", {
-        width: text.length,
+        width: UiString(text).strWidth(),
         height: 1,
         left: left,
         top: props.top,
