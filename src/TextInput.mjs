@@ -104,16 +104,17 @@ const TextInput = (props) => {
    * @param {TextSelect} ts
    */
   function select(value, idx, newIdx, ts) {
+    const selStartOrIdx = () => (selStart !== -1 ? selStart : idx);
+    const selEndOrIdx = () => (selEnd !== -1 ? selEnd : idx);
     const [newStart, newEnd] = (() => {
       //prettier-ignore
       switch (ts) {
         case "Reset":       return [-1, -1];
         case "All":         return [0, value.strWidth()];
-        case "TillTheEnd":  return [selStart !== -1 ? selStart : idx, value.strWidth()];
-        case "ToTheRight":  return [selStart !== -1 ? selStart : idx, newIdx];
-        case "TillTheHome": return [0, selEnd !== -1 ? selEnd : idx];
-        case "ToTheLeft":   return [newIdx, selEnd !== -1 ? selEnd : idx];
-        default:            return [selStart, selEnd];
+        case "TillTheEnd":  return [selStartOrIdx(), value.strWidth()];
+        case "ToTheRight":  return [selStartOrIdx(), newIdx];
+        case "TillTheHome": return [0, selEndOrIdx()];
+        case "ToTheLeft":   return [newIdx, selEndOrIdx()];
       }
     })();
 
