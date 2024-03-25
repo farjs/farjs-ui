@@ -550,6 +550,13 @@ describe("TextInput.test.mjs", () => {
 
     //when & then
     check(true, "right", offset + 1, cursorX - 1, value);
+    check(true, "right", offset, cursorX, value);
+    for (let i = 0; i < 8; i++) {
+      check(true, "left", offset, cursorX - 1, value);
+    }
+    check(true, "left", offset - 1, cursorX, value);
+    check(true, "left", offset - 1, cursorX, value);
+    check(true, "right", offset, cursorX + 1, value);
     check(true, "S-home", 0, 0, value, 0, currIdx());
     check(true, "right", offset, cursorX + 1, value);
     check(true, "S-right", offset, cursorX + 1, value, currIdx(), currIdx() + 1);
