@@ -60,23 +60,38 @@ const TextInput = (props) => {
    */
   function move(el, value, cm, ts) {
     const charStart = value.charStartPos(offset + cursorX);
+
+    /**
+     * @param {number} [dx]
+     * @returns {number[]}
+     */
+    function moveLeft(dx) {
+      const ldx = dx ?? Math.max(charStart.lcw, 1);
+      return [cursorX - ldx, cursorX === 0 ? offset - ldx : offset];
+    }
+
+    /**
+     * @param {number} [dx]
+     * @returns {number[]}
+     */
+    //prettier-ignore
+    function moveRight(dx) {
+      const rdx = dx ?? Math.max(charStart.rcw, 1);
+      return [cursorX + rdx, cursorX === /** @type {number} */ (el.width) - 1 ? offset + rdx : offset];
+    }
+
     const [posX, idx] = (() => {
       //prettier-ignore
       switch (cm.move) {
-        case "At":   return [cm.pos, offset];
-        case "Home": return [0, 0];
-        case "End":  return [value.strWidth(), value.strWidth() - /** @type {number} */ (el.width) + 1];
-        case "Left":
-          const ldx = cm.dx ?? Math.max(charStart.lcw, 1);
-          return [cursorX - ldx, cursorX === 0 ? offset - ldx : offset];
-        case "Right":
-          const rdx = cm.dx ?? Math.max(charStart.rcw, 1);
-          return [cursorX + rdx, cursorX === /** @type {number} */ (el.width) - 1 ? offset + rdx : offset];
+        case "At":    return [cm.pos, offset];
+        case "Home":  return [0, 0];
+        case "End":   return [value.strWidth(), value.strWidth() - /** @type {number} */ (el.width) + 1];
+        case "Left":  return moveLeft(cm.dx);
+        case "Right": return moveRight(cm.dx);
       }
     })();
 
     const newOffset = Math.min(Math.max(idx, 0), value.strWidth());
-
     const newPos = Math.min(
       Math.max(posX, 0),
       Math.min(
@@ -84,6 +99,7 @@ const TextInput = (props) => {
         Math.max(value.strWidth() - newOffset, 0)
       )
     );
+
     if (newPos !== cursorX) {
       el.screen.program.omove(
         /** @type {number} */ (el.aleft) + newPos,
