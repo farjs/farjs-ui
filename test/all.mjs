@@ -1,6 +1,7 @@
 await import("./Button.test.mjs");
 await import("./ButtonsPanel.test.mjs");
 await import("./CheckBox.test.mjs");
+await import("./ComboBox.test.mjs");
 await import("./ComboBoxPopup.test.mjs");
 await import("./ListBox.test.mjs");
 await import("./ListView.test.mjs");
