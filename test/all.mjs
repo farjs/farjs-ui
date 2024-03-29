@@ -8,6 +8,7 @@ await import("./ListView.test.mjs");
 await import("./ListViewport.test.mjs");
 await import("./ProgressBar.test.mjs");
 await import("./ScrollBar.test.mjs");
+await import("./TextBox.test.mjs");
 await import("./TextInput.test.mjs");
 await import("./TextLine.test.mjs");
 await import("./UI.test.mjs");
