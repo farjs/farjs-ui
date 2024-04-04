@@ -1,14 +1,14 @@
 /**
- * @typedef {"left" | "right" | "center"} TextAlignType
+ * @typedef {"left" | "right" | "center"} TextAlign
  */
 
-/** @type {TextAlignType} */
+/** @type {TextAlign} */
 const left = "left";
 
-/** @type {TextAlignType} */
+/** @type {TextAlign} */
 const right = "right";
 
-/** @type {TextAlignType} */
+/** @type {TextAlign} */
 const center = "center";
 
 const TextAlign = Object.freeze({

@@ -1,10 +1,10 @@
 import { Widgets } from "@farjs/blessed";
-import { TextAlignType } from "./TextAlign.mjs";
+import { TextAlign } from "./TextAlign.mjs";
 
 type BlessedStyle = Widgets.Types.TStyle;
 
 export interface TextLineProps {
-  readonly align: TextAlignType;
+  readonly align: TextAlign;
   readonly left: number;
   readonly top: number;
   readonly width: number;
