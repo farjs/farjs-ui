@@ -1,7 +1,11 @@
-/**
- * @typedef {import("./LogController").LogControllerProps} LogControllerProps
- */
 import { useRef, useState, useLayoutEffect } from "react";
+
+/**
+ * @typedef {{
+ *  onReady(): void;
+ *  render(content: string): React.ReactElement | null;
+ * }} LogControllerProps
+ */
 
 /**
  * @param {LogControllerProps} props

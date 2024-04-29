@@ -1,6 +1,6 @@
 /**
- * @typedef {import('../src/ListViewport').ListViewport} ListViewport
- * @typedef {import('../src/ComboBoxPopup').ComboBoxPopupProps} ComboBoxPopupProps
+ * @typedef {import("../src/ListViewport.mjs").ListViewport} ListViewport
+ * @typedef {import("../src/ComboBoxPopup.mjs").ComboBoxPopupProps} ComboBoxPopupProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

@@ -1,10 +1,18 @@
-/**
- * @typedef {import("./CheckBox").CheckBoxProps} CheckBoxProps
- */
 import React from "react";
 import Button from "./Button.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly value: boolean;
+ *  readonly label: string;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  onChange(): void;
+ * }} CheckBoxProps
+ */
 
 /**
  * @param {CheckBoxProps} props

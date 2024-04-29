@@ -1,11 +1,15 @@
 /**
- * @typedef {import("./MessageBoxAction").MessageBoxActionType} MessageBoxActionType
+ * @typedef {{
+ *  readonly label: string;
+ *  readonly triggeredOnClose: boolean;
+ *  onAction(): void;
+ * }} MessageBoxAction
  */
 
 /**
  * @param {string} label
  * @param {boolean} triggeredOnClose
- * @returns {(onAction: () => void) => MessageBoxActionType}
+ * @returns {(onAction: () => void) => MessageBoxAction}
  */
 function createAction(label, triggeredOnClose = false) {
   return (onAction) => {

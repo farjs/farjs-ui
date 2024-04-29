@@ -1,6 +1,5 @@
 /**
- * @typedef {import("./ModalContent").BlessedPadding} BlessedPadding
- * @typedef {import("./ListPopup").ListPopupProps} ListPopupProps
+ * @typedef {import("./ModalContent.mjs").BlessedPadding} BlessedPadding
  */
 import React from "react";
 import Theme from "../theme/Theme.mjs";
@@ -11,6 +10,22 @@ import ListBox from "../ListBox.mjs";
 import TextLine from "../TextLine.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly title: string;
+ *  readonly items: string[];
+ *  onAction(index: number): void;
+ *  onClose(): void;
+ *  readonly selected?: number;
+ *  onSelect?(index: number): void;
+ *  onKeypress?(keyFull: string): boolean;
+ *  readonly footer?: string;
+ *  readonly textPaddingLeft?: number;
+ *  readonly textPaddingRight?: number;
+ *  readonly itemWrapPrefixLen?: number;
+ * }} ListPopupProps
+ */
 
 /**
  * @param {ListPopupProps} props

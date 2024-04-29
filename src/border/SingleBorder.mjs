@@ -1,12 +1,17 @@
-/**
- * @typedef {import("./SingleBorder").SingleBorderProps} SingleBorderProps
- */
 import React from "react";
 import HorizontalLine from "./HorizontalLine.mjs";
 import VerticalLine from "./VerticalLine.mjs";
 import SingleChars from "./SingleChars.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly width: number;
+ *  readonly height: number;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ * }} SingleBorderProps
+ */
 
 /**
  * @param {SingleBorderProps} props

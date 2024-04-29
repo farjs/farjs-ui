@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../src/border/SingleBorder').SingleBorderProps} SingleBorderProps
+ * @typedef {import("../../src/border/SingleBorder.mjs").SingleBorderProps} SingleBorderProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

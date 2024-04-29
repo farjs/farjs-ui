@@ -1,10 +1,24 @@
-/**
- * @typedef {import("./ButtonsPanel").ButtonsPanelProps} ButtonsPanelProps
- */
 import React from "react";
 import Button from "./Button.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly label: string;
+ *  onAction(): void;
+ * }} ButtonsPanelAction
+ */
+
+/**
+ * @typedef {{
+ *  readonly top: number;
+ *  readonly actions: ButtonsPanelAction[];
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  readonly padding?: number;
+ *  readonly margin?: number;
+ * }} ButtonsPanelProps
+ */
 
 /**
  * @param {ButtonsPanelProps} props

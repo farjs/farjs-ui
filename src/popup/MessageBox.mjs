@@ -1,6 +1,6 @@
 /**
- * @typedef {import("../../src/ButtonsPanel").ButtonsPanelAction} ButtonsPanelAction
- * @typedef {import("./MessageBox").MessageBoxProps} MessageBoxProps
+ * @typedef {import("../../src/ButtonsPanel.mjs").ButtonsPanelAction} ButtonsPanelAction
+ * @typedef {import("./MessageBoxAction.mjs").MessageBoxAction} MessageBoxAction
  */
 import React from "react";
 import * as UI from "../UI.mjs";
@@ -11,6 +11,15 @@ import ModalContent from "./ModalContent.mjs";
 import ButtonsPanel from "../ButtonsPanel.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly title: string;
+ *  readonly message: string;
+ *  readonly actions: MessageBoxAction[];
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ * }} MessageBoxProps
+ */
 
 /**
  * @param {MessageBoxProps} props

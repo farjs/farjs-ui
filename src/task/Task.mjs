@@ -1,8 +1,17 @@
 /**
  * @template T
+ * @typedef {{
+ *  readonly startTime: number;
+ *  readonly message: string;
+ *  readonly result: Promise<T>;
+ * }} Task<T>
+ */
+
+/**
+ * @template T
  * @param {string} message
  * @param {Promise<T>} result
- * @returns {import('./Task').Task<T>}
+ * @returns {Task<T>}
  */
 function Task(message, result) {
   return {

@@ -3,6 +3,9 @@ import PopupOverlay from "../popup/PopupOverlay.mjs";
 
 const h = React.createElement;
 
+/**
+ * @returns {React.ReactElement}
+ */
 const MenuBarTrigger = () => {
   return h("box", {
     height: 1,

@@ -1,13 +1,22 @@
-/**
- * @typedef {import("./BottomMenuView").BottomMenuViewProps} BottomMenuViewProps
- */
 import React from "react";
 import Theme from "../theme/Theme.mjs";
 
 const h = React.createElement;
 
 /**
- * @typedef {{key: number, item: string, pos: number, textWidth: number}} BottomMenuViewItem
+ * @typedef {{
+ *  readonly width: number;
+ *  readonly items: string[];
+ * }} BottomMenuViewProps
+ */
+
+/**
+ * @typedef {{
+ *  readonly key: number;
+ *  readonly item: string;
+ *  readonly pos: number;
+ *  readonly textWidth: number;
+ * }} BottomMenuViewItem
  */
 
 /**

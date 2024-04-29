@@ -1,7 +1,7 @@
 /**
- * @typedef {import("../../src/task/Task").Task<any>} Task
- * @typedef {import("../../src/task/TaskManager").TaskManagerProps} TaskManagerProps
- * @typedef {import("../../src/task/TaskManagerUi").TaskManagerUiProps} TaskManagerUiProps
+ * @typedef {import("../../src/task/Task.mjs").Task<any>} Task
+ * @typedef {import("../../src/task/TaskManager.mjs").TaskManagerProps} TaskManagerProps
+ * @typedef {import("../../src/task/TaskManagerUi.mjs").TaskManagerUiProps} TaskManagerUiProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/ProgressBar').ProgressBarProps} ProgressBarProps
+ * @typedef {import("../src/ProgressBar.mjs").ProgressBarProps} ProgressBarProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

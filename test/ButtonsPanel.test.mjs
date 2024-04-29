@@ -1,6 +1,6 @@
 /**
- * @typedef {import("../src/ButtonsPanel").ButtonsPanelAction} ButtonsPanelAction
- * @typedef {import("../src/ButtonsPanel").ButtonsPanelProps} ButtonsPanelProps
+ * @typedef {import("../src/ButtonsPanel.mjs").ButtonsPanelAction} ButtonsPanelAction
+ * @typedef {import("../src/ButtonsPanel.mjs").ButtonsPanelProps} ButtonsPanelProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

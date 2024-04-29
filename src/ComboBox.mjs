@@ -1,9 +1,8 @@
 /**
  * @typedef {import("@farjs/blessed").BlessedProgram} BlessedProgram
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
- * @typedef {import("./ListViewport").ListViewport} ListViewport
- * @typedef {import("./TextInput").TextInputState} TextInputState
- * @typedef {import("./ComboBox").ComboBoxProps} ComboBoxProps
+ * @typedef {import("./ListViewport.mjs").ListViewport} ListViewport
+ * @typedef {import("./TextInput.mjs").TextInputState} TextInputState
  */
 import React, { useRef, useState } from "react";
 import { createListViewport } from "./ListViewport.mjs";
@@ -13,6 +12,18 @@ import TextInput from "./TextInput.mjs";
 import ComboBoxPopup from "./ComboBoxPopup.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly width: number;
+ *  readonly items: string[];
+ *  readonly value: string;
+ *  onChange(value: string): void;
+ *  onEnter?(): void;
+ * }} ComboBoxProps
+ */
 
 /**
  * @param {ComboBoxProps} props

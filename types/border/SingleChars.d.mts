@@ -1,0 +1,20 @@
+export default SingleChars;
+declare const SingleChars: Readonly<{
+    horizontal: "─";
+    vertical: "│";
+    topLeft: "┌";
+    topRight: "┐";
+    bottomLeft: "└";
+    bottomRight: "┘";
+    top: "┬";
+    bottom: "┴";
+    left: "├";
+    right: "┤";
+    topDouble: "╥";
+    bottomDouble: "╨";
+    leftDouble: "╞";
+    rightDouble: "╡";
+    cross: "┼";
+    crossDoubleVert: "╫";
+    crossDoubleHoriz: "╪";
+}>;

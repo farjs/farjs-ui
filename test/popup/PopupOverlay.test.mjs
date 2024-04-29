@@ -1,5 +1,4 @@
 /**
- * @typedef {import('../../src/popup/Popup').PopupProps} PopupProps
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
  * @typedef {import("@farjs/blessed").Widgets.FormElement<null> & {
  *    focusFirst(): void,
@@ -9,6 +8,7 @@
  *    full: string,
  *    defaultPrevented?: boolean
  * }} IKeyEventArg
+ * @typedef {import("../../src/popup/Popup.mjs").PopupProps} PopupProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

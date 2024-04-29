@@ -1,6 +1,6 @@
 /**
  * @typedef {import("@farjs/blessed").Widgets.Events.IKeyEventArg} IKeyEventArg
- * @typedef {import("../../src/menu/BottomMenuView").BottomMenuViewProps} BottomMenuViewProps
+ * @typedef {import("../../src/menu/BottomMenuView.mjs").BottomMenuViewProps} BottomMenuViewProps
  * @typedef {import("../../src/menu/BottomMenuView.mjs").BottomMenuViewItem} BottomMenuViewItem
  */
 import React from "react";

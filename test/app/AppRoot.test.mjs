@@ -1,8 +1,8 @@
 /**
- * @typedef {import("../../src/theme/Theme").ThemeType} ThemeType
- * @typedef {import("../../src/tool/DevTool.mjs").DevToolType} DevToolType
- * @typedef {import("../../src/app/AppRoot").LoadResult} LoadResult
- * @typedef {import("../../src/app/AppRoot").AppRootProps} AppRootProps
+ * @typedef {import("../../src/theme/Theme.mjs").Theme} Theme
+ * @typedef {import("../../src/tool/DevTool.mjs").DevTool} DevTool
+ * @typedef {import("../../src/app/AppRoot.mjs").LoadResult} LoadResult
+ * @typedef {import("../../src/app/AppRoot.mjs").AppRootProps} AppRootProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";
@@ -266,8 +266,8 @@ describe("AppRoot.test.mjs", () => {
 
 /**
  * @param {(dispatch: (a: any) => void) => Promise<LoadResult>} loadMainUi
- * @param {DevToolType} initialDevTool
- * @param {ThemeType} defaultTheme
+ * @param {DevTool} initialDevTool
+ * @param {Theme} defaultTheme
  * @returns {AppRootProps}
  */
 function getAppRootProps(loadMainUi, initialDevTool, defaultTheme) {
@@ -279,10 +279,10 @@ function getAppRootProps(loadMainUi, initialDevTool, defaultTheme) {
 }
 
 /**
- * @returns {[React.MutableRefObject<ThemeType | null>, React.FC]}
+ * @returns {[React.MutableRefObject<Theme | null>, React.FC]}
  */
 function getThemeCtxHook() {
-  /** @type {React.MutableRefObject<ThemeType | null>} */
+  /** @type {React.MutableRefObject<Theme | null>} */
   const ref = React.createRef();
   /**
    * @param {React.PropsWithChildren<{}>} props

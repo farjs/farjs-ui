@@ -1,5 +1,5 @@
 /**
- * @typedef {import("../src/ListViewport").ListViewport} ListViewport
+ * @typedef {import("../src/ListViewport.mjs").ListViewport} ListViewport
  */
 import assert from "node:assert/strict";
 import { createListViewport } from "../src/ListViewport.mjs";

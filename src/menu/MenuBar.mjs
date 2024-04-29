@@ -1,7 +1,5 @@
 /**
- * @typedef {import("../../src/ButtonsPanel").ButtonsPanelAction} ButtonsPanelAction
- * @typedef {import("./MenuBar").MenuBarItem} MenuBarItem
- * @typedef {import("./MenuBar").MenuBarProps} MenuBarProps
+ * @typedef {import("../../src/ButtonsPanel.mjs").ButtonsPanelAction} ButtonsPanelAction
  */
 import React, { useState } from "react";
 import Theme from "../theme/Theme.mjs";
@@ -12,7 +10,25 @@ import SubMenu from "./SubMenu.mjs";
 const h = React.createElement;
 
 /**
- * @typedef {{menuIndex: number, subIndex: number}} SubMenuState
+ * @typedef {{
+ *  readonly label: string;
+ *  readonly subItems: string[];
+ * }} MenuBarItem
+ */
+
+/**
+ * @typedef {{
+ *  readonly items: MenuBarItem[];
+ *  onAction(menuIndex: number, subIndex: number): void;
+ *  onClose(): void;
+ * }} MenuBarProps
+ */
+
+/**
+ * @typedef {{
+ *  readonly menuIndex: number;
+ *  readonly subIndex: number;
+ * }} SubMenuState
  */
 
 /**

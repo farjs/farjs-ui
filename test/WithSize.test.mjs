@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/WithSize').WithSizeProps} WithSizeProps
+ * @typedef {import("../src/WithSize.mjs").WithSizeProps} WithSizeProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

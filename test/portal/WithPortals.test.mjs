@@ -1,5 +1,5 @@
 /**
- * @typedef {import("../../src/portal/WithPortals").WithPortalsContext} WithPortalsContext
+ * @typedef {import("../../src/portal/WithPortals.mjs").WithPortalsContext} WithPortalsContext
  * @typedef {import("../../src/portal/Portal.mjs").PortalContext} PortalContext
  * @typedef {import("@farjs/blessed").Widgets.Screen} BlessedScreen
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement

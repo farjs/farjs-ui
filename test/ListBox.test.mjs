@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/ListBox').ListBoxProps} ListBoxProps
+ * @typedef {import("../src/ListBox.mjs").ListBoxProps} ListBoxProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

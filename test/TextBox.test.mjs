@@ -1,6 +1,6 @@
 /**
- * @typedef {import("../src/TextInput").TextInputProps} TextInputProps
- * @typedef {import('../src/TextBox').TextBoxProps} TextBoxProps
+ * @typedef {import("../src/TextInput.mjs").TextInputProps} TextInputProps
+ * @typedef {import("../src/TextBox.mjs").TextBoxProps} TextBoxProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

@@ -1,5 +1,5 @@
 /**
- * @typedef {import("../../src/menu/BottomMenu").BottomMenuProps} BottomMenuProps
+ * @typedef {import("../../src/menu/BottomMenu.mjs").BottomMenuProps} BottomMenuProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

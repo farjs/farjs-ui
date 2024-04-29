@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../src/popup/Modal').ModalProps} ModalProps
+ * @typedef {import("../../src/popup/Modal.mjs").ModalProps} ModalProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

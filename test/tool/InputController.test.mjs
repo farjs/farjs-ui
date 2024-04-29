@@ -19,7 +19,9 @@ const { describe, it } = await (async () => {
 InputController.logPanelComp = mockComponent(LogPanel);
 InputController.maxBufferLength = 10;
 const { logPanelComp } = InputController;
-const g = global;
+
+/** @type {{farjsLogKeys: ((msg: string) => void) | undefined}} */
+const g = /** @type {any} */ (global);
 
 /**
  * @param {string} msg

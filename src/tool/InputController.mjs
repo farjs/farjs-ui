@@ -3,10 +3,12 @@ import LogPanel from "./LogPanel.mjs";
 
 const h = React.createElement;
 
+/** @type {{farjsLogKeys: ((msg: string) => void) | undefined}} */
+const g = /** @type {any} */ (global);
+
 const InputController = () => {
   const { logPanelComp, maxBufferLength } = InputController;
   const [content, setContent] = useState("");
-  const g = global;
 
   useLayoutEffect(() => {
     /**

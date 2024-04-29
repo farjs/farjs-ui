@@ -1,6 +1,3 @@
-/**
- * @typedef {import("./SubMenu").SubMenuProps} SubMenuProps
- */
 import React from "react";
 import Theme from "../theme/Theme.mjs";
 import SingleChars from "../border/SingleChars.mjs";
@@ -9,6 +6,16 @@ import DoubleBorder from "../border/DoubleBorder.mjs";
 import HorizontalLine from "../border/HorizontalLine.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly selected: number;
+ *  readonly items: string[];
+ *  readonly top: number;
+ *  readonly left: number;
+ *  onClick(index: number): void;
+ * }} SubMenuProps
+ */
 
 /**
  * @param {SubMenuProps} props

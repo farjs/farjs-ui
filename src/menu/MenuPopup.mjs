@@ -1,6 +1,3 @@
-/**
- * @typedef {import("./MenuPopup").MenuPopupProps} MenuPopupProps
- */
 import React from "react";
 import Theme from "../theme/Theme.mjs";
 import Popup from "../popup/Popup.mjs";
@@ -11,6 +8,16 @@ const h = React.createElement;
 
 const paddingHorizontal = 2;
 const paddingVertical = 1;
+
+/**
+ * @typedef {{
+ *  readonly title: string;
+ *  readonly items: string[];
+ *  getLeft(width: number): string;
+ *  onSelect(index: number): void;
+ *  onClose(): void;
+ * }} MenuPopupProps
+ */
 
 /**
  * @param {MenuPopupProps} props

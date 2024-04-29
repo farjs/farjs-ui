@@ -1,7 +1,7 @@
 import Color from "./Color.mjs";
 
 /**
- * @type {import("./Theme").ThemeType}
+ * @type {import("./Theme.mjs").Theme}
  */
 const DefaultTheme = Object.freeze({
   popup: Object.freeze({

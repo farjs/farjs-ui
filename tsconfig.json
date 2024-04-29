@@ -1,6 +1,6 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  // "include": ["**/*.mjs"],
+  "include": ["./src/**/*.mjs"],
   "compilerOptions": {
     "module": "node16",
     //got from here: https://stackoverflow.com/questions/61305578/what-typescript-configuration-produces-output-closest-to-node-js-14-capabilities/61305579#61305579
@@ -10,7 +10,7 @@
     "checkJs": true,
     "importHelpers": true,
     // output .d.ts declaration files for consumers
-    // "declaration": true,
+    "declaration": true,
     // output .js.map sourcemap files for consumers
     // "sourceMap": true,
     // match output dir to input dir. e.g. dist/index instead of dist/src/index
@@ -25,7 +25,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     // use Node's module resolution algorithm, instead of the legacy TS one
-    "moduleResolution": "node",
+    //"moduleResolution": "node",
     // transpile JSX to React.createElement
     // "jsx": "react",
     // interop between ESM and CJS modules. Recommended by TS
@@ -34,7 +34,8 @@
     "skipLibCheck": true,
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true
-    // "emitDeclarationOnly": true,
+    //"noEmit": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./types"
   }
 }

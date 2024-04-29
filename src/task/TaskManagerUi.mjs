@@ -1,6 +1,3 @@
-/**
- * @typedef {import("./TaskManagerUi").TaskManagerUiProps} TaskManagerUiProps
- */
 import React, { useState, useLayoutEffect } from "react";
 import StatusPopup from "../popup/StatusPopup.mjs";
 import MessageBox from "../popup/MessageBox.mjs";
@@ -8,6 +5,17 @@ import MessageBoxAction from "../popup/MessageBoxAction.mjs";
 import Theme from "../theme/Theme.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly showLoading: boolean;
+ *  onHideStatus(): void;
+ *  onCloseErrorPopup(): void;
+ *  readonly status?: string;
+ *  readonly error?: string;
+ *  readonly errorDetails?: string;
+ * }} TaskManagerUiProps
+ */
 
 /**
  * @param {string} error

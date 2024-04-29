@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/TextLine').TextLineProps} TextLineProps
+ * @typedef {import("../src/TextLine.mjs").TextLineProps} TextLineProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

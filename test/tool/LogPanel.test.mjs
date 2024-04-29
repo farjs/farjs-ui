@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../src/tool/LogPanel').LogPanelProps} LogPanelProps
+ * @typedef {import("../../src/tool/LogPanel.mjs").LogPanelProps} LogPanelProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

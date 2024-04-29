@@ -1,5 +1,5 @@
 /**
- * @typedef {import("../../src/task/TaskManagerUi").TaskManagerUiProps} TaskManagerUiProps
+ * @typedef {import("../../src/task/TaskManagerUi.mjs").TaskManagerUiProps} TaskManagerUiProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

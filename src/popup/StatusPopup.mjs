@@ -1,6 +1,3 @@
-/**
- * @typedef {import("./StatusPopup").StatusPopupProps} StatusPopupProps
- */
 import React from "react";
 import * as UI from "../UI.mjs";
 import TextAlign from "../TextAlign.mjs";
@@ -10,6 +7,14 @@ import Popup from "./Popup.mjs";
 import ModalContent from "./ModalContent.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly text: string;
+ *  readonly title?: string;
+ *  onClose?(): void;
+ * }} StatusPopupProps
+ */
 
 /**
  * @param {StatusPopupProps} props
