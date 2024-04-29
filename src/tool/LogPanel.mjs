@@ -1,13 +1,14 @@
-/**
- * @typedef {import("./LogPanel").LogPanelProps} LogPanelProps
- */
 import React from "react";
 
 const h = React.createElement;
 
 /**
- * @type {import("blessed").Widgets.Types.TStyle}
+ * @typedef {{
+ *  readonly content: string;
+ * }} LogPanelProps
  */
+
+/** @type {import("@farjs/blessed").Widgets.Types.TStyle} */
 const style = {
   scrollbar: {
     bg: "cyan",

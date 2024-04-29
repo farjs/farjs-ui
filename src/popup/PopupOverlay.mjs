@@ -1,13 +1,13 @@
 /**
- * @typedef {import("./Popup").PopupProps} PopupProps
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
- * @typedef {import("@farjs/blessed").Widgets.FormElement<null> & {
+ * @typedef {import("@farjs/blessed").Widgets.FormElement<any> & {
  *    focusFirst(): void,
  *    _selected: BlessedElement
  * }} FormElement
  * @typedef {import("@farjs/blessed").Widgets.Events.IKeyEventArg & {
  *    defaultPrevented?: boolean
  * }} IKeyEventArg
+ * @typedef {import("./Popup.mjs").PopupProps} PopupProps
  */
 import React, { useLayoutEffect, useRef } from "react";
 
@@ -15,6 +15,7 @@ const h = React.createElement;
 
 /**
  * @param {React.PropsWithChildren<PopupProps>} props
+ * @returns {React.ReactElement}
  */
 const PopupOverlay = (props) => {
   const formRef = /** @type {React.MutableRefObject<FormElement>} */ (useRef());

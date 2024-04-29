@@ -1,8 +1,8 @@
 /**
  * @typedef {import("@farjs/blessed").Widgets.Events.IKeyEventArg} IKeyEventArg
- * @typedef {import("../../src/popup/Popup").PopupProps} PopupProps
- * @typedef {import("../../src/menu/MenuBar").MenuBarItem} MenuBarItem
- * @typedef {import("../../src/menu/MenuBar").MenuBarProps} MenuBarProps
+ * @typedef {import("../../src/popup/Popup.mjs").PopupProps} PopupProps
+ * @typedef {import("../../src/menu/MenuBar.mjs").MenuBarItem} MenuBarItem
+ * @typedef {import("../../src/menu/MenuBar.mjs").MenuBarProps} MenuBarProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

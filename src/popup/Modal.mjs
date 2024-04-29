@@ -1,11 +1,18 @@
-/**
- * @typedef {import("./Modal").ModalProps} ModalProps
- */
 import React from "react";
 import Popup from "./Popup.mjs";
 import ModalContent from "./ModalContent.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly title: string;
+ *  readonly width: number;
+ *  readonly height: number;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  onCancel(): void;
+ * }} ModalProps
+ */
 
 /**
  * @param {React.PropsWithChildren<ModalProps>} props

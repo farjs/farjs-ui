@@ -1,5 +1,5 @@
 /**
- * @typedef {import("../../src/menu/MenuPopup").MenuPopupProps} MenuPopupProps
+ * @typedef {import("../../src/menu/MenuPopup.mjs").MenuPopupProps} MenuPopupProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

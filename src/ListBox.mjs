@@ -1,6 +1,5 @@
 /**
  * @typedef {import("@farjs/blessed").Widgets.Events.IKeyEventArg} IKeyEventArg
- * @typedef {import("./ListBox").ListBoxProps} ListBoxProps
  */
 import React, { useLayoutEffect, useState } from "react";
 import { createListViewport } from "./ListViewport.mjs";
@@ -8,6 +7,20 @@ import ListView from "./ListView.mjs";
 import ScrollBar from "./ScrollBar.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly width: number;
+ *  readonly height: number;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  readonly items: string[];
+ *  readonly selected: number;
+ *  onAction(index: number): void;
+ *  onSelect?(index: number): void;
+ * }} ListBoxProps
+ */
 
 /**
  * @param {ListBoxProps} props

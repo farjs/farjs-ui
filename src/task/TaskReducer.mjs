@@ -1,8 +1,12 @@
 /**
  * @template T
- * @param {import('./Task').Task<T> | undefined} state
+ * @typedef {import("./Task.mjs").Task<T>} Task<T>
+ */
+
+/**
+ * @param {Task<any> | undefined} state
  * @param {any} action
- * @returns {import('./Task').Task<T> | undefined}
+ * @returns {Task<any> | undefined}
  */
 function TaskReducer(state, action) {
   const task = action?.task;

@@ -1,10 +1,17 @@
-/**
- * @typedef {import("./Button").ButtonProps} ButtonProps
- */
 import React, { useState } from "react";
 import * as UI from "./UI.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly label: string;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  onPress(): void;
+ * }} ButtonProps
+ */
 
 /**
  * @param {ButtonProps} props

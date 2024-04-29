@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/Button').ButtonProps} ButtonProps
+ * @typedef {import("../src/Button.mjs").ButtonProps} ButtonProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

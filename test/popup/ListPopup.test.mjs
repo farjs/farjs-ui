@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../src/popup/ListPopup').ListPopupProps} ListPopupProps
+ * @typedef {import("../../src/popup/ListPopup.mjs").ListPopupProps} ListPopupProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

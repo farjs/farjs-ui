@@ -1,11 +1,28 @@
-/**
- * @typedef {import("./ModalContent").BlessedPadding} BlessedPadding
- * @typedef {import("./ModalContent").ModalContentProps} ModalContentProps
- */
 import React from "react";
 import DoubleBorder from "../border/DoubleBorder.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly right: number;
+ *  readonly top: number;
+ *  readonly bottom: number;
+ * }} BlessedPadding
+ */
+
+/**
+ * @typedef {{
+ *  readonly title: string;
+ *  readonly width: number;
+ *  readonly height: number;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  readonly padding?: BlessedPadding;
+ *  readonly left?: import("@farjs/blessed").Widgets.Types.TTopLeft;
+ *  readonly footer?: string;
+ * }} ModalContentProps
+ */
 
 /**
  * @param {React.PropsWithChildren<ModalContentProps>} props

@@ -1,8 +1,7 @@
 /**
- * @typedef {import("./WithPortals").WithPortalsContext} WithPortalsContext
- * @typedef {import("./Portal.mjs").PortalContext} PortalContext
  * @typedef {import("@farjs/blessed").Widgets.Screen} BlessedScreen
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
+ * @typedef {import("./Portal.mjs").PortalContext} PortalContext
  */
 import React, { useMemo, useState } from "react";
 import Portal from "./Portal.mjs";
@@ -10,7 +9,18 @@ import Portal from "./Portal.mjs";
 const h = React.createElement;
 
 /**
- * @typedef {{id: number, content: React.ReactNode, focused: BlessedElement}} PortalItem
+ * @typedef {{
+ *  readonly id: number;
+ *  readonly content: React.ReactNode;
+ *  readonly focused: BlessedElement;
+ * }} PortalItem
+ */
+
+/**
+ * @typedef {{
+ *  onRender(portalId: number, content: React.ReactNode): void;
+ *  onRemove(portalId: number): void;
+ * }} WithPortalsContext
  */
 
 const WithPortals = {

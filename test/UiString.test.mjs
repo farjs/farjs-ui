@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/UiString').UiCharStartPos} UiCharStartPos
+ * @typedef {import("../src/UiString.mjs").UiCharStartPos} UiCharStartPos
  */
 import Blessed from "@farjs/blessed";
 import assert from "node:assert/strict";

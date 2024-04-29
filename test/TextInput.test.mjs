@@ -3,8 +3,8 @@
  * @typedef {import("@farjs/blessed").Widgets.Events.IKeyEventArg & {
  *    defaultPrevented?: boolean
  * }} IKeyEventArg
- * @typedef {import('../src/TextInput').TextInputProps} TextInputProps
- * @typedef {import('../src/TextInput').TextInputState} TextInputState
+ * @typedef {import("../src/TextInput.mjs").TextInputProps} TextInputProps
+ * @typedef {import("../src/TextInput.mjs").TextInputState} TextInputState
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

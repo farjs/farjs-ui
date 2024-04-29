@@ -43,9 +43,13 @@ jobs:
       - name: Run tests
         run: |
           npm i
-          npm run formatCheck
+          rm -r ./types
           npx tsc
-          npx quick-lint-js ./**/*.mjs ./**/*.ts
+          npx tsc -p ./test
+          # ensure that committed and generated types are the same
+          git diff --exit-code
+          npx quick-lint-js ./**/*.mjs
+          npm run formatCheck
           NODE_V8_COVERAGE=coverage0 npx c8 -r lcovonly --all --src ./src node --experimental-test-coverage ./test/all.mjs
         if: ${{ env.TAG_NAME == '' }}
 

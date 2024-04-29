@@ -1,11 +1,17 @@
-/**
- * @typedef {import("./Popup").PopupProps} PopupProps
- */
 import React from "react";
 import Portal from "../portal/Portal.mjs";
 import PopupOverlay from "./PopupOverlay.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly focusable?: boolean;
+ *  onClose?(): void;
+ *  onOpen?(): void;
+ *  onKeypress?(keyFull: string): boolean;
+ * }} PopupProps
+ */
 
 /**
  * @param {React.PropsWithChildren<PopupProps>} props

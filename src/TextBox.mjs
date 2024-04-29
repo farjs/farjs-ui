@@ -1,12 +1,22 @@
 /**
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
- * @typedef {import("./TextInput").TextInputState} TextInputState
- * @typedef {import("./TextBox").TextBoxProps} TextBoxProps
+ * @typedef {import("./TextInput.mjs").TextInputState} TextInputState
  */
 import React, { useRef, useState } from "react";
 import TextInput from "./TextInput.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly width: number;
+ *  readonly value: string;
+ *  onChange(value: string): void;
+ *  onEnter?(): void;
+ * }} TextBoxProps
+ */
 
 /**
  * @param {TextBoxProps} props

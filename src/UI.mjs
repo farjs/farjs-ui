@@ -1,10 +1,7 @@
-/**
- * @typedef { import("@farjs/blessed").Widgets.Types.TStyle } BlessedStyle
- */
 import Blessed from "@farjs/blessed";
 
 /**
- * @param {BlessedStyle | undefined} style
+ * @param {import("@farjs/blessed").Widgets.Types.TStyle | undefined} style
  * @param {string} text
  * @returns {string}
  */

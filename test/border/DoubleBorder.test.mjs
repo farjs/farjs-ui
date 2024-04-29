@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../src/border/DoubleBorder').DoubleBorderProps} DoubleBorderProps
+ * @typedef {import("../../src/border/DoubleBorder.mjs").DoubleBorderProps} DoubleBorderProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

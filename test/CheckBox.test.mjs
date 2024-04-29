@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/CheckBox').CheckBoxProps} CheckBoxProps
+ * @typedef {import("../src/CheckBox.mjs").CheckBoxProps} CheckBoxProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

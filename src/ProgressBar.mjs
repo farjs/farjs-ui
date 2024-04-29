@@ -1,9 +1,16 @@
-/**
- * @typedef {import("./ProgressBar").ProgressBarProps} ProgressBarProps
- */
 import React from "react";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly percent: number;
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly length: number;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ * }} ProgressBarProps
+ */
 
 /**
  * @param {ProgressBarProps} props

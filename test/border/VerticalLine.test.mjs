@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../src/border/VerticalLine').VerticalLineProps} VerticalLineProps
+ * @typedef {import("../../src/border/VerticalLine.mjs").VerticalLineProps} VerticalLineProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

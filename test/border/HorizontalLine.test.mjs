@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../src/border/HorizontalLine').HorizontalLineProps} HorizontalLineProps
+ * @typedef {import("../../src/border/HorizontalLine.mjs").HorizontalLineProps} HorizontalLineProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

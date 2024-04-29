@@ -1,11 +1,21 @@
-/**
- * @typedef {import("./TextLine").TextLineProps} TextLineProps
- */
 import React from "react";
 import UiString from "./UiString.mjs";
 import TextAlign from "./TextAlign.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly align: import("./TextAlign.mjs").TextAlign;
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly width: number;
+ *  readonly text: string;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  readonly focused?: boolean;
+ *  readonly padding?: number;
+ * }} TextLineProps
+ */
 
 /**
  * @param {TextLineProps} props

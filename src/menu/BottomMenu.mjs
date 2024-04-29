@@ -1,11 +1,14 @@
-/**
- * @typedef {import("./BottomMenu").BottomMenuProps} BottomMenuProps
- */
 import React from "react";
 import WithSize from "../WithSize.mjs";
 import BottomMenuView from "./BottomMenuView.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly items: string[];
+ * }} BottomMenuProps
+ */
 
 /**
  * @param {BottomMenuProps} props

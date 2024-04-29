@@ -1,12 +1,10 @@
 /**
- * @typedef {import("./AppRoot").MainUi} MainUi
- * @typedef {import("./AppRoot").LoadResult} LoadResult
- * @typedef {import("./AppRoot").AppRootProps} AppRootProps
- * @typedef {import("../theme/Theme").ThemeType} ThemeType
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
  * @typedef {import("@farjs/blessed").Widgets.Events.IKeyEventArg & {
  *    defaultPrevented?: boolean
  * }} IKeyEventArg
+ * @typedef {import("../theme/Theme.mjs").Theme} Theme
+ * @typedef {import("../tool/DevTool.mjs").DevTool} DevTool
  */
 import React, { useLayoutEffect, useReducer, useRef, useState } from "react";
 import Theme from "../theme/Theme.mjs";
@@ -17,6 +15,25 @@ import TaskReducer from "../task/TaskReducer.mjs";
 import TaskManager from "../task/TaskManager.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {React.FC | React.ComponentClass<{}>} MainUi
+ */
+
+/**
+ * @typedef {{
+ *  readonly theme: Theme;
+ *  readonly mainUi: MainUi;
+ * }} LoadResult
+ */
+
+/**
+ * @typedef {{
+ *  readonly initialDevTool: DevTool;
+ *  readonly defaultTheme: Theme;
+ *  loadMainUi(dispatch: (a: any) => void): Promise<LoadResult>;
+ * }} AppRootProps
+ */
 
 /**
  * @param {AppRootProps} props

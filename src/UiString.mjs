@@ -1,13 +1,28 @@
-/**
- * @typedef {import('./UiString').UiCharStartPos} UiCharStartPos
- */
 import Blessed from "@farjs/blessed";
 
 const { unicode } = Blessed;
 
 /**
+ * @typedef {{
+ *  readonly lcw: number;
+ *  readonly pos: number;
+ *  readonly rcw: number;
+ * }} UiCharStartPos
+ */
+
+/**
+ * @typedef {{
+ *  strWidth(): number;
+ *  toString(): string;
+ *  charStartPos(from: number): UiCharStartPos;
+ *  slice(from: number, until: number): string;
+ *  ensureWidth(width: number, padCh: string): string;
+ * }} UiString
+ */
+
+/**
  * @param {string} str
- * @returns {import('./UiString').UiString}
+ * @returns {UiString}
  */
 function UiString(str) {
   /** @type {number | undefined} */

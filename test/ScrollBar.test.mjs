@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../src/ScrollBar').ScrollBarProps} ScrollBarProps
+ * @typedef {import("../src/ScrollBar.mjs").ScrollBarProps} ScrollBarProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

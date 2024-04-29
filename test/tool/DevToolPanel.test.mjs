@@ -1,7 +1,7 @@
 /**
- * @typedef {import("../../src/tool/DevToolPanel").DevToolPanelProps} DevToolPanelProps
- * @typedef {import("../../src/tool/DevTool.mjs").DevToolType} DevToolType
- * @typedef {import("../../src/theme/Theme.mjs").ThemeType} ThemeType
+ * @typedef {import("../../src/tool/DevToolPanel.mjs").DevToolPanelProps} DevToolPanelProps
+ * @typedef {import("../../src/tool/DevTool.mjs").DevTool} DevTool
+ * @typedef {import("../../src/theme/Theme.mjs").Theme} Theme
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";
@@ -123,9 +123,9 @@ describe("DevToolPanel.test.mjs", () => {
 });
 
 /**
- * @param {DevToolType} devTool
+ * @param {DevTool} devTool
  * @param {string} logContent
- * @param {(devTool: DevToolType) => void} onActivate
+ * @param {(devTool: DevTool) => void} onActivate
  * @returns {DevToolPanelProps}
  */
 function getDevToolPanelProps(devTool, logContent, onActivate = (_) => {}) {
@@ -165,7 +165,7 @@ const expectedTabs = [
  * @param {TestRenderer.ReactTestRenderer} renderer
  * @param {string} activeTab
  * @param {React.ReactElement | null} expectedComp
- * @param {ThemeType} currTheme
+ * @param {Theme} currTheme
  */
 function assertDevToolPanel(
   renderer,

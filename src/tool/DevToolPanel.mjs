@@ -1,7 +1,3 @@
-/**
- * @typedef {import("./DevToolPanel").DevToolPanelProps} DevToolPanelProps
- * @typedef {import("./DevTool.mjs").DevToolType} DevToolType
- */
 import React from "react";
 import LogPanel from "./LogPanel.mjs";
 import InputController from "./InputController.mjs";
@@ -13,7 +9,15 @@ import * as UI from "../UI.mjs";
 const h = React.createElement;
 
 /**
- * @type {Array<{tool: DevToolType, name: string}>}
+ * @typedef {{
+ *  readonly devTool: import("./DevTool.mjs").DevTool;
+ *  readonly logContent: string;
+ *  onActivate(devTool: import("./DevTool.mjs").DevTool): void;
+ * }} DevToolPanelProps
+ */
+
+/**
+ * @type {Array<{tool: import("./DevTool.mjs").DevTool, name: string}>}
  */
 const tools = [
   {

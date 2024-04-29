@@ -1,8 +1,8 @@
 /**
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
  * @typedef {import("@farjs/blessed").Widgets.Events.IMouseEventArg} MouseEvent
- * @typedef {import('../src/ListViewport').ListViewport} ListViewport
- * @typedef {import('../src/ListView').ListViewProps} ListViewProps
+ * @typedef {import("../src/ListViewport.mjs").ListViewport} ListViewport
+ * @typedef {import("../src/ListView.mjs").ListViewProps} ListViewProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";

@@ -1,6 +1,3 @@
-/**
- * @typedef {import("./DoubleBorder").DoubleBorderProps} DoubleBorderProps
- */
 import React from "react";
 import TextAlign from "../TextAlign.mjs";
 import TextLine from "../TextLine.mjs";
@@ -9,6 +6,18 @@ import VerticalLine from "./VerticalLine.mjs";
 import DoubleChars from "./DoubleChars.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly width: number;
+ *  readonly height: number;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  readonly left?: number;
+ *  readonly top?: number;
+ *  readonly title?: string;
+ *  readonly footer?: string;
+ * }} DoubleBorderProps
+ */
 
 /**
  * @param {DoubleBorderProps} props

@@ -1,5 +1,5 @@
 /**
- * @typedef {import("./ComboBoxPopup").ComboBoxPopupProps} ComboBoxPopupProps
+ * @typedef {import("./ListViewport.mjs").ListViewport} ListViewport
  */
 import React from "react";
 import SingleBorder from "./border/SingleBorder.mjs";
@@ -7,6 +7,19 @@ import ListView from "./ListView.mjs";
 import ScrollBar from "./ScrollBar.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly width: number;
+ *  readonly items: string[];
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  readonly viewport: ListViewport;
+ *  setViewport(viewport: ListViewport): void;
+ *  onClick(index: number): void;
+ * }} ComboBoxPopupProps
+ */
 
 /**
  * @param {ComboBoxPopupProps} props

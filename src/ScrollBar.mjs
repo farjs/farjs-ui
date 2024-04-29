@@ -1,9 +1,20 @@
-/**
- * @typedef {import("./ScrollBar").ScrollBarProps} ScrollBarProps
- */
 import React from "react";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly length: number;
+ *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
+ *  readonly value: number;
+ *  readonly extent: number;
+ *  readonly min: number;
+ *  readonly max: number;
+ *  onChange(value: number): void;
+ * }} ScrollBarProps
+ */
 
 /**
  * @param {ScrollBarProps} props

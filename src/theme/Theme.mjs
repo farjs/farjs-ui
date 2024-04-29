@@ -1,13 +1,10 @@
-/**
- * @typedef {import("./Theme").ThemeType} ThemeType
- */
 import React, { useContext } from "react";
 
 const Theme = {
-  Context: React.createContext(/** @type {ThemeType | null} */ (null)),
+  Context: React.createContext(/** @type {Theme | null} */ (null)),
 
   /**
-   * @returns {ThemeType}
+   * @returns {Theme}
    */
   useTheme: () => {
     const ctx = useContext(Theme.Context);
@@ -22,3 +19,47 @@ const Theme = {
 };
 
 export default Theme;
+
+/**
+ * @typedef {{
+ *  readonly popup: ThemePopup;
+ *  readonly menu: ThemeMenu;
+ *  readonly textBox: ThemeTextBox;
+ * }} Theme
+ */
+
+/**
+ * @typedef {{
+ *  readonly bold?: boolean;
+ *  readonly bg: string;
+ *  readonly fg: string;
+ * }} ThemeStyle
+ */
+
+/**
+ * @typedef {ThemeStyle & {
+ *  readonly focus?: ThemeStyle;
+ * }} ThemeEffects
+ */
+
+/**
+ * @typedef {{
+ *  readonly regular: ThemeEffects;
+ *  readonly error: ThemeEffects;
+ *  readonly menu: ThemeEffects;
+ * }} ThemePopup
+ */
+
+/**
+ * @typedef {{
+ *  readonly key: ThemeStyle;
+ *  readonly item: ThemeStyle;
+ * }} ThemeMenu
+ */
+
+/**
+ * @typedef {{
+ *  readonly regular: ThemeEffects;
+ *  readonly selected: ThemeEffects;
+ * }} ThemeTextBox
+ */

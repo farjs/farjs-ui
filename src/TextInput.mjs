@@ -4,11 +4,6 @@
  *    defaultPrevented?: boolean
  * }} IKeyEventArg
  * @typedef {import("@farjs/blessed").Widgets.Events.IMouseEventArg} MouseEvent
- * @typedef {import("./UiString").UiString} UiString
- * @typedef {import("./TextInput").TextInputProps} TextInputProps
- * @typedef {import("./TextInput").TextInputState} TextInputState
- * @typedef {import("./TextInput").CursorMove} CursorMove
- * @typedef {import("./TextInput").TextEdit} TextEdit
  */
 import React, { useLayoutEffect, useRef } from "react";
 import { renderText2 } from "./UI.mjs";
@@ -16,6 +11,30 @@ import UiString from "./UiString.mjs";
 import Theme from "./theme/Theme.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly inputRef: React.MutableRefObject<BlessedElement>;
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly width: number;
+ *  readonly value: string;
+ *  readonly state: TextInputState;
+ *  stateUpdater(update: (state: TextInputState) => TextInputState): void;
+ *  onChange(value: string): void;
+ *  onEnter?(): void;
+ *  onKeypress?(keyFull: string): boolean;
+ * }} TextInputProps
+ */
+
+/**
+ * @typedef {{
+ *  readonly offset: number;
+ *  readonly cursorX: number;
+ *  readonly selStart: number;
+ *  readonly selEnd: number;
+ * }} TextInputState
+ */
 
 /**
  * @typedef {"Reset" | "All" | "TillTheHome" | "TillTheEnd" | "ToTheLeft" | "ToTheRight"} TextSelect
@@ -54,7 +73,7 @@ const TextInput = (props) => {
 
   /**
    * @param {BlessedElement} el
-   * @param {UiString} value
+   * @param {import("./UiString.mjs").UiString} value
    * @param {CursorMove} cm
    * @param {TextSelect} ts
    */
@@ -114,7 +133,7 @@ const TextInput = (props) => {
   }
 
   /**
-   * @param {UiString} value
+   * @param {import("./UiString.mjs").UiString} value
    * @param {number} idx
    * @param {number} newIdx
    * @param {TextSelect} ts
@@ -181,7 +200,7 @@ const TextInput = (props) => {
   }
 
   /**
-   * @param {UiString} value
+   * @param {import("./UiString.mjs").UiString} value
    * @param {TextEdit} te
    * @returns {EditResult}
    */
@@ -347,3 +366,31 @@ TextInput.createState = () => {
 };
 
 export default TextInput;
+
+/**
+ * @typedef {{
+ *  readonly move: "At";
+ *  readonly pos: number;
+ * } | {
+ *  readonly move: "Home";
+ * } | {
+ *  readonly move: "End";
+ * } | {
+ *  readonly move: "Left";
+ *  readonly dx?: number;
+ * } | {
+ *  readonly move: "Right";
+ *  readonly dx?: number;
+ * }} CursorMove
+ */
+
+/**
+ * @typedef {{
+ *  readonly edit: "Insert";
+ *  readonly str: import("./UiString.mjs").UiString;
+ * } | {
+ *  readonly edit: "Delete";
+ * } | {
+ *  readonly edit: "Backspace";
+ * }} TextEdit
+ */

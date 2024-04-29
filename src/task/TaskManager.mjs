@@ -1,8 +1,9 @@
 /**
- * @typedef {import("./Task").Task<any>} Task
- * @typedef {import("./TaskError").TaskError} TaskError
- * @typedef {import("./TaskManager").TaskManagerProps} TaskManagerProps
- * @typedef {import("./TaskManagerUi").TaskManagerUiProps} TaskManagerUiProps
+ * @template T
+ * @typedef {import("./Task.mjs").Task<T>} Task<T>
+ */
+/**
+ * @typedef {import("./TaskManagerUi.mjs").TaskManagerUiProps} TaskManagerUiProps
  */
 import React, { useState, useLayoutEffect } from "react";
 import TaskManagerUi from "./TaskManagerUi.mjs";
@@ -10,7 +11,18 @@ import TaskManagerUi from "./TaskManagerUi.mjs";
 const h = React.createElement;
 
 /**
- * @typedef {{taskCount: number, status?: string, error?: string, errorDetails?: string}} TaskManagerState
+ * @typedef {{
+ *  readonly startTask?: Task<any>;
+ * }} TaskManagerProps
+ */
+
+/**
+ * @typedef {{
+ *  readonly taskCount: number;
+ *  readonly status?: string;
+ *  readonly error?: string;
+ *  readonly errorDetails?: string;
+ * }} TaskManagerState
  */
 
 /**
@@ -70,7 +82,7 @@ TaskManager.errorHandler = (error) => {
 
 /**
  * @param {React.Dispatch<React.SetStateAction<TaskManagerState>>} setState
- * @param {Task} task
+ * @param {Task<any>} task
  */
 function onTaskStart(setState, task) {
   task.result.then(
@@ -89,7 +101,7 @@ function onTaskStart(setState, task) {
 
 /**
  * @param {React.Dispatch<React.SetStateAction<TaskManagerState>>} setState
- * @param {Task} task
+ * @param {Task<any>} task
  * @param {any} [reason]
  */
 function onTaskFinish(setState, task, reason) {
@@ -109,3 +121,10 @@ function onTaskFinish(setState, task, reason) {
 }
 
 export default TaskManager;
+
+/**
+ * @typedef {{
+ *  readonly error: string;
+ *  readonly errorDetails?: string;
+ * }} TaskError
+ */

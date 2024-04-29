@@ -1,8 +1,8 @@
 /**
  * @typedef {import("@farjs/blessed").Widgets.Events.IKeyEventArg} IKeyEventArg
- * @typedef {import("../src/TextInput").TextInputState} TextInputState
- * @typedef {import("../src/TextInput").TextInputProps} TextInputProps
- * @typedef {import('../src/ComboBox').ComboBoxProps} ComboBoxProps
+ * @typedef {import("../src/TextInput.mjs").TextInputState} TextInputState
+ * @typedef {import("../src/TextInput.mjs").TextInputProps} TextInputProps
+ * @typedef {import("../src/ComboBox.mjs").ComboBoxProps} ComboBoxProps
  */
 import { setTimeout } from "node:timers/promises";
 import React from "react";

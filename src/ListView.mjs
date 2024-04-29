@@ -2,13 +2,27 @@
  * @typedef {import("@farjs/blessed").Widgets.Types.TStyle} BlessedStyle
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
  * @typedef {import("@farjs/blessed").Widgets.Events.IMouseEventArg} MouseEvent
- * @typedef {import("./ListView").ListViewProps} ListViewProps
+ * @typedef {import("./ListViewport.mjs").ListViewport} ListViewport
  */
 import React, { useLayoutEffect, useRef } from "react";
 import * as UI from "./UI.mjs";
 import UiString from "./UiString.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  readonly left: number;
+ *  readonly top: number;
+ *  readonly width: number;
+ *  readonly height: number;
+ *  readonly items: string[];
+ *  readonly style: BlessedStyle;
+ *  readonly viewport: ListViewport;
+ *  setViewport(viewport: ListViewport): void;
+ *  onClick(index: number): void;
+ * }} ListViewProps
+ */
 
 /**
  * @param {number} selected

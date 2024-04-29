@@ -1,11 +1,16 @@
 /**
  * @typedef {import("@farjs/blessed").Widgets.BlessedElement} BlessedElement
- * @typedef {import("./WithSize").WithSizeProps} WithSizeProps
  */
 import React, { useLayoutEffect, useRef, useState } from "react";
 import PopupOverlay from "./popup/PopupOverlay.mjs";
 
 const h = React.createElement;
+
+/**
+ * @typedef {{
+ *  render(width: number, height: number): React.ReactElement | null;
+ * }} WithSizeProps
+ */
 
 /**
  * @param {WithSizeProps} props

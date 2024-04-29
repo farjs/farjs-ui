@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import Task from "../../src/task/Task.mjs";
+import TaskAction from "../../src/task/TaskAction.mjs";
 import TaskReducer from "../../src/task/TaskReducer.mjs";
 
 const { describe, it } = await (async () => {
@@ -14,11 +15,8 @@ const { describe, it } = await (async () => {
 describe("TaskReducer.test.mjs", () => {
   it("should return task from action if TaskAction", () => {
     //given
-    const task = Task("test task", Promise.resolve());
-    const taskAction = {
-      name: "test_name",
-      task: Task("test task action", Promise.resolve()),
-    };
+    const task = Task("current test task", Promise.resolve());
+    const taskAction = TaskAction(Task("new task action", Promise.resolve()));
 
     //when & then
     assert.deepEqual(TaskReducer(task, taskAction), taskAction.task);

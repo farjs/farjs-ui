@@ -1,7 +1,7 @@
 /**
- * @typedef {import("../../src/popup/Popup").PopupProps} PopupProps
- * @typedef {import("../../src/ButtonsPanel").ButtonsPanelProps} ButtonsPanelProps
- * @typedef {import('../../src/popup/MessageBox').MessageBoxProps} MessageBoxProps
+ * @typedef {import("../../src/popup/Popup.mjs").PopupProps} PopupProps
+ * @typedef {import("../../src/ButtonsPanel.mjs").ButtonsPanelProps} ButtonsPanelProps
+ * @typedef {import("../../src/popup/MessageBox.mjs").MessageBoxProps} MessageBoxProps
  */
 import React from "react";
 import TestRenderer from "react-test-renderer";
