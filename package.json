@@ -41,7 +41,7 @@
     "bun": ">=0.8"
   },
   "dependencies": {
-    "@farjs/blessed": "0.3.1",
+    "@farjs/blessed": "0.3.2",
     "react": "^17.0.1",
     "react-blessed": "0.7.2"
   },
