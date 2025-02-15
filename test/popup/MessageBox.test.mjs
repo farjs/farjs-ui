@@ -241,7 +241,7 @@ function getMessageBoxProps() {
 /**
  * @param {TestRenderer.ReactTestInstance} result
  * @param {MessageBoxProps} props
- * @param {string[]} actions
+ * @param {readonly string[]} actions
  * @param {boolean} closable
  */
 function assertMessageBox(result, props, actions, closable = true) {

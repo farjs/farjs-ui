@@ -16,7 +16,7 @@ export type StatusPopupProps = {
  */
 declare function StatusPopup(props: StatusPopupProps): React.FunctionComponentElement<import("./Popup.mjs").PopupProps>;
 declare namespace StatusPopup {
-    export const displayName: string;
+    export let displayName: string;
     export { Popup as popupComp };
     export { ModalContent as modalContentComp };
     export { TextLine as textLineComp };

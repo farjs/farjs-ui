@@ -2,10 +2,10 @@ export default MenuBar;
 export type ButtonsPanelAction = import("../../src/ButtonsPanel.mjs").ButtonsPanelAction;
 export type MenuBarItem = {
     readonly label: string;
-    readonly subItems: string[];
+    readonly subItems: readonly string[];
 };
 export type MenuBarProps = {
-    readonly items: MenuBarItem[];
+    readonly items: readonly MenuBarItem[];
     onAction(menuIndex: number, subIndex: number): void;
     onClose(): void;
 };
@@ -16,12 +16,12 @@ export type SubMenuState = {
 /**
  * @typedef {{
  *  readonly label: string;
- *  readonly subItems: string[];
+ *  readonly subItems: readonly string[];
  * }} MenuBarItem
  */
 /**
  * @typedef {{
- *  readonly items: MenuBarItem[];
+ *  readonly items: readonly MenuBarItem[];
  *  onAction(menuIndex: number, subIndex: number): void;
  *  onClose(): void;
  * }} MenuBarProps
@@ -37,7 +37,7 @@ export type SubMenuState = {
  */
 declare function MenuBar(props: MenuBarProps): React.FunctionComponentElement<{}>;
 declare namespace MenuBar {
-    export const displayName: string;
+    export let displayName: string;
     export { Popup as popupComp };
     export { ButtonsPanel as buttonsPanel };
     export { SubMenu as subMenuComp };

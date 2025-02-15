@@ -17,6 +17,6 @@ declare function WithSize(props: WithSizeProps): React.ReactElement<{
     onResize: () => void;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace WithSize {
-    const displayName: string;
+    let displayName: string;
 }
 import React from "react";

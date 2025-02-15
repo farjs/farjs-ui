@@ -32,7 +32,7 @@ MenuBar.buttonsPanel = mockComponent(ButtonsPanel);
 MenuBar.subMenuComp = mockComponent(SubMenu);
 const { popupComp, buttonsPanel, subMenuComp } = MenuBar;
 
-/** @type {MenuBarItem[]} */
+/** @type {readonly MenuBarItem[]} */
 const items = [
   {
     label: "Menu 1",

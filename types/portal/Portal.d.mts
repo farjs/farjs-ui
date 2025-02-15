@@ -10,8 +10,8 @@ export type PortalContext = {
  */
 declare function Portal(props: React.PropsWithChildren<{}>): null;
 declare namespace Portal {
-    const displayName: string;
-    const Context: React.Context<PortalContext>;
-    const _nextPortalId: number;
+    let displayName: string;
+    let Context: React.Context<PortalContext>;
+    let _nextPortalId: number;
 }
 import React from "react";

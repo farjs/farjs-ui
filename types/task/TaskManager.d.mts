@@ -35,7 +35,7 @@ export type TaskError = {
  */
 declare function TaskManager(props: TaskManagerProps): React.ReactElement<import("./TaskManagerUi.mjs").TaskManagerUiProps, string | React.JSXElementConstructor<any>>;
 declare namespace TaskManager {
-    export const displayName: string;
+    export let displayName: string;
     export { TaskManagerUi as uiComponent };
     export function errorHandler(error: any): TaskError;
 }

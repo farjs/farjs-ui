@@ -35,7 +35,7 @@ const WithPortals = {
      */
     const WithPortalsComp = (props) => {
       const [portals, setPortals] = useState(
-        /** @type {Array<PortalItem>} */ ([])
+        /** @type {readonly PortalItem[]} */ ([])
       );
 
       /** @type {WithPortalsContext} */

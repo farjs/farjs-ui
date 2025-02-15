@@ -6,7 +6,7 @@ const h = React.createElement;
 
 /**
  * @typedef {{
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  * }} BottomMenuProps
  */
 

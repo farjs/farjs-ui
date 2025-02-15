@@ -12,7 +12,7 @@ const paddingVertical = 1;
 /**
  * @typedef {{
  *  readonly title: string;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  getLeft(width: number): string;
  *  onSelect(index: number): void;
  *  onClose(): void;

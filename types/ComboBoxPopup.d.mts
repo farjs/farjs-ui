@@ -4,7 +4,7 @@ export type ComboBoxPopupProps = {
     readonly left: number;
     readonly top: number;
     readonly width: number;
-    readonly items: string[];
+    readonly items: readonly string[];
     readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
     readonly viewport: ListViewport;
     setViewport(viewport: ListViewport): void;
@@ -15,7 +15,7 @@ export type ComboBoxPopupProps = {
  *  readonly left: number;
  *  readonly top: number;
  *  readonly width: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
  *  readonly viewport: ListViewport;
  *  setViewport(viewport: ListViewport): void;
@@ -37,11 +37,11 @@ declare function ComboBoxPopup(props: ComboBoxPopupProps): React.ReactElement<{
     style: import("blessed").Widgets.Types.TStyle;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace ComboBoxPopup {
-    export const displayName: string;
+    export let displayName: string;
     export { SingleBorder as singleBorderComp };
     export { ListView as listViewComp };
     export { ScrollBar as scrollBarComp };
-    export const maxItems: number;
+    export let maxItems: number;
 }
 import React from "react";
 import SingleBorder from "./border/SingleBorder.mjs";

@@ -1,7 +1,7 @@
 export default SubMenu;
 export type SubMenuProps = {
     readonly selected: number;
-    readonly items: string[];
+    readonly items: readonly string[];
     readonly top: number;
     readonly left: number;
     onClick(index: number): void;
@@ -9,7 +9,7 @@ export type SubMenuProps = {
 /**
  * @typedef {{
  *  readonly selected: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly top: number;
  *  readonly left: number;
  *  onClick(index: number): void;
@@ -29,10 +29,10 @@ declare function SubMenu(props: SubMenuProps): React.ReactElement<{
     style: import("../theme/Theme.mjs").ThemeEffects;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace SubMenu {
-    export const displayName: string;
+    export let displayName: string;
     export { DoubleBorder as doubleBorderComp };
     export { HorizontalLine as horizontalLineComp };
-    export const separator: string;
+    export let separator: string;
 }
 import React from "react";
 import DoubleBorder from "../border/DoubleBorder.mjs";

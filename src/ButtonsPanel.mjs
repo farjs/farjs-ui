@@ -13,7 +13,7 @@ const h = React.createElement;
 /**
  * @typedef {{
  *  readonly top: number;
- *  readonly actions: ButtonsPanelAction[];
+ *  readonly actions: readonly ButtonsPanelAction[];
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
  *  readonly padding?: number;
  *  readonly margin?: number;

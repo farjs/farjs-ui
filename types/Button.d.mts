@@ -32,6 +32,6 @@ declare function Button(props: ButtonProps): React.DetailedReactHTMLElement<{
     content: string;
 }, HTMLElement>;
 declare namespace Button {
-    const displayName: string;
+    let displayName: string;
 }
 import React from "react";

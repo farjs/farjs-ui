@@ -1,18 +1,23 @@
 export default BottomMenu;
 export type BottomMenuProps = {
-    readonly items: string[];
+    readonly items: readonly string[];
 };
 /**
  * @typedef {{
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  * }} BottomMenuProps
  */
 /**
  * @param {BottomMenuProps} props
  */
-declare function BottomMenu(props: BottomMenuProps): React.FunctionComponentElement<import("../WithSize.mjs").WithSizeProps>;
+declare function BottomMenu(props: BottomMenuProps): React.FunctionComponentElement<{
+    render: (width: number) => React.FunctionComponentElement<{
+        width: number;
+        items: readonly string[];
+    }>;
+}>;
 declare namespace BottomMenu {
-    export const displayName: string;
+    export let displayName: string;
     export { WithSize as withSizeComp };
     export { BottomMenuView as bottomMenuViewComp };
 }

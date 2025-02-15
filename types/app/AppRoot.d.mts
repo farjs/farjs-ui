@@ -36,14 +36,12 @@ export type AppRootProps = {
  */
 declare function AppRoot(props: AppRootProps): React.FunctionComponentElement<React.ProviderProps<import("../theme/Theme.mjs").Theme | null>>;
 declare namespace AppRoot {
-    export const displayName: string;
+    export let displayName: string;
     export { TaskManager as taskControllerComp };
     export { LogController as logControllerComp };
     export { DevToolPanel as devToolPanelComp };
 }
 import React from "react";
-import Theme from "../theme/Theme.mjs";
-import DevTool from "../tool/DevTool.mjs";
 import TaskManager from "../task/TaskManager.mjs";
 import LogController from "../tool/LogController.mjs";
 import DevToolPanel from "../tool/DevToolPanel.mjs";

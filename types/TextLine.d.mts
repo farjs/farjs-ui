@@ -33,7 +33,7 @@ declare function TextLine(props: TextLineProps): React.ReactElement<{
     content: string;
 }, string | React.JSXElementConstructor<any>> | null;
 declare namespace TextLine {
-    const displayName: string;
+    let displayName: string;
     /**
      * @param {string} text
      * @param {number} width

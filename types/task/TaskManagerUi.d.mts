@@ -12,7 +12,7 @@ export type TaskManagerUiProps = {
  */
 declare function TaskManagerUi(props: TaskManagerUiProps): React.FunctionComponentElement<{}>;
 declare namespace TaskManagerUi {
-    export const displayName: string;
+    export let displayName: string;
     export { StatusPopup as statusPopupComp };
     export { MessageBox as messageBoxComp };
 }

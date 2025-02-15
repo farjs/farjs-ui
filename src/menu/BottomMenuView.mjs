@@ -6,7 +6,7 @@ const h = React.createElement;
 /**
  * @typedef {{
  *  readonly width: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  * }} BottomMenuViewProps
  */
 
@@ -29,7 +29,7 @@ const BottomMenuView = (props) => {
 
   const itemsCount = items.length;
   const itemWidth = Math.trunc(width / itemsCount);
-  /** @type {BottomMenuViewItem[]} */
+  /** @type {readonly BottomMenuViewItem[]} */
   const itemsWithPos = items.map((item, index) => {
     const leftPos = index * itemWidth;
 

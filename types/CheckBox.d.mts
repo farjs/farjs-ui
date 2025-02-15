@@ -22,7 +22,7 @@ export type CheckBoxProps = {
  */
 declare function CheckBox(props: CheckBoxProps): React.FunctionComponentElement<{}>;
 declare namespace CheckBox {
-    export const displayName: string;
+    export let displayName: string;
     export { Button as buttonComp };
 }
 import React from "react";

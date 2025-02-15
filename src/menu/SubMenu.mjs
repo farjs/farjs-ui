@@ -10,7 +10,7 @@ const h = React.createElement;
 /**
  * @typedef {{
  *  readonly selected: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly top: number;
  *  readonly left: number;
  *  onClick(index: number): void;

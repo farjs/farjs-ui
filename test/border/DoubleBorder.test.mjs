@@ -98,7 +98,7 @@ function assertDoubleBorder(result, props) {
 
   const left = props.left ?? 0;
   const top = props.top ?? 0;
-  const expected = /** @type {React.ReactElement[]} */ ([
+  const expected = /** @type {readonly React.ReactElement[]} */ ([
     h(horizontalLineComp, {
       left: left,
       top: top,

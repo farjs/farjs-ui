@@ -1,7 +1,7 @@
 export default MenuPopup;
 export type MenuPopupProps = {
     readonly title: string;
-    readonly items: string[];
+    readonly items: readonly string[];
     getLeft(width: number): string;
     onSelect(index: number): void;
     onClose(): void;
@@ -9,7 +9,7 @@ export type MenuPopupProps = {
 /**
  * @typedef {{
  *  readonly title: string;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  getLeft(width: number): string;
  *  onSelect(index: number): void;
  *  onClose(): void;
@@ -20,7 +20,7 @@ export type MenuPopupProps = {
  */
 declare function MenuPopup(props: MenuPopupProps): React.FunctionComponentElement<import("../popup/Popup.mjs").PopupProps>;
 declare namespace MenuPopup {
-    export const displayName: string;
+    export let displayName: string;
     export { Popup as popupComp };
     export { ModalContent as modalContentComp };
     export { Button as buttonComp };

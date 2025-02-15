@@ -44,10 +44,11 @@ describe("BottomMenuView.test.mjs", () => {
       width: 80,
       items: new Array(12).fill("item"),
     });
-    const clickables = /** @type {TestRenderer.ReactTestInstance[]} */ (
-      TestRenderer.create(withThemeContext(h(BottomMenuView, props))).root
-        .children
-    );
+    const clickables =
+      /** @type {readonly TestRenderer.ReactTestInstance[]} */ (
+        TestRenderer.create(withThemeContext(h(BottomMenuView, props))).root
+          .children
+      );
 
     //when
     clickables[0].props.onClick();
@@ -92,7 +93,7 @@ describe("BottomMenuView.test.mjs", () => {
     //then
     assert.deepEqual(BottomMenuView.displayName, "BottomMenuView");
 
-    /** @type {BottomMenuViewItem[]} */
+    /** @type {readonly BottomMenuViewItem[]} */
     const itemsWithPos = [
       { key: 1, item: " item ", pos: 0, textWidth: 8 },
       { key: 2, item: " item ", pos: 8, textWidth: 8 },

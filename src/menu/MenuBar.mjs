@@ -12,13 +12,13 @@ const h = React.createElement;
 /**
  * @typedef {{
  *  readonly label: string;
- *  readonly subItems: string[];
+ *  readonly subItems: readonly string[];
  * }} MenuBarItem
  */
 
 /**
  * @typedef {{
- *  readonly items: MenuBarItem[];
+ *  readonly items: readonly MenuBarItem[];
  *  onAction(menuIndex: number, subIndex: number): void;
  *  onClose(): void;
  * }} MenuBarProps
@@ -45,7 +45,7 @@ const MenuBar = (props) => {
   const width = props.items.reduce((res, item) => {
     return res + item.label.length + padding * 2;
   }, 0);
-  /** @type {ButtonsPanelAction[]} */
+  /** @type {readonly ButtonsPanelAction[]} */
   const actions = props.items.map((item, index) => {
     return {
       label: item.label,

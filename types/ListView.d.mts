@@ -4,7 +4,7 @@ export type ListViewProps = {
     readonly top: number;
     readonly width: number;
     readonly height: number;
-    readonly items: string[];
+    readonly items: readonly string[];
     readonly style: BlessedStyle;
     readonly viewport: ListViewport;
     setViewport(viewport: ListViewport): void;
@@ -35,6 +35,6 @@ declare function ListView(props: ListViewProps): React.ReactElement<{
     onClick: (data: MouseEvent) => void;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace ListView {
-    const displayName: string;
+    let displayName: string;
 }
 import React from "react";

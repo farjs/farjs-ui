@@ -168,7 +168,7 @@ describe("ListBox.test.mjs", () => {
  *   width: number,
  *   height: number,
  *   selected: number,
- *   items: string[],
+ *   items: readonly string[],
  *   onAction(index: number): void,
  *   onSelect?(index: number): void
  * }} DefaultProps

@@ -31,6 +31,6 @@ declare function HorizontalLine(props: HorizontalLineProps): React.ReactElement<
     content: string;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace HorizontalLine {
-    const displayName: string;
+    let displayName: string;
 }
 import React from "react";

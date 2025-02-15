@@ -31,6 +31,6 @@ declare function VerticalLine(props: VerticalLineProps): React.ReactElement<{
     content: string;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace VerticalLine {
-    const displayName: string;
+    let displayName: string;
 }
 import React from "react";

@@ -48,11 +48,11 @@ declare function ModalContent(props: React.PropsWithChildren<ModalContentProps>)
     style: import("blessed").Widgets.Types.TStyle;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace ModalContent {
-    export const displayName: string;
+    export let displayName: string;
     export { DoubleBorder as doubleBorderComp };
-    export const paddingHorizontal: number;
-    export const paddingVertical: number;
-    export const padding: BlessedPadding;
+    export let paddingHorizontal: number;
+    export let paddingVertical: number;
+    export let padding: BlessedPadding;
 }
 import React from "react";
 import DoubleBorder from "../border/DoubleBorder.mjs";

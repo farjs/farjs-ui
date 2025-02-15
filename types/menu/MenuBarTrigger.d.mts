@@ -4,6 +4,6 @@ export default MenuBarTrigger;
  */
 declare function MenuBarTrigger(): React.ReactElement;
 declare namespace MenuBarTrigger {
-    const displayName: string;
+    let displayName: string;
 }
 import React from "react";

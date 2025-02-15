@@ -72,7 +72,7 @@ declare function TextInput(props: TextInputProps): React.ReactElement<{
     onKeypress: (ch: object | null | undefined, key: IKeyEventArg) => void;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace TextInput {
-    const displayName: string;
+    let displayName: string;
     /**
      * @returns {TextInputState}
      */

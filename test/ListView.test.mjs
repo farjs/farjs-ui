@@ -201,7 +201,7 @@ describe("ListView.test.mjs", () => {
  *   width: number,
  *   height: number,
  *   index: number,
- *   items: string[],
+ *   items: readonly string[],
  *   setViewport(viewport: ListViewport): void,
  *   onClick(index: number): void
  * }} DefaultProps
@@ -251,7 +251,7 @@ function assertListViewport(result, offset, focused, length, viewLength) {
 /**
  * @param {TestRenderer.ReactTestInstance} result
  * @param {ListViewProps} props
- * @param {string[]} expectedContent
+ * @param {readonly string[]} expectedContent
  */
 function assertListView(result, props, expectedContent) {
   assert.deepEqual(ListView.displayName, "ListView");

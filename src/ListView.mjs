@@ -16,7 +16,7 @@ const h = React.createElement;
  *  readonly top: number;
  *  readonly width: number;
  *  readonly height: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly style: BlessedStyle;
  *  readonly viewport: ListViewport;
  *  setViewport(viewport: ListViewport): void;
@@ -26,10 +26,10 @@ const h = React.createElement;
 
 /**
  * @param {number} selected
- * @param {string[]} items
+ * @param {readonly string[]} items
  * @param {number} width
  * @param {BlessedStyle} theme
- * @returns {string[]}
+ * @returns {readonly string[]}
  */
 function renderItems(selected, items, width, theme) {
   return items.map((item, index) => {

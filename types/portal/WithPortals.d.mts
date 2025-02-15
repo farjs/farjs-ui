@@ -12,11 +12,9 @@ export type WithPortalsContext = {
     onRemove(portalId: number): void;
 };
 declare namespace WithPortals {
-    const Context: React.Context<WithPortalsContext | null>;
-    function create(screen: import("blessed").Widgets.Screen): {
-        (props: {
-            children?: React.ReactNode;
-        }): React.FunctionComponentElement<{}>;
+    let Context: React.Context<WithPortalsContext | null>;
+    function create(screen: BlessedScreen): {
+        (props: React.PropsWithChildren<{}>): React.FunctionComponentElement<{}>;
         displayName: string;
     };
 }

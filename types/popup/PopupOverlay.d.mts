@@ -14,7 +14,7 @@ export type PopupProps = import("./Popup.mjs").PopupProps;
  */
 declare function PopupOverlay(props: React.PropsWithChildren<PopupProps>): React.ReactElement;
 declare namespace PopupOverlay {
-    const displayName: string;
-    const style: import("@farjs/blessed").Widgets.Types.TStyle;
+    let displayName: string;
+    let style: import("@farjs/blessed").Widgets.Types.TStyle;
 }
 import React from "react";

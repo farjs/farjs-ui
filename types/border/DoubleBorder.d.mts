@@ -24,7 +24,7 @@ export type DoubleBorderProps = {
  */
 declare function DoubleBorder(props: DoubleBorderProps): React.FunctionComponentElement<{}>;
 declare namespace DoubleBorder {
-    export const displayName: string;
+    export let displayName: string;
     export { HorizontalLine as horizontalLineComp };
     export { VerticalLine as verticalLineComp };
     export { TextLine as textLineComp };

@@ -4,14 +4,14 @@ export type MessageBoxAction = import("./MessageBoxAction.mjs").MessageBoxAction
 export type MessageBoxProps = {
     readonly title: string;
     readonly message: string;
-    readonly actions: MessageBoxAction[];
+    readonly actions: readonly MessageBoxAction[];
     readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
 };
 /**
  * @typedef {{
  *  readonly title: string;
  *  readonly message: string;
- *  readonly actions: MessageBoxAction[];
+ *  readonly actions: readonly MessageBoxAction[];
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
  * }} MessageBoxProps
  */
@@ -20,7 +20,7 @@ export type MessageBoxProps = {
  */
 declare function MessageBox(props: MessageBoxProps): React.FunctionComponentElement<import("./Popup.mjs").PopupProps>;
 declare namespace MessageBox {
-    export const displayName: string;
+    export let displayName: string;
     export { Popup as popupComp };
     export { ModalContent as modalContentComp };
     export { TextLine as textLineComp };

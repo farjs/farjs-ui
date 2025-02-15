@@ -6,7 +6,7 @@ export type ListBoxProps = {
     readonly width: number;
     readonly height: number;
     readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
-    readonly items: string[];
+    readonly items: readonly string[];
     readonly selected: number;
     onAction(index: number): void;
     onSelect?(index: number): void;
@@ -18,7 +18,7 @@ export type ListBoxProps = {
  *  readonly width: number;
  *  readonly height: number;
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly selected: number;
  *  onAction(index: number): void;
  *  onSelect?(index: number): void;
@@ -35,7 +35,7 @@ declare function ListBox(props: ListBoxProps): React.ReactElement<{
     onKeypress: (ch: any, key: IKeyEventArg) => void;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace ListBox {
-    export const displayName: string;
+    export let displayName: string;
     export { ListView as listViewComp };
     export { ScrollBar as scrollBarComp };
 }

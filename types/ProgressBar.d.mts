@@ -27,8 +27,8 @@ declare function ProgressBar(props: ProgressBarProps): React.ReactElement<{
     content: string;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace ProgressBar {
-    const displayName: string;
-    const filledCh: string;
-    const dottedCh: string;
+    let displayName: string;
+    let filledCh: string;
+    let dottedCh: string;
 }
 import React from "react";

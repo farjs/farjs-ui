@@ -16,7 +16,7 @@ export type SingleBorderProps = {
  */
 declare function SingleBorder(props: SingleBorderProps): React.FunctionComponentElement<{}>;
 declare namespace SingleBorder {
-    export const displayName: string;
+    export let displayName: string;
     export { HorizontalLine as horizontalLineComp };
     export { VerticalLine as verticalLineComp };
 }

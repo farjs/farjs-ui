@@ -15,7 +15,7 @@ const h = React.createElement;
  *  readonly width: number;
  *  readonly height: number;
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly selected: number;
  *  onAction(index: number): void;
  *  onSelect?(index: number): void;

@@ -20,7 +20,7 @@ export type ModalProps = {
  */
 declare function Modal(props: React.PropsWithChildren<ModalProps>): React.FunctionComponentElement<import("./Popup.mjs").PopupProps>;
 declare namespace Modal {
-    export const displayName: string;
+    export let displayName: string;
     export { Popup as popupComp };
     export { ModalContent as modalContentComp };
 }

@@ -36,7 +36,9 @@ function stripErrorPrefix(error) {
 const TaskManagerUi = (props) => {
   const { statusPopupComp, messageBoxComp } = TaskManagerUi;
 
-  const [errors, updateErrors] = useState(/** @type {string[]} */ ([]));
+  const [errors, updateErrors] = useState(
+    /** @type {readonly string[]} */ ([])
+  );
   const statusMessage = (props.showLoading ? props.status : undefined) ?? "";
   const errorMessage = (props.error ?? "").trim();
   const theme = Theme.useTheme().popup;

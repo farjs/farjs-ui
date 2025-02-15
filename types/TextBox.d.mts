@@ -22,9 +22,19 @@ export type TextBoxProps = {
 /**
  * @param {TextBoxProps} props
  */
-declare function TextBox(props: TextBoxProps): React.FunctionComponentElement<import("./TextInput.mjs").TextInputProps>;
+declare function TextBox(props: TextBoxProps): React.FunctionComponentElement<{
+    inputRef: React.MutableRefObject<import("blessed").Widgets.BlessedElement>;
+    left: number;
+    top: number;
+    width: number;
+    value: string;
+    state: import("./TextInput.mjs").TextInputState;
+    stateUpdater: React.Dispatch<React.SetStateAction<import("./TextInput.mjs").TextInputState>>;
+    onChange: (value: string) => void;
+    onEnter: (() => void) | undefined;
+}>;
 declare namespace TextBox {
-    export const displayName: string;
+    export let displayName: string;
     export { TextInput as textInputComp };
 }
 import React from "react";

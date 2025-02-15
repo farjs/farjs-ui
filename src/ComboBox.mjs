@@ -18,7 +18,7 @@ const h = React.createElement;
  *  readonly left: number;
  *  readonly top: number;
  *  readonly width: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly value: string;
  *  onChange(value: string): void;
  *  onEnter?(): void;

@@ -1,7 +1,7 @@
 export default BottomMenuView;
 export type BottomMenuViewProps = {
     readonly width: number;
-    readonly items: string[];
+    readonly items: readonly string[];
 };
 export type BottomMenuViewItem = {
     readonly key: number;
@@ -12,7 +12,7 @@ export type BottomMenuViewItem = {
 /**
  * @typedef {{
  *  readonly width: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  * }} BottomMenuViewProps
  */
 /**
@@ -28,6 +28,6 @@ export type BottomMenuViewItem = {
  */
 declare function BottomMenuView(props: BottomMenuViewProps): React.FunctionComponentElement<{}>;
 declare namespace BottomMenuView {
-    const displayName: string;
+    let displayName: string;
 }
 import React from "react";

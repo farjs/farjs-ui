@@ -165,9 +165,9 @@ function getListPopupProps() {
 /**
  * @param {TestRenderer.ReactTestInstance} result
  * @param {ListPopupProps} props
- * @param {string[]} items
- * @param {number[]} screenSize
- * @param {number[]} expectedSize
+ * @param {readonly string[]} items
+ * @param {readonly number[]} screenSize
+ * @param {readonly number[]} expectedSize
  */
 function assertListPopup(result, props, items, screenSize, expectedSize) {
   assert.deepEqual(ListPopup.displayName, "ListPopup");

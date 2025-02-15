@@ -16,7 +16,7 @@ const h = React.createElement;
  * @typedef {{
  *  readonly title: string;
  *  readonly message: string;
- *  readonly actions: MessageBoxAction[];
+ *  readonly actions: readonly MessageBoxAction[];
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
  * }} MessageBoxProps
  */
@@ -34,7 +34,7 @@ const MessageBox = (props) => {
   const height = (ModalContent.paddingVertical + 1) * 2 + textLines.length + 1;
   const onClose = props.actions.find((a) => a.triggeredOnClose)?.onAction;
 
-  /** @type {ButtonsPanelAction[]} */
+  /** @type {readonly ButtonsPanelAction[]} */
   const actions = props.actions.map((action) => {
     return {
       label: action.label,

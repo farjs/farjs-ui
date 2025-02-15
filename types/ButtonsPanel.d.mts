@@ -5,7 +5,7 @@ export type ButtonsPanelAction = {
 };
 export type ButtonsPanelProps = {
     readonly top: number;
-    readonly actions: ButtonsPanelAction[];
+    readonly actions: readonly ButtonsPanelAction[];
     readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
     readonly padding?: number;
     readonly margin?: number;
@@ -19,7 +19,7 @@ export type ButtonsPanelProps = {
 /**
  * @typedef {{
  *  readonly top: number;
- *  readonly actions: ButtonsPanelAction[];
+ *  readonly actions: readonly ButtonsPanelAction[];
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
  *  readonly padding?: number;
  *  readonly margin?: number;
@@ -36,7 +36,7 @@ declare function ButtonsPanel(props: ButtonsPanelProps): React.ReactElement<{
     style: import("blessed").Widgets.Types.TStyle;
 }, string | React.JSXElementConstructor<any>>;
 declare namespace ButtonsPanel {
-    export const displayName: string;
+    export let displayName: string;
     export { Button as buttonComp };
 }
 import React from "react";

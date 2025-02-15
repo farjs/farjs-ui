@@ -9,7 +9,7 @@ export type DevToolPanelProps = {
  */
 declare function DevToolPanel(props: DevToolPanelProps): React.FunctionComponentElement<{}>;
 declare namespace DevToolPanel {
-    export const displayName: string;
+    export let displayName: string;
     export { LogPanel as logPanelComp };
     export { InputController as inputController };
     export { ColorPanel as colorPanelComp };

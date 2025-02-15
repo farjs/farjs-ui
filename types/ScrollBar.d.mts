@@ -28,10 +28,10 @@ export type ScrollBarProps = {
  */
 declare function ScrollBar(props: ScrollBarProps): React.FunctionComponentElement<{}>;
 declare namespace ScrollBar {
-    const displayName: string;
-    const markerCh: string;
-    const scrollCh: string;
-    const upArrowCh: string;
-    const downArrowCh: string;
+    let displayName: string;
+    let markerCh: string;
+    let scrollCh: string;
+    let upArrowCh: string;
+    let downArrowCh: string;
 }
 import React from "react";

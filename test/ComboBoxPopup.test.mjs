@@ -141,7 +141,7 @@ describe("ComboBoxPopup.test.mjs", () => {
 /**
  * @typedef {{
  *   index: number,
- *   items: string[],
+ *   items: readonly string[],
  *   setViewport(viewport: ListViewport): void,
  *   onClick(index: number): void
  * }} DefaultProps

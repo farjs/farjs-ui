@@ -14,6 +14,6 @@ export type LogControllerProps = {
  */
 declare function LogController(props: LogControllerProps): import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>> | null;
 declare namespace LogController {
-    const displayName: string;
-    const maxBufferLength: number;
+    let displayName: string;
+    let maxBufferLength: number;
 }

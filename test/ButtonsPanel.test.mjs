@@ -120,7 +120,7 @@ function getAction(label, onAction) {
 }
 
 /**
- * @param {ButtonsPanelAction[]} actions
+ * @param {readonly ButtonsPanelAction[]} actions
  * @param {number} [padding]
  * @param {number} [margin]
  * @returns {ButtonsPanelProps}
@@ -145,7 +145,7 @@ function getButtonsPanelProps(actions, padding, margin) {
 /**
  * @param {TestRenderer.ReactTestInstance} result
  * @param {ButtonsPanelProps} props
- * @param {{action: string, pos: number}[]} actions
+ * @param {readonly {action: string, pos: number}[]} actions
  */
 function assertButtonsPanel(result, props, actions) {
   const buttonsWidth =

@@ -1,6 +1,6 @@
 export default Popup;
 export type PopupProps = {
-    readonly focusable?: boolean | undefined;
+    readonly focusable?: boolean;
     onClose?(): void;
     onOpen?(): void;
     onKeypress?(keyFull: string): boolean;
@@ -18,7 +18,7 @@ export type PopupProps = {
  */
 declare function Popup(props: React.PropsWithChildren<PopupProps>): React.FunctionComponentElement<{}>;
 declare namespace Popup {
-    export const displayName: string;
+    export let displayName: string;
     export { Portal as portalComp };
     export { PopupOverlay as popupOverlayComp };
 }

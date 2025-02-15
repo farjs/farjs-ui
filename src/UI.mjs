@@ -33,7 +33,7 @@ export function renderText(isBold, fgColor, bgColor, text) {
 /**
  * @param {string} text
  * @param {number} maxLen
- * @returns {string[]}
+ * @returns {readonly string[]}
  */
 export function splitText(text, maxLen) {
   const sentences = text.split("\n");

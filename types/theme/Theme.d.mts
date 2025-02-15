@@ -26,7 +26,7 @@ export type ThemeTextBox = {
     readonly selected: ThemeEffects;
 };
 declare namespace Theme {
-    const Context: React.Context<Theme | null>;
+    let Context: React.Context<Theme | null>;
     function useTheme(): Theme;
 }
 import React from "react";

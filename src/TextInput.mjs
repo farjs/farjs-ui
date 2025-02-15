@@ -82,7 +82,7 @@ const TextInput = (props) => {
 
     /**
      * @param {number} [dx]
-     * @returns {number[]}
+     * @returns {readonly number[]}
      */
     function moveLeft(dx) {
       const ldx = dx ?? Math.max(charStart.lcw, 1);
@@ -91,7 +91,7 @@ const TextInput = (props) => {
 
     /**
      * @param {number} [dx]
-     * @returns {number[]}
+     * @returns {readonly number[]}
      */
     //prettier-ignore
     function moveRight(dx) {

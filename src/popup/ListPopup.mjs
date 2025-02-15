@@ -14,7 +14,7 @@ const h = React.createElement;
 /**
  * @typedef {{
  *  readonly title: string;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  onAction(index: number): void;
  *  onClose(): void;
  *  readonly selected?: number;

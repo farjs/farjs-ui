@@ -5,7 +5,7 @@ export type MessageBoxAction = {
     onAction(): void;
 };
 declare namespace MessageBoxAction {
-    function OK(onAction: () => void): MessageBoxAction;
-    function YES(onAction: () => void): MessageBoxAction;
-    function NO(onAction: () => void): MessageBoxAction;
+    let OK: (onAction: () => void) => MessageBoxAction;
+    let YES: (onAction: () => void) => MessageBoxAction;
+    let NO: (onAction: () => void) => MessageBoxAction;
 }

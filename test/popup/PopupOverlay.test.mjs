@@ -177,7 +177,7 @@ describe("PopupOverlay.test.mjs", () => {
     /**
      * @param {boolean} defaultPrevented
      * @param {boolean} handled
-     * @param {string[]} keys
+     * @param {readonly string[]} keys
      * @returns {void}
      */
     function check(defaultPrevented, handled, ...keys) {

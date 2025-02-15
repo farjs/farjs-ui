@@ -13,7 +13,7 @@ const h = React.createElement;
  *  readonly left: number;
  *  readonly top: number;
  *  readonly width: number;
- *  readonly items: string[];
+ *  readonly items: readonly string[];
  *  readonly style: import("@farjs/blessed").Widgets.Types.TStyle;
  *  readonly viewport: ListViewport;
  *  setViewport(viewport: ListViewport): void;

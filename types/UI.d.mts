@@ -15,6 +15,6 @@ export function renderText(isBold: boolean, fgColor: string, bgColor: string, te
 /**
  * @param {string} text
  * @param {number} maxLen
- * @returns {string[]}
+ * @returns {readonly string[]}
  */
-export function splitText(text: string, maxLen: number): string[];
+export function splitText(text: string, maxLen: number): readonly string[];
