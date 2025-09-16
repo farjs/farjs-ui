@@ -34,8 +34,6 @@ const ComboBox = (props) => {
   const inputRef = /** @type {React.MutableRefObject<BlessedElement>} */ (
     useRef()
   );
-  const programRef =
-    /** @type {React.MutableRefObject<BlessedProgram | null>} */ (useRef(null));
   const autoCompleteTimeoutRef =
     /** @type {React.MutableRefObject<NodeJS.Timeout | null>} */ (useRef(null));
 
@@ -62,16 +60,18 @@ const ComboBox = (props) => {
   function showPopup(viewport) {
     setPopup(viewport);
 
-    if (programRef.current) {
-      programRef.current.hideCursor();
+    const el = inputRef.current;
+    if (el) {
+      el.screen.program.hideCursor();
     }
   }
 
   function hidePopup() {
     setPopup(null);
 
-    if (programRef.current) {
-      programRef.current.showCursor();
+    const el = inputRef.current;
+    if (el) {
+      el.screen.program.showCursor();
     }
   }
 
@@ -199,12 +199,6 @@ const ComboBox = (props) => {
       ? h(
           "form",
           {
-            /** @type {(el?: BlessedElement) => void} */
-            ref: (el) => {
-              if (el) {
-                programRef.current = el.screen.program;
-              }
-            },
             clickable: true,
             mouse: true,
             autoFocus: false,

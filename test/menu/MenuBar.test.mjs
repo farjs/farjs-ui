@@ -76,12 +76,16 @@ describe("MenuBar.test.mjs", () => {
     });
     const renderer = TestRenderer.create(withThemeContext(h(MenuBar, props)));
     const buttonsProps = renderer.root.findByType(buttonsPanel).props;
-    buttonsProps.actions[0].onAction();
+    TestRenderer.act(() => {
+      buttonsProps.actions[0].onAction();
+    });
     assert.deepEqual(renderer.root.findAllByType(subMenuComp).length, 1);
     const onKeypress = findOnKeypress(renderer);
 
     //when
-    assert.deepEqual(onKeypress("escape"), true);
+    TestRenderer.act(() => {
+      assert.deepEqual(onKeypress("escape"), true);
+    });
 
     //then
     assert.deepEqual(renderer.root.findAllByType(subMenuComp).length, 0);
@@ -111,7 +115,9 @@ describe("MenuBar.test.mjs", () => {
     });
     const renderer = TestRenderer.create(withThemeContext(h(MenuBar, props)));
     const buttonsProps = renderer.root.findByType(buttonsPanel).props;
-    buttonsProps.actions[0].onAction();
+    TestRenderer.act(() => {
+      buttonsProps.actions[0].onAction();
+    });
     assertComponent(
       renderer.root.findByType(subMenuComp),
       h(subMenuComp, {
@@ -204,7 +210,9 @@ describe("MenuBar.test.mjs", () => {
     });
     const renderer = TestRenderer.create(withThemeContext(h(MenuBar, props)));
     const buttonsProps = renderer.root.findByType(buttonsPanel).props;
-    buttonsProps.actions[0].onAction();
+    TestRenderer.act(() => {
+      buttonsProps.actions[0].onAction();
+    });
     assert.deepEqual(renderer.root.findByType(subMenuComp).props.left, 2);
 
     //when & then
@@ -263,7 +271,9 @@ describe("MenuBar.test.mjs", () => {
     });
     const renderer = TestRenderer.create(withThemeContext(h(MenuBar, props)));
     const buttonsProps = renderer.root.findByType(buttonsPanel).props;
-    buttonsProps.actions[0].onAction();
+    TestRenderer.act(() => {
+      buttonsProps.actions[0].onAction();
+    });
     assert.deepEqual(findOnKeypress(renderer)("down"), true);
     assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 2);
 
@@ -289,7 +299,9 @@ describe("MenuBar.test.mjs", () => {
     });
     const renderer = TestRenderer.create(withThemeContext(h(MenuBar, props)));
     const buttonsProps = renderer.root.findByType(buttonsPanel).props;
-    buttonsProps.actions[0].onAction();
+    TestRenderer.act(() => {
+      buttonsProps.actions[0].onAction();
+    });
     assert.deepEqual(renderer.root.findByType(subMenuComp).props.selected, 0);
 
     //when
@@ -312,7 +324,9 @@ describe("MenuBar.test.mjs", () => {
     const buttonsProps = renderer.root.findByType(buttonsPanel).props;
 
     //when
-    buttonsProps.actions[0].onAction();
+    TestRenderer.act(() => {
+      buttonsProps.actions[0].onAction();
+    });
 
     //then
     assertComponent(
@@ -350,7 +364,14 @@ describe("MenuBar.test.mjs", () => {
  * @returns {(keyFull: string) => boolean}
  */
 function findOnKeypress(renderer) {
-  return renderer.root.findByType(popupComp).props.onKeypress;
+  const onKeypress = renderer.root.findByType(popupComp).props.onKeypress;
+  return (keyFull) => {
+    let res = false;
+    TestRenderer.act(() => {
+      res = onKeypress(keyFull);
+    });
+    return res;
+  };
 }
 
 /**

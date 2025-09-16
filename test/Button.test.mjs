@@ -43,11 +43,15 @@ describe("Button.test.mjs", () => {
     assertButton(renderer.root, props, false);
 
     //when & then
-    button.props.onFocus();
+    TestRenderer.act(() => {
+      button.props.onFocus();
+    });
     assertButton(renderer.root, props, true);
 
     //when & then
-    button.props.onBlur();
+    TestRenderer.act(() => {
+      button.props.onBlur();
+    });
     assertButton(renderer.root, props, false);
   });
 

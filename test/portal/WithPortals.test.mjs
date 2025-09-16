@@ -42,7 +42,9 @@ describe("WithPortals.test.mjs", () => {
     ).root;
 
     //when & then
-    portalsCtx.current?.onRender(1, h(portalComp1));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(1, h(portalComp1));
+    });
     assert.deepEqual(portalCtx1.current?.isActive, true);
     assertComponents(
       root.children,
@@ -56,7 +58,9 @@ describe("WithPortals.test.mjs", () => {
     screenMock.focused = /** @type {BlessedElement} */ (focused2);
 
     //when & then
-    portalsCtx.current?.onRender(2, h(portalComp2));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(2, h(portalComp2));
+    });
     assert.deepEqual(portalCtx1.current?.isActive, false);
     assert.deepEqual(portalCtx2.current?.isActive, true);
     assertComponents(
@@ -83,15 +87,19 @@ describe("WithPortals.test.mjs", () => {
         h(React.Fragment, null, "some other content")
       )
     ).root;
-    portalsCtx.current?.onRender(1, h(portalComp1));
-    portalsCtx.current?.onRender(2, h(portalComp2));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(1, h(portalComp1));
+      portalsCtx.current?.onRender(2, h(portalComp2));
+    });
     assert.deepEqual(portalCtx1.current?.isActive, false);
     assert.deepEqual(portalCtx2.current?.isActive, true);
     const [updatedCtx1, updatedComp1] = getPortalCtxHook("updated content 1");
     const [updatedCtx2, updatedComp2] = getPortalCtxHook("updated content 2");
 
     //when & then
-    portalsCtx.current?.onRender(1, h(updatedComp1));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(1, h(updatedComp1));
+    });
     assert.deepEqual(updatedCtx1.current?.isActive, false);
     assert.deepEqual(portalCtx2.current?.isActive, true);
     assertComponents(
@@ -103,7 +111,9 @@ describe("WithPortals.test.mjs", () => {
     );
 
     //when & then
-    portalsCtx.current?.onRender(2, h(updatedComp2));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(2, h(updatedComp2));
+    });
     assert.deepEqual(updatedCtx1.current?.isActive, false);
     assert.deepEqual(updatedCtx2.current?.isActive, true);
     assertComponents(
@@ -136,25 +146,33 @@ describe("WithPortals.test.mjs", () => {
         h(React.Fragment, null, "some other content")
       )
     ).root;
-    portalsCtx.current?.onRender(0, h(portalComp0));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(0, h(portalComp0));
+    });
 
     //given & when
     const focus1Mock = mockFunction();
     const focused1 = { focus: () => focus1Mock() };
     screenMock.focused = /** @type {BlessedElement} */ (focused1);
-    portalsCtx.current?.onRender(1, h(portalComp1));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(1, h(portalComp1));
+    });
 
     //given & when
     const focus2Mock = mockFunction();
     const focused2 = { focus: () => focus2Mock() };
     screenMock.focused = /** @type {BlessedElement} */ (focused2);
-    portalsCtx.current?.onRender(2, h(portalComp2));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(2, h(portalComp2));
+    });
 
     //given & when
     const focus3Mock = mockFunction();
     const focused3 = { focus: () => focus3Mock() };
     screenMock.focused = /** @type {BlessedElement} */ (focused3);
-    portalsCtx.current?.onRender(3, h(portalComp3));
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRender(3, h(portalComp3));
+    });
 
     //then
     assert.deepEqual(portalCtx0.current?.isActive, false);
@@ -163,7 +181,9 @@ describe("WithPortals.test.mjs", () => {
     assert.deepEqual(portalCtx3.current?.isActive, true);
 
     //when & then
-    portalsCtx.current?.onRemove(3);
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRemove(3);
+    });
     assert.deepEqual(portalCtx1.current?.isActive, false);
     assert.deepEqual(portalCtx2.current?.isActive, true);
     assertComponents(
@@ -176,7 +196,9 @@ describe("WithPortals.test.mjs", () => {
     );
 
     //when & then
-    portalsCtx.current?.onRemove(1);
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRemove(1);
+    });
     assert.deepEqual(portalCtx2.current?.isActive, true);
     assertComponents(
       root.children,
@@ -187,7 +209,9 @@ describe("WithPortals.test.mjs", () => {
     );
 
     //when & then
-    portalsCtx.current?.onRemove(2);
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRemove(2);
+    });
     assert.deepEqual(portalCtx0.current?.isActive, true);
     assertComponents(
       root.children,
@@ -197,7 +221,9 @@ describe("WithPortals.test.mjs", () => {
     );
 
     //when & then
-    portalsCtx.current?.onRemove(0);
+    TestRenderer.act(() => {
+      portalsCtx.current?.onRemove(0);
+    });
     assertComponents(root.children, h(portalsComp), "some other content");
 
     //then

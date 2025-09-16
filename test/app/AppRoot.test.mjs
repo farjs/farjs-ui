@@ -115,7 +115,9 @@ describe("AppRoot.test.mjs", () => {
     assert.deepEqual(devToolProps.devTool, DevTool.Colors);
 
     //when
-    devToolProps.onActivate(DevTool.Logs);
+    TestRenderer.act(() => {
+      devToolProps.onActivate(DevTool.Logs);
+    });
 
     //then
     assert.deepEqual(getDetToolProps().devTool, DevTool.Logs);
@@ -182,12 +184,14 @@ describe("AppRoot.test.mjs", () => {
     assert.deepEqual(logCompProps.render("test log content"), null);
 
     //when
-    logCompProps.onReady();
+    await TestRenderer.act(async () => {
+      logCompProps.onReady();
+    });
 
     //then
-    await Promise.resolve().then(() => {
-      assert.deepEqual(themeCtx.current, XTerm256Theme);
-    });
+    await Promise.resolve();
+    await Promise.resolve();
+    assert.deepEqual(themeCtx.current, XTerm256Theme);
     assertComponents(
       renderer.root.children,
       h("box", { width: "100%" }, h(mainComp, null, h(taskControllerComp))),

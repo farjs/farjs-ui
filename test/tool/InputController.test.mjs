@@ -27,9 +27,11 @@ const g = /** @type {any} */ (global);
  * @param {string} msg
  */
 const logKeys = (msg) => {
-  if (g.farjsLogKeys) {
-    g.farjsLogKeys(msg);
-  }
+  TestRenderer.act(() => {
+    if (g.farjsLogKeys) {
+      g.farjsLogKeys(msg);
+    }
+  });
 };
 
 describe("InputController.test.mjs", () => {

@@ -54,14 +54,18 @@ describe("ComboBox.test.mjs", () => {
     process.stdin.on("keypress", keyListener);
     const props = { ...getComboBoxProps(), onChange };
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-      true
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
+        true
+      );
+    });
     const comboBox = renderer.root.findByType(comboBoxPopup).props;
 
     //when
-    comboBox.onClick(1);
+    TestRenderer.act(() => {
+      comboBox.onClick(1);
+    });
 
     //cleanup
     process.stdin.removeListener("keypress", keyListener);
@@ -91,15 +95,19 @@ describe("ComboBox.test.mjs", () => {
     process.stdin.on("keypress", keyListener);
     const props = { ...getComboBoxProps(), onChange };
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-      true
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
+        true
+      );
+    });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
     const textInput = renderer.root.findByType(textInputComp).props;
 
     //when
-    assert.deepEqual(textInput.onKeypress("return"), true);
+    TestRenderer.act(() => {
+      assert.deepEqual(textInput.onKeypress("return"), true);
+    });
 
     //cleanup
     process.stdin.removeListener("keypress", keyListener);
@@ -117,15 +125,19 @@ describe("ComboBox.test.mjs", () => {
     process.stdin.on("keypress", keyListener);
     const props = { ...getComboBoxProps(), items: [], onChange };
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-      true
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
+        true
+      );
+    });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
     const textInput = renderer.root.findByType(textInputComp).props;
 
     //when
-    assert.deepEqual(textInput.onKeypress("return"), true);
+    TestRenderer.act(() => {
+      assert.deepEqual(textInput.onKeypress("return"), true);
+    });
 
     //cleanup
     process.stdin.removeListener("keypress", keyListener);
@@ -163,15 +175,19 @@ describe("ComboBox.test.mjs", () => {
     const textInput = /** @type {TextInputProps} */ (
       renderer.root.findByType(textInputComp).props
     );
-    textInput.stateUpdater((s) => {
-      return { ...s, selStart: 1 };
+    TestRenderer.act(() => {
+      textInput.stateUpdater((s) => {
+        return { ...s, selStart: 1 };
+      });
     });
 
     //when
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("b"),
-      false
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("b"),
+        false
+      );
+    });
 
     //then
     await setTimeout(autoCompleteTimeoutMs);
@@ -357,15 +373,19 @@ describe("ComboBox.test.mjs", () => {
     //given
     const props = getComboBoxProps();
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-      true
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
+        true
+      );
+    });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
     const textInput = renderer.root.findByType(textInputComp).props;
 
     //when
-    assert.deepEqual(textInput.onKeypress("escape"), true);
+    TestRenderer.act(() => {
+      assert.deepEqual(textInput.onKeypress("escape"), true);
+    });
 
     //then
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 0);
@@ -375,15 +395,19 @@ describe("ComboBox.test.mjs", () => {
     //given
     const props = getComboBoxProps();
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-      true
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
+        true
+      );
+    });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
     const textInput = renderer.root.findByType(textInputComp).props;
 
     //when
-    assert.deepEqual(textInput.onKeypress("C-up"), true);
+    TestRenderer.act(() => {
+      assert.deepEqual(textInput.onKeypress("C-up"), true);
+    });
 
     //then
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 0);
@@ -396,22 +420,24 @@ describe("ComboBox.test.mjs", () => {
     const showCursor = mockFunction();
     const program = { hideCursor, showCursor };
     const screen = { program };
-    const formMock = { screen };
-    const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)), {
-      createNodeMock: (el) => {
-        return el.type === "form" ? formMock : null;
-      },
+    const textMock = { screen };
+    const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
+    const textInput = renderer.root.findByType(textInputComp).props;
+    textInput.inputRef.current = textMock;
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
+        true
+      );
     });
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-      true
-    );
     assert.deepEqual(hideCursor.times, 1);
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
     const form = renderer.root.findByType("form");
 
     //when
-    form.props.onClick();
+    TestRenderer.act(() => {
+      form.props.onClick();
+    });
 
     //then
     assert.deepEqual(showCursor.times, 1);
@@ -421,29 +447,33 @@ describe("ComboBox.test.mjs", () => {
   it("should hide popup and show cursor when arrow.onClick", () => {
     //given
     const props = getComboBoxProps();
+    const focus = mockFunction();
     const hideCursor = mockFunction();
     const showCursor = mockFunction();
     const program = { hideCursor, showCursor };
     const screen = { program };
-    const formMock = { screen };
-    const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)), {
-      createNodeMock: (el) => {
-        return el.type === "form" ? formMock : null;
-      },
+    const textMock = { screen, focus };
+    const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
+    const textInput = renderer.root.findByType(textInputComp).props;
+    textInput.inputRef.current = textMock;
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
+        true
+      );
     });
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-      true
-    );
     assert.deepEqual(hideCursor.times, 1);
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
     const arrow = renderer.root.findByType("text");
 
     //when
-    arrow.props.onClick();
+    TestRenderer.act(() => {
+      arrow.props.onClick();
+    });
 
     //then
     assert.deepEqual(showCursor.times, 1);
+    assert.deepEqual(focus.times, 1);
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 0);
   });
 
@@ -451,7 +481,10 @@ describe("ComboBox.test.mjs", () => {
     //given
     const props = getComboBoxProps();
     const focus = mockFunction();
-    const screen = {};
+    const hideCursor = mockFunction();
+    const showCursor = mockFunction();
+    const program = { hideCursor, showCursor };
+    const screen = { program, focused: {} };
     const textMock = { screen, focus };
     screen.focused = textMock;
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
@@ -461,10 +494,14 @@ describe("ComboBox.test.mjs", () => {
     const arrow = renderer.root.findByType("text");
 
     //when
-    arrow.props.onClick();
+    TestRenderer.act(() => {
+      arrow.props.onClick();
+    });
 
     //then
     assert.deepEqual(focus.times, 0);
+    assert.deepEqual(hideCursor.times, 1);
+    assert.deepEqual(showCursor.times, 0);
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
   });
 
@@ -472,7 +509,10 @@ describe("ComboBox.test.mjs", () => {
     //given
     const props = getComboBoxProps();
     const focus = mockFunction();
-    const screen = { focused: {} };
+    const hideCursor = mockFunction();
+    const showCursor = mockFunction();
+    const program = { hideCursor, showCursor };
+    const screen = { program, focused: {} };
     const textMock = { screen, focus };
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
     const textInput = renderer.root.findByType(textInputComp).props;
@@ -481,10 +521,14 @@ describe("ComboBox.test.mjs", () => {
     const arrow = renderer.root.findByType("text");
 
     //when
-    arrow.props.onClick();
+    TestRenderer.act(() => {
+      arrow.props.onClick();
+    });
 
     //then
     assert.deepEqual(focus.times, 1);
+    assert.deepEqual(hideCursor.times, 1);
+    assert.deepEqual(showCursor.times, 0);
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
   });
 
@@ -493,17 +537,21 @@ describe("ComboBox.test.mjs", () => {
     const items = ["1", "2", "3"];
     const props = { ...getComboBoxProps(), items };
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-      true
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
+        true
+      );
+    });
     const popup = renderer.root.findByType(comboBoxPopup).props;
     assert.deepEqual(popup.items, items);
     assert.deepEqual(popup.viewport.focused, 0);
     const viewport = popup.viewport.updated(popup.viewport.offset, 1);
 
     //when
-    popup.setViewport(viewport);
+    TestRenderer.act(() => {
+      popup.setViewport(viewport);
+    });
 
     //then
     assert.deepEqual(
@@ -531,17 +579,21 @@ describe("ComboBox.test.mjs", () => {
     //given
     const props = getComboBoxProps();
     const renderer = TestRenderer.create(withThemeContext(h(ComboBox, props)));
-    assert.deepEqual(
-      renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-      true
-    );
+    TestRenderer.act(() => {
+      assert.deepEqual(
+        renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
+        true
+      );
+    });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
     const textInput = renderer.root.findByType(textInputComp).props;
 
     //when & then
-    assert.deepEqual(textInput.onKeypress("up"), true);
-    assert.deepEqual(textInput.onKeypress("down"), true);
-    assert.deepEqual(textInput.onKeypress("unknown"), true);
+    TestRenderer.act(() => {
+      assert.deepEqual(textInput.onKeypress("up"), true);
+      assert.deepEqual(textInput.onKeypress("down"), true);
+      assert.deepEqual(textInput.onKeypress("unknown"), true);
+    });
 
     //then
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
@@ -556,8 +608,10 @@ describe("ComboBox.test.mjs", () => {
     );
 
     //when & then
-    textInput.stateUpdater((s) => {
-      return { ...s, offset: 1, cursorX: 2, selStart: 3, selEnd: 4 };
+    TestRenderer.act(() => {
+      textInput.stateUpdater((s) => {
+        return { ...s, offset: 1, cursorX: 2, selStart: 3, selEnd: 4 };
+      });
     });
 
     //then
@@ -578,7 +632,9 @@ describe("ComboBox.test.mjs", () => {
     const textInput = renderer.root.findByType(textInputComp).props;
 
     //when
-    assert.deepEqual(textInput.onKeypress("C-down"), true);
+    TestRenderer.act(() => {
+      assert.deepEqual(textInput.onKeypress("C-down"), true);
+    });
 
     //then
     assertComboBox(renderer.root, props, true);

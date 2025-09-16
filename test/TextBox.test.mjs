@@ -39,8 +39,10 @@ describe("TextBox.test.mjs", () => {
     });
 
     //when
-    textInput.stateUpdater((s) => {
-      return { ...s, offset: 1, cursorX: 2, selStart: 3, selEnd: 4 };
+    TestRenderer.act(() => {
+      textInput.stateUpdater((s) => {
+        return { ...s, offset: 1, cursorX: 2, selStart: 3, selEnd: 4 };
+      });
     });
 
     //then

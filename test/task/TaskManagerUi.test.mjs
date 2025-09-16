@@ -43,7 +43,9 @@ describe("TaskManagerUi.test.mjs", () => {
     const msgBox = renderer.root.findByType(messageBoxComp);
 
     //when
-    msgBox.props.actions[0].onAction();
+    TestRenderer.act(() => {
+      msgBox.props.actions[0].onAction();
+    });
 
     //then
     assert.deepEqual(onCloseErrorPopup.times, 1);
@@ -111,7 +113,9 @@ describe("TaskManagerUi.test.mjs", () => {
     );
 
     //when & then
-    renderer.root.findByType(messageBoxComp).props.actions[0].onAction();
+    TestRenderer.act(() => {
+      renderer.root.findByType(messageBoxComp).props.actions[0].onAction();
+    });
     assert.deepEqual(onCloseErrorPopup.times, 1);
     assert.deepEqual(
       renderer.root.findByType(messageBoxComp).props.message,
@@ -119,7 +123,9 @@ describe("TaskManagerUi.test.mjs", () => {
     );
 
     //when & then
-    renderer.root.findByType(messageBoxComp).props.actions[0].onAction();
+    TestRenderer.act(() => {
+      renderer.root.findByType(messageBoxComp).props.actions[0].onAction();
+    });
     assert.deepEqual(onCloseErrorPopup.times, 2);
     assert.deepEqual(renderer.root.children.length, 0);
   });

@@ -37,7 +37,9 @@ describe("ListBox.test.mjs", () => {
     const offset = 1;
 
     //when
-    scrollBar.props.onChange(offset);
+    TestRenderer.act(() => {
+      scrollBar.props.onChange(offset);
+    });
 
     //then
     assertListBox(renderer.root, props, true, offset);
@@ -61,7 +63,9 @@ describe("ListBox.test.mjs", () => {
     const viewport = listView.viewport.updated(listView.viewport.offset, 0);
 
     //when
-    listView.setViewport(viewport);
+    TestRenderer.act(() => {
+      listView.setViewport(viewport);
+    });
 
     //then
     assert.deepEqual(onSelect.times, 2);
@@ -85,7 +89,9 @@ describe("ListBox.test.mjs", () => {
     );
 
     //when
-    listView.setViewport(viewport);
+    TestRenderer.act(() => {
+      listView.setViewport(viewport);
+    });
 
     //then
     assert.deepEqual(onSelect.times, 1);
@@ -107,7 +113,9 @@ describe("ListBox.test.mjs", () => {
     const button = renderer.root.findByType("button");
 
     //when
-    button.props.onKeypress(null, { full: "down" });
+    TestRenderer.act(() => {
+      button.props.onKeypress(null, { full: "down" });
+    });
 
     //then
     assert.deepEqual(onSelect.times, 2);

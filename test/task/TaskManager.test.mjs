@@ -7,6 +7,7 @@ import React from "react";
 import TestRenderer from "react-test-renderer";
 import {
   TestErrorBoundary,
+  actAsync,
   assertComponents,
   mockComponent,
 } from "react-assert";
@@ -65,22 +66,26 @@ describe("TaskManager.test.mjs", () => {
     );
   });
 
-  it("should set status to None when onHideStatus", () => {
+  it("should set status to None when onHideStatus", async () => {
     //given
     const task = Task("Fetching data", Promise.resolve());
     const props = getTaskManagerProps(task);
-    const renderer = TestRenderer.create(h(TaskManager, props));
+    const renderer = await actAsync(() => {
+      return TestRenderer.create(h(TaskManager, props));
+    });
     assertTaskManager(renderer.root, {
-      showLoading: true,
-      status: new RegExp(`^${task.message}\\.\\.\\.$`),
+      showLoading: false,
+      status: new RegExp(`^${task.message}\\.\\.\\.Done \\d+\\.\\d+ sec\\.$`),
     });
     const uiProps = renderer.root.findByType(uiComponent).props;
 
     //when
-    uiProps.onHideStatus();
+    TestRenderer.act(() => {
+      uiProps.onHideStatus();
+    });
 
     //then
-    assertTaskManager(renderer.root, { showLoading: true });
+    assertTaskManager(renderer.root, { showLoading: false });
   });
 
   it("should log stack if js error and set error to undefined when onCloseErrorPopup", async () => {
@@ -95,10 +100,12 @@ describe("TaskManager.test.mjs", () => {
     const rejected = Promise.reject(error);
     const task = Task("Fetching data", rejected);
     const props = getTaskManagerProps(task);
-    const renderer = TestRenderer.create(h(TaskManager, props));
+    const renderer = await actAsync(() => {
+      return TestRenderer.create(h(TaskManager, props));
+    });
     assertTaskManager(renderer.root, {
-      showLoading: true,
-      status: new RegExp(`^${task.message}\\.\\.\\.$`),
+      showLoading: false,
+      status: new RegExp(`^${task.message}\\.\\.\\.Done \\d+\\.\\d+ sec\\.$`),
     });
 
     await rejected.catch((error) => {
@@ -114,7 +121,9 @@ describe("TaskManager.test.mjs", () => {
       const uiProps = renderer.root.findByType(uiComponent).props;
 
       //when
-      uiProps.onCloseErrorPopup();
+      TestRenderer.act(() => {
+        uiProps.onCloseErrorPopup();
+      });
 
       //then
       assertTaskManager(renderer.root, {
@@ -138,10 +147,12 @@ describe("TaskManager.test.mjs", () => {
     const props = getTaskManagerProps(task);
 
     //when
-    const renderer = TestRenderer.create(h(TaskManager, props));
+    const renderer = await actAsync(() => {
+      return TestRenderer.create(h(TaskManager, props));
+    });
     assertTaskManager(renderer.root, {
-      showLoading: true,
-      status: new RegExp(`^${task.message}\\.\\.\\.$`),
+      showLoading: false,
+      status: new RegExp(`^${task.message}\\.\\.\\.Done \\d+\\.\\d+ sec\\.$`),
     });
 
     await rejected.catch((error) => {
@@ -167,7 +178,9 @@ describe("TaskManager.test.mjs", () => {
     const props = getTaskManagerProps(task1);
 
     //when & then
-    const renderer = TestRenderer.create(h(TaskManager, props));
+    const renderer = await actAsync(() => {
+      return TestRenderer.create(h(TaskManager, props));
+    });
     assertTaskManager(renderer.root, {
       showLoading: true,
       status: new RegExp(`^${task1.message}\\.\\.\\.$`),
@@ -192,7 +205,9 @@ describe("TaskManager.test.mjs", () => {
     //when & then
     assert.notDeepEqual(resolve1, undefined);
     resolve1?.apply(null, [undefined]);
-    await promise1;
+    await TestRenderer.act(async () => {
+      await promise1;
+    });
     assertTaskManager(renderer.root, {
       showLoading: true,
       status: new RegExp(`^${task1.message}\\.\\.\\.Done \\d+\\.\\d+ sec\\.$`),
@@ -201,7 +216,9 @@ describe("TaskManager.test.mjs", () => {
     //when & then
     assert.notDeepEqual(resolve2, undefined);
     resolve2?.apply(null, [undefined]);
-    await promise2;
+    await TestRenderer.act(async () => {
+      await promise2;
+    });
     assertTaskManager(renderer.root, {
       showLoading: false,
       status: new RegExp(`^${task2.message}\\.\\.\\.Done \\d+\\.\\d+ sec\\.$`),
