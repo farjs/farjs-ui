@@ -8,10 +8,10 @@
 
 /**
  * @param {string} label
- * @param {boolean} triggeredOnClose
+ * @param {boolean} [triggeredOnClose]
  * @returns {(onAction: () => void) => MessageBoxAction}
  */
-function createAction(label, triggeredOnClose = false) {
+function MessageBoxAction(label, triggeredOnClose = false) {
   return (onAction) => {
     return {
       label,
@@ -21,10 +21,8 @@ function createAction(label, triggeredOnClose = false) {
   };
 }
 
-const MessageBoxAction = {
-  OK: createAction("OK", true),
-  YES: createAction("YES"),
-  NO: createAction("NO", true),
-};
+MessageBoxAction.OK = MessageBoxAction("OK", true);
+MessageBoxAction.YES = MessageBoxAction("YES");
+MessageBoxAction.NO = MessageBoxAction("NO", true);
 
 export default MessageBoxAction;
