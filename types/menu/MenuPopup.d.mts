@@ -44,3 +44,4 @@ import ModalContent from "../popup/ModalContent.mjs";
 import Button from "../Button.mjs";
 declare const paddingHorizontal: 2;
 declare const paddingVertical: 1;
+//# sourceMappingURL=MenuPopup.d.mts.map

@@ -18,3 +18,4 @@ import React from "react";
 import LogPanel from "./LogPanel.mjs";
 import InputController from "./InputController.mjs";
 import ColorPanel from "./ColorPanel.mjs";
+//# sourceMappingURL=DevToolPanel.d.mts.map

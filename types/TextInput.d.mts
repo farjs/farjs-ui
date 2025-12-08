@@ -79,3 +79,4 @@ declare namespace TextInput {
     function createState(): TextInputState;
 }
 import React from "react";
+//# sourceMappingURL=TextInput.d.mts.map

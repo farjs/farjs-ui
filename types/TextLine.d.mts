@@ -43,3 +43,4 @@ declare namespace TextLine {
     function wrapText(text: string, width: number, prefixLen?: number): string;
 }
 import React from "react";
+//# sourceMappingURL=TextLine.d.mts.map

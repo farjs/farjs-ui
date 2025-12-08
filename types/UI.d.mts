@@ -18,3 +18,4 @@ export function renderText(isBold: boolean, fgColor: string, bgColor: string, te
  * @returns {readonly string[]}
  */
 export function splitText(text: string, maxLen: number): readonly string[];
+//# sourceMappingURL=UI.d.mts.map

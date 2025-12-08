@@ -15,3 +15,4 @@ declare namespace Portal {
     let _nextPortalId: number;
 }
 import React from "react";
+//# sourceMappingURL=Portal.d.mts.map

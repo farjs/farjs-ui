@@ -37,3 +37,4 @@ declare namespace SubMenu {
 import React from "react";
 import DoubleBorder from "../border/DoubleBorder.mjs";
 import HorizontalLine from "../border/HorizontalLine.mjs";
+//# sourceMappingURL=SubMenu.d.mts.map

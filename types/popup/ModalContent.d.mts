@@ -56,3 +56,4 @@ declare namespace ModalContent {
 }
 import React from "react";
 import DoubleBorder from "../border/DoubleBorder.mjs";
+//# sourceMappingURL=ModalContent.d.mts.map

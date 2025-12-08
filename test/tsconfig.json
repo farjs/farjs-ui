@@ -4,6 +4,7 @@
   "compilerOptions": {
     "noEmit": true,
     "declaration": false,
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "declarationMap": false
   }
 }

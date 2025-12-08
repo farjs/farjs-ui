@@ -32,3 +32,4 @@ export type UiString = {
  * @returns {UiString}
  */
 declare function UiString(str: string): UiString;
+//# sourceMappingURL=UiString.d.mts.map

@@ -19,3 +19,4 @@ declare const Color: Readonly<{
     grey: "grey";
     lightgrey: "lightgrey";
 }>;
+//# sourceMappingURL=Color.d.mts.map

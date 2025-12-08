@@ -31,3 +31,4 @@ import Popup from "./Popup.mjs";
 import ModalContent from "./ModalContent.mjs";
 import TextLine from "../TextLine.mjs";
 import ButtonsPanel from "../ButtonsPanel.mjs";
+//# sourceMappingURL=MessageBox.d.mts.map

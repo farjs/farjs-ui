@@ -5,3 +5,4 @@ declare const TextAlign: Readonly<{
     right: "right";
     center: "center";
 }>;
+//# sourceMappingURL=TextAlign.d.mts.map

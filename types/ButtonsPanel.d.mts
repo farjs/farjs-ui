@@ -41,3 +41,4 @@ declare namespace ButtonsPanel {
 }
 import React from "react";
 import Button from "./Button.mjs";
+//# sourceMappingURL=ButtonsPanel.d.mts.map

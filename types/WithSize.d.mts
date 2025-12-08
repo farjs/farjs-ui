@@ -20,3 +20,4 @@ declare namespace WithSize {
     let displayName: string;
 }
 import React from "react";
+//# sourceMappingURL=WithSize.d.mts.map

@@ -20,3 +20,4 @@ export type ListViewport = {
     onKeypress(keyFull: string): ListViewport | undefined;
     resize(viewLength: number): ListViewport;
 };
+//# sourceMappingURL=ListViewport.d.mts.map

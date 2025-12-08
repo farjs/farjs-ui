@@ -45,3 +45,4 @@ import React from "react";
 import TaskManager from "../task/TaskManager.mjs";
 import LogController from "../tool/LogController.mjs";
 import DevToolPanel from "../tool/DevToolPanel.mjs";
+//# sourceMappingURL=AppRoot.d.mts.map

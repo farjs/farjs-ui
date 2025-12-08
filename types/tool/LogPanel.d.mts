@@ -18,3 +18,4 @@ declare namespace LogPanel {
     let displayName: string;
 }
 import React from "react";
+//# sourceMappingURL=LogPanel.d.mts.map

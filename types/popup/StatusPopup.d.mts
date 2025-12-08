@@ -25,3 +25,4 @@ import React from "react";
 import Popup from "./Popup.mjs";
 import ModalContent from "./ModalContent.mjs";
 import TextLine from "../TextLine.mjs";
+//# sourceMappingURL=StatusPopup.d.mts.map

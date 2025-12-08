@@ -22,3 +22,4 @@ declare namespace MessageBoxAction {
     let YES: (onAction: () => void) => MessageBoxAction;
     let NO: (onAction: () => void) => MessageBoxAction;
 }
+//# sourceMappingURL=MessageBoxAction.d.mts.map

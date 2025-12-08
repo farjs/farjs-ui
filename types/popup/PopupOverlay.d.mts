@@ -18,3 +18,4 @@ declare namespace PopupOverlay {
     let style: import("@farjs/blessed").Widgets.Types.TStyle;
 }
 import React from "react";
+//# sourceMappingURL=PopupOverlay.d.mts.map

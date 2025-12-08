@@ -24,3 +24,4 @@ declare namespace BottomMenu {
 import React from "react";
 import WithSize from "../WithSize.mjs";
 import BottomMenuView from "./BottomMenuView.mjs";
+//# sourceMappingURL=BottomMenu.d.mts.map

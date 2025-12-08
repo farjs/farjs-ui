@@ -18,3 +18,4 @@ declare const SingleChars: Readonly<{
     crossDoubleVert: "╫";
     crossDoubleHoriz: "╪";
 }>;
+//# sourceMappingURL=SingleChars.d.mts.map

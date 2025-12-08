@@ -17,3 +17,4 @@ declare namespace LogController {
     let displayName: string;
     let maxBufferLength: number;
 }
+//# sourceMappingURL=LogController.d.mts.map

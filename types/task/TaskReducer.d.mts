@@ -13,3 +13,4 @@ export type Task<T> = import("./Task.mjs").Task<T>;
  * @returns {Task<any> | undefined}
  */
 declare function TaskReducer(state: Task<any> | undefined, action: any): Task<any> | undefined;
+//# sourceMappingURL=TaskReducer.d.mts.map

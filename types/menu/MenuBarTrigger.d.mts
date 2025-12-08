@@ -7,3 +7,4 @@ declare namespace MenuBarTrigger {
     let displayName: string;
 }
 import React from "react";
+//# sourceMappingURL=MenuBarTrigger.d.mts.map

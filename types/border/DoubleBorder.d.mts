@@ -33,3 +33,4 @@ import React from "react";
 import HorizontalLine from "./HorizontalLine.mjs";
 import VerticalLine from "./VerticalLine.mjs";
 import TextLine from "../TextLine.mjs";
+//# sourceMappingURL=DoubleBorder.d.mts.map

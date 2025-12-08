@@ -9,3 +9,4 @@ declare namespace InputController {
 }
 import React from "react";
 import LogPanel from "./LogPanel.mjs";
+//# sourceMappingURL=InputController.d.mts.map

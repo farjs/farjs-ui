@@ -27,3 +27,4 @@ declare namespace Modal {
 import React from "react";
 import Popup from "./Popup.mjs";
 import ModalContent from "./ModalContent.mjs";
+//# sourceMappingURL=Modal.d.mts.map

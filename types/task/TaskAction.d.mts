@@ -25,3 +25,4 @@ export type TaskAction<T> = {
  * @returns {TaskAction<T>}
  */
 declare function TaskAction<T>(task: Task<T>): TaskAction<T>;
+//# sourceMappingURL=TaskAction.d.mts.map

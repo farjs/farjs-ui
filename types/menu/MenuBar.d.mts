@@ -46,3 +46,4 @@ import React from "react";
 import Popup from "../popup/Popup.mjs";
 import ButtonsPanel from "../ButtonsPanel.mjs";
 import SubMenu from "./SubMenu.mjs";
+//# sourceMappingURL=MenuBar.d.mts.map

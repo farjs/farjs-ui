@@ -22,3 +22,4 @@ export type Task<T> = {
  * @returns {Task<T>}
  */
 declare function Task<T>(message: string, result: Promise<T>): Task<T>;
+//# sourceMappingURL=Task.d.mts.map

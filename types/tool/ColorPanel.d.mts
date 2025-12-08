@@ -12,3 +12,4 @@ declare namespace ColorPanel {
     let displayName: string;
 }
 import React from "react";
+//# sourceMappingURL=ColorPanel.d.mts.map

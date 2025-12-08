@@ -23,3 +23,4 @@ declare namespace SingleBorder {
 import React from "react";
 import HorizontalLine from "./HorizontalLine.mjs";
 import VerticalLine from "./VerticalLine.mjs";
+//# sourceMappingURL=SingleBorder.d.mts.map
