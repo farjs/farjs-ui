@@ -36,7 +36,7 @@ const CheckBox = (props) => {
       top: props.top,
       style: props.style,
       content: props.label,
-    })
+    }),
   );
 };
 

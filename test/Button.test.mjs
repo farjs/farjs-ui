@@ -108,6 +108,6 @@ function assertButton(result, props, focused) {
       left: props.left,
       top: props.top,
       content: UI.renderText2(style, props.label),
-    })
+    }),
   );
 }

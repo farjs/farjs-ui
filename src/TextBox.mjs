@@ -28,7 +28,7 @@ const TextBox = (props) => {
     useRef()
   );
   const [state, setState] = useState(
-    /** @type {TextInputState} */ (TextInput.createState())
+    /** @type {TextInputState} */ (TextInput.createState()),
   );
 
   return h(textInputComp, {

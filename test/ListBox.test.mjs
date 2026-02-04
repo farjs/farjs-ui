@@ -85,7 +85,7 @@ describe("ListBox.test.mjs", () => {
     const viewport = createListViewport(
       1,
       listView.viewport.length,
-      listView.viewport.viewLength
+      listView.viewport.viewLength,
     );
 
     //when
@@ -254,7 +254,7 @@ function assertListBox(result, props, showScrollBar, offset = 0) {
               onChange: mockFunction(),
             })
           : null,
-      ].filter((h) => h)
-    )
+      ].filter((h) => h),
+    ),
   );
 }

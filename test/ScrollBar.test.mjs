@@ -327,6 +327,6 @@ function assertScrollBar(result, props, upLength) {
       autoFocus: false,
       style: props.style,
       content: ScrollBar.downArrowCh,
-    })
+    }),
   );
 }

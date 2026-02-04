@@ -95,7 +95,7 @@ describe("TextLine.test.mjs", () => {
 
     //when empty text without padding
     result = TestRenderer.create(
-      h(TextLine, { ...props, text: "", padding: 0 })
+      h(TextLine, { ...props, text: "", padding: 0 }),
     ).root;
     //then
     assertTextLine(result, props, 0, "");
@@ -192,9 +192,9 @@ function assertTextLine(result, props, left, text) {
         height: 1,
         left: left,
         top: props.top,
-        style: props.focused ?? false ? props.style.focus : props.style,
+        style: (props.focused ?? false) ? props.style.focus : props.style,
         content: text,
-      })
+      }),
     );
   } else {
     assert.deepEqual(result.children, []);

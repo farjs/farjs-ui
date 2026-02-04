@@ -170,7 +170,7 @@ describe("ListViewport.test.mjs", () => {
       const result = viewport.resize(viewLength);
       assert.deepEqual(
         { ...result },
-        { ...viewport, offset, focused, viewLength }
+        { ...viewport, offset, focused, viewLength },
       );
       viewport = result;
     }

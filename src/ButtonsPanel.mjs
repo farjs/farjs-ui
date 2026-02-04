@@ -55,7 +55,7 @@ const ButtonsPanel = (props) => {
       top: props.top,
       style: props.style,
     },
-    ...buttons
+    ...buttons,
   );
 };
 

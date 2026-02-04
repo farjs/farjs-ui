@@ -63,7 +63,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -104,7 +104,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -155,7 +155,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -196,7 +196,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -242,7 +242,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -286,7 +286,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -336,7 +336,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -363,7 +363,7 @@ describe("TextInput.test.mjs", () => {
       /** @type {(value: string) => void} */ (value) => {
         //then
         assert.deepEqual(value, "");
-      }
+      },
     );
     const props = { ...getTextInputProps(state, stateUpdater), onChange };
     const omoveMock = mockFunction((x, y) => {
@@ -397,7 +397,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -432,7 +432,7 @@ describe("TextInput.test.mjs", () => {
       /** @type {(value: string) => void} */ (value) => {
         //then
         assert.deepEqual(value, expectedOnChangeValue);
-      }
+      },
     );
     let value = "initial name";
     let props = {
@@ -657,7 +657,7 @@ describe("TextInput.test.mjs", () => {
       withThemeContext(h(TextInput, props)),
       {
         createNodeMock: (el) => (el.type === "input" ? inputMock : null),
-      }
+      },
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(TextInput, { ...props, state })));
@@ -698,7 +698,7 @@ function assertTextInput(result, props) {
 
   const theme = currTheme.textBox;
   const selectedText = props.value.slice(
-    Math.min(props.value.length - props.width + 1, props.value.length)
+    Math.min(props.value.length - props.width + 1, props.value.length),
   );
 
   assertComponents(
@@ -715,6 +715,6 @@ function assertTextInput(result, props) {
       wrap: false,
       tags: true,
       content: renderText2(theme.selected, selectedText),
-    })
+    }),
   );
 }

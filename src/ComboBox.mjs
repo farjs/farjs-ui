@@ -38,10 +38,10 @@ const ComboBox = (props) => {
     /** @type {React.MutableRefObject<NodeJS.Timeout | null>} */ (useRef(null));
 
   const [maybePopup, setPopup] = useState(
-    /** @type {ListViewport | null} */ (null)
+    /** @type {ListViewport | null} */ (null),
   );
   const [state, setState] = useState(
-    /** @type {TextInputState} */ (TextInput.createState())
+    /** @type {TextInputState} */ (TextInput.createState()),
   );
   const currTheme = Theme.useTheme();
   const theme = currTheme.popup.menu;
@@ -51,7 +51,7 @@ const ComboBox = (props) => {
     if (maybePopup) hidePopup();
     else {
       showPopup(
-        createListViewport(0, props.items.length, ComboBoxPopup.maxItems)
+        createListViewport(0, props.items.length, ComboBoxPopup.maxItems),
       );
     }
   }
@@ -216,9 +216,9 @@ const ComboBox = (props) => {
             onClick: (index) => {
               onSelectAction(0, index);
             },
-          })
+          }),
         )
-      : null
+      : null,
   );
 };
 

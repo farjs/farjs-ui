@@ -39,7 +39,7 @@ describe("ComboBoxPopup.test.mjs", () => {
         props.viewport.offset,
         focused,
         props.viewport.length,
-        props.viewport.viewLength
+        props.viewport.viewLength,
       );
     });
     const props = getComboBoxPopupProps({
@@ -67,7 +67,7 @@ describe("ComboBoxPopup.test.mjs", () => {
         props.viewport.offset,
         focused,
         props.viewport.length,
-        props.viewport.viewLength
+        props.viewport.viewLength,
       );
     });
     const props = getComboBoxPopupProps({ ...defaultProps, setViewport });
@@ -91,7 +91,7 @@ describe("ComboBoxPopup.test.mjs", () => {
         offset,
         props.viewport.focused,
         props.viewport.length,
-        props.viewport.viewLength
+        props.viewport.viewLength,
       );
     });
     const props = getComboBoxPopupProps({
@@ -167,7 +167,7 @@ function getComboBoxPopupProps(props = defaultProps) {
     viewport: createListViewport(
       props.index,
       props.items.length,
-      ComboBoxPopup.maxItems
+      ComboBoxPopup.maxItems,
     ),
     setViewport: props.setViewport,
     style: DefaultTheme.popup.menu,
@@ -228,7 +228,7 @@ function assertComboBoxPopup(result, props, showScrollBar) {
           width: viewWidth,
           height: height - 2,
           items: props.items.map(
-            (i) => `  ${i.slice(0, Math.min(viewWidth - 4, i.length))}  `
+            (i) => `  ${i.slice(0, Math.min(viewWidth - 4, i.length))}  `,
           ),
           viewport: props.viewport,
           setViewport: props.setViewport,
@@ -249,7 +249,7 @@ function assertComboBoxPopup(result, props, showScrollBar) {
               onChange: () => {},
             })
           : null,
-      ].filter((h) => h)
-    )
+      ].filter((h) => h),
+    ),
   );
 }

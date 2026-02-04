@@ -37,7 +37,7 @@ function renderItems(selected, items, width, theme) {
     const style = selected === index ? theme.focus : theme;
 
     const text = UiString(
-      item.replace("\n", "").replace("\r", "").replace("\t", " ")
+      item.replace("\n", "").replace("\r", "").replace("\t", " "),
     );
 
     return UI.renderText2(style, text.ensureWidth(width, " "));
@@ -60,7 +60,7 @@ const ListView = (props) => {
     focused,
     props.items.slice(offset, offset + viewLength),
     props.width,
-    props.style
+    props.style,
   ).join("\n");
 
   useLayoutEffect(() => {

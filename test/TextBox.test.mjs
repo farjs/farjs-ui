@@ -101,6 +101,6 @@ function assertTextBox(result, props) {
       stateUpdater: () => {},
       onChange: props.onChange,
       onEnter: props.onEnter,
-    })
+    }),
   );
 }

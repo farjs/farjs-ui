@@ -115,14 +115,14 @@ const TextInput = (props) => {
       Math.max(posX, 0),
       Math.min(
         Math.max(/** @type {number} */ (el.width) - 1, 0),
-        Math.max(value.strWidth() - newOffset, 0)
-      )
+        Math.max(value.strWidth() - newOffset, 0),
+      ),
     );
 
     if (newPos !== cursorX) {
       el.screen.program.omove(
         /** @type {number} */ (el.aleft) + newPos,
-        /** @type {number} */ (el.atop)
+        /** @type {number} */ (el.atop),
       );
     }
 
@@ -177,7 +177,7 @@ const TextInput = (props) => {
     if (screen.focused === el) {
       screen.program.omove(
         /** @type {number} */ (el.aleft) + cursorX,
-        /** @type {number} */ (el.atop)
+        /** @type {number} */ (el.atop),
       );
     }
   }

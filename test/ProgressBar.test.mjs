@@ -29,31 +29,31 @@ describe("ProgressBar.test.mjs", () => {
     renderAndAssertProgressBar({ ...props, percent: 100, length: 1 }, "█");
     renderAndAssertProgressBar(
       { ...props, percent: 0, length: 10 },
-      "░░░░░░░░░░"
+      "░░░░░░░░░░",
     );
     renderAndAssertProgressBar(
       { ...props, percent: 9, length: 10 },
-      "░░░░░░░░░░"
+      "░░░░░░░░░░",
     );
     renderAndAssertProgressBar(
       { ...props, percent: 10, length: 10 },
-      "█░░░░░░░░░"
+      "█░░░░░░░░░",
     );
     renderAndAssertProgressBar(
       { ...props, percent: 20, length: 10 },
-      "██░░░░░░░░"
+      "██░░░░░░░░",
     );
     renderAndAssertProgressBar(
       { ...props, percent: 99, length: 10 },
-      "█████████░"
+      "█████████░",
     );
     renderAndAssertProgressBar(
       { ...props, percent: 100, length: 10 },
-      "██████████"
+      "██████████",
     );
     renderAndAssertProgressBar(
       { ...props, percent: 110, length: 10 },
-      "██████████"
+      "██████████",
     );
   });
 });
@@ -91,6 +91,6 @@ function renderAndAssertProgressBar(props, expectedContent) {
       top: props.top,
       style: props.style,
       content: expectedContent,
-    })
+    }),
   );
 }

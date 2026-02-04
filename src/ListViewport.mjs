@@ -40,11 +40,11 @@ class ListViewportImpl {
   updated(offset, focused) {
     const newOffset = Math.max(
       Math.min(offset, this.length - this.viewLength),
-      0
+      0,
     );
     const newFocused = Math.max(
       Math.min(focused ?? this.focused, this.viewLength - 1),
-      0
+      0,
     );
     if (newOffset === this.offset && newFocused === this.focused) {
       return this;
@@ -54,14 +54,14 @@ class ListViewportImpl {
       newOffset,
       newFocused,
       this.length,
-      this.viewLength
+      this.viewLength,
     );
   }
 
   down() {
     const maxFocused = Math.max(
       Math.min(this.length - this.offset - 1, this.viewLength - 1),
-      0
+      0,
     );
     if (this.focused < maxFocused) {
       return this.updated(this.offset, this.focused + 1);
@@ -81,13 +81,13 @@ class ListViewportImpl {
   pagedown() {
     const newOffset = Math.max(
       Math.min(this.length - this.viewLength, this.offset + this.viewLength),
-      0
+      0,
     );
     const newFocused =
       newOffset === this.offset
         ? Math.max(
             Math.min(this.length - newOffset - 1, this.viewLength - 1),
-            0
+            0,
           )
         : Math.max(Math.min(this.length - newOffset - 1, this.focused), 0);
 
@@ -104,7 +104,7 @@ class ListViewportImpl {
     const newOffset = Math.max(this.length - this.viewLength, 0);
     const newFocused = Math.max(
       Math.min(this.length - newOffset - 1, this.viewLength - 1),
-      0
+      0,
     );
 
     return this.updated(newOffset, newFocused);
@@ -153,18 +153,18 @@ class ListViewportImpl {
 
     const newOffset = Math.max(
       Math.min(this.length - newViewLength, this.offset + dx),
-      0
+      0,
     );
     const newFocused = Math.max(
       Math.min(this.length - newOffset - 1, index - newOffset),
-      0
+      0,
     );
 
     return new ListViewportImpl(
       newOffset,
       newFocused,
       this.length,
-      newViewLength
+      newViewLength,
     );
   }
 }

@@ -63,7 +63,7 @@ const ComboBoxPopup = (props) => {
       width: viewWidth,
       height: height - 2,
       items: props.items.map(
-        (i) => `  ${i.slice(0, Math.min(viewWidth - 4, i.length))}  `
+        (i) => `  ${i.slice(0, Math.min(viewWidth - 4, i.length))}  `,
       ),
       viewport: viewport,
       setViewport: props.setViewport,
@@ -85,7 +85,7 @@ const ComboBoxPopup = (props) => {
             props.setViewport(viewport.updated(offset));
           },
         })
-      : null
+      : null,
   );
 };
 

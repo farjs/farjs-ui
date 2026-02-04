@@ -92,7 +92,7 @@ describe("ButtonsPanel.test.mjs", () => {
     const props = getButtonsPanelProps(
       [getAction("test btn", onAction), getAction("test btn2", onAction)],
       2,
-      3
+      3,
     );
 
     //when
@@ -171,7 +171,7 @@ function assertButtonsPanel(result, props, actions) {
           style: props.style,
           onPress: mockFunction(),
         });
-      })
-    )
+      }),
+    ),
   );
 }

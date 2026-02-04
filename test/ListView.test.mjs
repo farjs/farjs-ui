@@ -114,7 +114,7 @@ describe("ListView.test.mjs", () => {
           props.viewport.offset,
           focused,
           props.viewport.length,
-          props.viewport.viewLength
+          props.viewport.viewLength,
         );
       }
     });
@@ -147,7 +147,7 @@ describe("ListView.test.mjs", () => {
           props.viewport.offset,
           focused,
           props.viewport.length,
-          props.viewport.viewLength
+          props.viewport.viewLength,
         );
       }
     });
@@ -270,6 +270,6 @@ function assertListView(result, props, expectedContent) {
       tags: true,
       wrap: false,
       content: expectedContent.join("\n"),
-    })
+    }),
   );
 }

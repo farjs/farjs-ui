@@ -87,7 +87,7 @@ function assertWithSize(result, width, height) {
       {
         style: PopupOverlay.style,
       },
-      h("text", null, `width: ${width}, height: ${height}`)
-    )
+      h("text", null, `width: ${width}, height: ${height}`),
+    ),
   );
 }

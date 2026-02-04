@@ -29,7 +29,7 @@ const ListBox = (props) => {
   const { listViewComp, scrollBarComp } = ListBox;
 
   const [viewport, setViewport] = useState(
-    createListViewport(props.selected, props.items.length, props.height)
+    createListViewport(props.selected, props.items.length, props.height),
   );
   const selected = viewport.offset + viewport.focused;
   /** @type {(ch: any, key: IKeyEventArg) => void} */
@@ -86,7 +86,7 @@ const ListBox = (props) => {
             setViewport(viewport.updated(offset));
           },
         })
-      : null
+      : null,
   );
 };
 

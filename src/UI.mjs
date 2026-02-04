@@ -10,7 +10,7 @@ export function renderText2(style, text) {
     style?.bold || false,
     style?.fg || "white",
     style?.bg || "black",
-    text
+    text,
   );
 }
 

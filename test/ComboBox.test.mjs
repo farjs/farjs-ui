@@ -49,7 +49,7 @@ describe("ComboBox.test.mjs", () => {
         assert.deepEqual(key.ctrl, false);
         assert.deepEqual(key.meta, false);
         assert.deepEqual(key.shift, false);
-      }
+      },
     );
     process.stdin.on("keypress", keyListener);
     const props = { ...getComboBoxProps(), onChange };
@@ -57,7 +57,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-        true
+        true,
       );
     });
     const comboBox = renderer.root.findByType(comboBoxPopup).props;
@@ -90,7 +90,7 @@ describe("ComboBox.test.mjs", () => {
         assert.deepEqual(key.ctrl, false);
         assert.deepEqual(key.meta, false);
         assert.deepEqual(key.shift, false);
-      }
+      },
     );
     process.stdin.on("keypress", keyListener);
     const props = { ...getComboBoxProps(), onChange };
@@ -98,7 +98,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-        true
+        true,
       );
     });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
@@ -128,7 +128,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-        true
+        true,
       );
     });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
@@ -162,7 +162,7 @@ describe("ComboBox.test.mjs", () => {
         assert.deepEqual(key.ctrl, false);
         assert.deepEqual(key.meta, false);
         assert.deepEqual(key.shift, true);
-      }
+      },
     );
     process.stdin.on("keypress", keyListener);
     const props = {
@@ -185,7 +185,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("b"),
-        false
+        false,
       );
     });
 
@@ -214,7 +214,7 @@ describe("ComboBox.test.mjs", () => {
         assert.deepEqual(key.ctrl, false);
         assert.deepEqual(key.meta, false);
         assert.deepEqual(key.shift, true);
-      }
+      },
     );
     process.stdin.on("keypress", keyListener);
     const props = {
@@ -254,7 +254,7 @@ describe("ComboBox.test.mjs", () => {
         assert.deepEqual(key.ctrl, false);
         assert.deepEqual(key.meta, false);
         assert.deepEqual(key.shift, true);
-      }
+      },
     );
     process.stdin.on("keypress", keyListener);
     const props = {
@@ -294,7 +294,7 @@ describe("ComboBox.test.mjs", () => {
         assert.deepEqual(key.ctrl, false);
         assert.deepEqual(key.meta, false);
         assert.deepEqual(key.shift, true);
-      }
+      },
     );
     process.stdin.on("keypress", keyListener);
     const props = {
@@ -334,7 +334,7 @@ describe("ComboBox.test.mjs", () => {
         assert.deepEqual(key.ctrl, false);
         assert.deepEqual(key.meta, false);
         assert.deepEqual(key.shift, true);
-      }
+      },
     );
     process.stdin.on("keypress", keyListener);
     const props = {
@@ -348,14 +348,14 @@ describe("ComboBox.test.mjs", () => {
     //when
     assert.deepEqual(
       renderer.root.findByType(textInputComp).props.onKeypress("a"),
-      false
+      false,
     );
     TestRenderer.act(() => {
       renderer.update(withThemeContext(h(ComboBox, { ...props, value: "a" })));
     });
     assert.deepEqual(
       renderer.root.findByType(textInputComp).props.onKeypress("b"),
-      false
+      false,
     );
 
     //then
@@ -376,7 +376,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-        true
+        true,
       );
     });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
@@ -398,7 +398,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-        true
+        true,
       );
     });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
@@ -427,7 +427,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-        true
+        true,
       );
     });
     assert.deepEqual(hideCursor.times, 1);
@@ -459,7 +459,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-        true
+        true,
       );
     });
     assert.deepEqual(hideCursor.times, 1);
@@ -540,7 +540,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-down"),
-        true
+        true,
       );
     });
     const popup = renderer.root.findByType(comboBoxPopup).props;
@@ -556,7 +556,7 @@ describe("ComboBox.test.mjs", () => {
     //then
     assert.deepEqual(
       renderer.root.findByType(comboBoxPopup).props.viewport === viewport,
-      true
+      true,
     );
   });
 
@@ -582,7 +582,7 @@ describe("ComboBox.test.mjs", () => {
     TestRenderer.act(() => {
       assert.deepEqual(
         renderer.root.findByType(textInputComp).props.onKeypress("C-up"),
-        true
+        true,
       );
     });
     assert.deepEqual(renderer.root.findAllByType(comboBoxPopup).length, 1);
@@ -646,7 +646,7 @@ describe("ComboBox.test.mjs", () => {
 
     //when
     const result = TestRenderer.create(
-      withThemeContext(h(ComboBox, props))
+      withThemeContext(h(ComboBox, props)),
     ).root;
 
     //then
@@ -730,9 +730,9 @@ function assertComboBox(result, props, showPopup) {
               style: theme,
               setViewport: () => {},
               onClick: () => {},
-            })
+            }),
           )
         : null,
-    ].filter((h) => h)
+    ].filter((h) => h),
   );
 }

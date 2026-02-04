@@ -31,14 +31,14 @@ const ScrollBar = (props) => {
     value === min
       ? 0
       : value === max
-      ? barLength - markerLength
-      : Math.max(
-          Math.min(
-            Math.trunc((value * barLength) / Math.max(max - min, 1)),
-            barLength - markerLength - 1
-          ),
-          1
-        );
+        ? barLength - markerLength
+        : Math.max(
+            Math.min(
+              Math.trunc((value * barLength) / Math.max(max - min, 1)),
+              barLength - markerLength - 1,
+            ),
+            1,
+          );
   const downLength = barLength - upLength - markerLength;
 
   return h(
@@ -108,7 +108,7 @@ const ScrollBar = (props) => {
         props.onChange(Math.min(props.value + unitIncrement, max));
       },
       content: ScrollBar.downArrowCh,
-    })
+    }),
   );
 };
 

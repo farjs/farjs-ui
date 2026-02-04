@@ -44,7 +44,7 @@ const WithSize = (props) => {
         ]);
       },
     },
-    props.render(width, height)
+    props.render(width, height),
   );
 };
 

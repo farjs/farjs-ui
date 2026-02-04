@@ -43,7 +43,7 @@ const TextLine = (props) => {
       height: 1,
       left: getLeft(),
       top: props.top,
-      style: props.focused ?? false ? props.style.focus : props.style,
+      style: (props.focused ?? false) ? props.style.focus : props.style,
       content: text.toString(),
     });
   }
@@ -66,7 +66,7 @@ TextLine.wrapText = (text, width, prefixLen = 3) => {
     const prefix = t.slice(0, Math.min(prefixLen, t.strWidth()));
     const sufix = t.slice(
       Math.min(dx + prefixLen + 3, t.strWidth()),
-      t.strWidth()
+      t.strWidth(),
     ); // prefix + ...
     return `${prefix}...${sufix}`;
   }
