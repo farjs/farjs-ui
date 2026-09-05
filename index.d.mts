@@ -5,6 +5,7 @@ import Blessed from "@farjs/blessed";
 type ButtonElement = Blessed.Widgets.ButtonElement;
 type FormElement = Blessed.Widgets.FormElement<any>;
 type TextElement = Blessed.Widgets.TextElement;
+type BoxElement = Blessed.Widgets.BoxElement;
 
 declare module "react" {
   namespace JSX {
@@ -12,6 +13,7 @@ declare module "react" {
       button: DetailedBlessedProps<ButtonElement>;
       form: DetailedBlessedProps<FormElement>;
       text: DetailedBlessedProps<TextElement>;
+      box: DetailedBlessedProps<BoxElement>;
     }
   }
 }
